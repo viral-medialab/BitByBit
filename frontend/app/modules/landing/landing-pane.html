@@ -1,0 +1,58 @@
+<div class="landing-pane">
+	<div class="functionBox">
+		<h2>Add User</h2>
+		<h4>uID</h4>
+		<input ng-model="adduser_uID"></input>
+		<div class="button" ng-click="landingCntrl.addUser(adduser_uID)">Submit</div>
+		<div class="result">{{adduser_result}}</div>
+	</div>
+	<div class="functionBox">
+		<h2>Get User</h2>
+		<h4>uID</h4>
+		<input ng-model="getuser_uID"></input>
+		<div class="button" ng-click="landingCntrl.getUser(getuser_uID)">Submit</div>
+		<div class="result">{{getuser_result}}</div>
+	</div>
+	<div class="functionBox">
+		<h2>Delete User</h2>
+		<h4>uID</h4>
+		<input ng-model="deleteuser_uID"></input>
+		<div class="button" ng-click="landingCntrl.deleteUser(deleteuser_uID)">Submit</div>
+		<div class="result">{{deleteuser_result}}</div>
+	</div>
+
+	<div class="functionBox">
+		<h2>Add Goal</h2>
+		<h4>uID</h4>
+		<input ng-model="addgoal_uID"></input>
+		<h4>goal</h4>
+		<input ng-model="addgoal_goal"></input>
+		<div class="button" ng-click="landingCntrl.addGoal(addgoal_uID, addgoal_goal)">Submit</div>
+		<div class="result">{{addgoal_result}}</div>
+	</div>
+	<div class="functionBox">
+		<h2>Get Goal</h2>
+		<h4>uID</h4>
+		<input ng-model="getgoal_uID"></input>
+		<div class="button" ng-click="landingCntrl.getGoal(getgoal_uID)">Submit</div>
+		<div class="result">{{getgoal_result}}</div>
+	</div>
+	<div class="functionBox">
+		<h2>Delete Goal</h2>
+		<h4>uID</h4>
+		<input ng-model="deletegoal_uID"></input>
+		<div class="button" ng-click="landingCntrl.deleteGoal(deletegoal_uID)">Submit</div>
+		<div class="result">{{deletegoal_result}}</div>
+	</div>
+
+	<div class="allUsers">
+		<h2>All Users</h2>
+		<ul>
+			<li ng-repeat="user in allUsers">
+				<h3>uID: {{user['uID']}}</h3>
+				<h4>goal: {{user['goal']}}</h4>
+			</li>
+		</ul>
+	</div>
+	
+</div>
