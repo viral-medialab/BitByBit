@@ -1,26 +1,167 @@
-<html lang="en" >
+<!doctype html>
+
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-    <base href="/">
-	<title>BitXBist</title>
+
+	<title>BitxBit</title>
+	<meta name="description" content="">
 	<link rel="stylesheet" href="css/main.css" />
 	<script src="/js/main.js" type="text/javascript"></script>
-	
 </head>
 
-<body>
-	<header>
-        <div class="nav-header">
-            <h1>Bit X Bit</h1>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </div>   
-    </header>
+<body onload="cycle">
 
+	<header>
+		<div class="sponsors">
+			<img src="images/logo.png" alt="bitxbit" width="110" class="logo_desktop" />
+			<a href="http://www.rwjf.org/"><img src="images/rwjf.png" alt="rwjf" id="rwjf_logo" height="60" /></a>
+			<a href="http://media.mit.edu"><img src="images/ml.png" alt="media lab" id="ml_logo" height="50" /></a>
+		</div>
+	</header>
+
+	<div class="banner">
+		<div class="intro">
+			<h1>BIT x BIT</h1>
+			<p class="intro-text">A project by (and for) everyone at the Media Lab, to build a culture of personal and collective wellbeing. It connects everyone at the lab — 2 at a time — and puts their problem-solving superpowers to work for one another.</p>
+		</div>  
+		
+		<div class="save-date">
+			<h1>All-Lab Kickoff Lunch</h1>
+			<h4>Feb 6, 2015 at 12:00</h4>
+			<h4>3rd Floor Atrium</h4>
+		</div>
+	</div>
+
+	<div class="examples">
+		<div class="wrapper">
+			<div class="example-wrapper">
+				<div class="example visible" id="example1">
+					<div class="user left">
+						<img src="images/niaja.jpg" alt="" />
+						<p>Niaja</p>
+						<p class="fixed">is building something</p>
+						<p>for Karthik</p>
+						<p>to eat more regularly</p>
+					</div>
+					<div class="user right">
+						<img src="images/karthik.jpg" alt="" />
+						<p>Karthik</p>
+						<p class="fixed">is building something</p>
+						<p>for Niaja</p>
+						<p>to be more focused at work</p>
+					</div>
+				</div>
+				<div class="example hidden" id="example2">
+					<div class="user left">
+						<img src="images/kevin.jpg" alt="" />
+						<p>Kevin</p>
+						<p class="fixed">is building something</p>
+						<p>for Travis</p>
+						<p>to play guitar more regularly</p>
+					</div>
+					<div class="user right">
+						<img src="images/travis.jpg" alt="" />
+						<p>Travis</p>
+						<p class="fixed">is building something</p>
+						<p>for Kevin</p>
+						<p>to be more diligent with PT</p>
+					</div>
+				</div>
+				<div class="example hidden" id="example3">
+					<div class="user left">
+						<img src="images/vincent.jpg" alt="" />
+						<p>Vincent</p>
+						<p class="fixed">is building something</p>
+						<p>for Natasha</p>
+						<p>to drink more water</p>
+					</div>
+					<div class="user right">
+						<img src="images/natasha.jpg" alt="" />
+						<p>Natasha</p>
+						<p class="fixed">is building something</p>
+						<p>for Vincent</p>
+						<p>to practice more yoga</p>
+					</div>
+				</div>
+			
+			</div>
+
+			<div class="example-lab">
+				<img src="images/ml-1.png" alt="" />
+				<p>is building something for</p>
+				<img src="images/ml-1.png" alt="" />
+			</div>
+		</div>
+		
+	</div>
+  
+
+  <div class="longform">
+  	<h2 class="gradient">More About BitxBit</h2>
+	<p>BITxBIT is funded by the Robert Wood Johnson Foundation. It is one part of a grant to produce a broader culture of health here at the Media Lab. It takes its name from BITs — Behavioral Intervention Technologies — which might use social, mobile, sensor or other technologies in the goal of achieving personal behavior change. BITs might make use of fitness sensors, text alerts, passive behavior that can be gleaned from a phone, anything that can be embedded in the daily life of the user.</p>
+
+	<p>Here at the lab, BITxBIT pairs students, staff and faculty with one of their colleagues from the lab. Each partner articulates what behavior they are setting out to change; it might be related to fitness, nutrition, sleep, or other aspects of wellness. Their partner is then tasked with developing a BIT to address that individual behavior, and solve for the individual’s problems. </p>
+
+	<p>This is symmetric — each participant is designing a BIT for a colleague’s individual behavior, and each participant has the same colleague doing the same thing for them. Beyond just designing the system, each participant takes responsibility for it’s effects. No one is a help desk, sponsor, or “buddy,” but a researcher (and a subject) in a study where N=2.</p>
+	<h4 class="gradient">Your goal is to engineer/design/build a solution for your partner. </h4>
+	<p>The project will produce over 150 experimental approaches to behavior change. Not at scale, but rather, to address a very specific behavior in one person. This might seem to be at odds with the conventional goals we have around impact and scale. But it is also at odds with a conventional distance in the ideas and development of our work. This is up-close behavior change: it succeeds in part through a participant’s ability to closely observe or listen to what a real person actually does, and needs to do.</p>
+
+	<p>Students are enrolled in BITxBIT by default (though a participant may opt out) and faculty and staff are invited to participate as well. The project will last through Spring semester, and the anonymized results of all of our many approaches will be shared. Along the way, the techniques for behavior change will be shared on the BITxBIT site, to share the approaches people are taking to designing for problems that many of us share.</p>
+	<h4 class="gradient">An experiment in behavior change to better understand ourselves. </h4>
+	<p>This is an approach to behavior change that is optimized to make best use of the incredibly diverse set of talents, skills, and ideas that are native to the Media Lab. As a community of builders, this represents the opportunity to build for one another. During the day, we still go to work,to try and change the world. But for a few minutes in there we can also focus on changing ourselves.</p>
+
+	<p>Ultimately this is tilting towards a culture that recognizes — and emphasizes — the role of personal wellbeing in the potential success of our plans and ideas. Along the way, it might also bring the Media Lab a little closer to itself, N=2 at a time. Bit by bit, person by person, the ideas that change the world could start with changing our local version of it.</p>
+  </div>
+
+  
+
+	<div class="faq">
+		<h2 class="gradient">FAQ</h2>
+
+		<!-- <div id="faq_sets">
+		<div class="faq_set"> -->
+
+		<p class="q">What is this?</p>
+		<p class="answer">BitByBit is an attempt to make a community better by using a randomly assigned person to solve your well-being problems.</p>
+
+		<p class="q">How long is the program?</p>
+		<p class="answer">You will have the Spring 2015 semester to solve your partner’s problem</p>
+
+		<p class="q">Can I pick my partner?</p>
+		<p class="answer">No your partner will be randomly assigned</p>
+
+		<p class="q">When will I find out who my partner is?</p>
+		<p class="answer">At the opening event on February 6th.</p>
+
+		<p class="q">Why should I do this?</p>
+		<p class="answer">Because your a problem solver, so solve a problem that matters</p>
+
+		<!-- </div>
+		<div class="faq_set"> -->
+
+		<p class="q">What happens to the solutions?</p>
+		<p class="answer">All solutions will be posted on our website to impact more people. No identities will be used with the solutions.</p>
+
+		<p class="q">Who is participating?</p>
+		<p class="answer">The entire Media Lab community.</p>
+
+		<p class="q">My partner is doing a horrible job, what can I do?</p>
+		<p class="answer">Communicate this with your partner. It is their job to find a solution that works for you.</p>
+
+		<p class="q">Who decides if a solution works?</p>
+		<p class="answer">Your partner. You are designing for them and them alone. Once a solution is found we will publish it on our website so others with a similar issue can try your solution.</p>
+
+		<p class="q">Will there be events?</p>
+		<p class="answer">Yes the first event will be February 6th. Lunch will be provided.</p>
+
+		
+
+	</div>
+
+	<footer>
+		<a href="mailto:bitxbit@media.mit.edu">Contact</a>
+	</footer>
 
 </body>
 </html>

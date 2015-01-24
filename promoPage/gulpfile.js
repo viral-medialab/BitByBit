@@ -49,7 +49,7 @@ gulp.task('lint', function() {
 gulp.task('styles', function() {
   gulp.src('app/styles/*.scss')
   .pipe(sass({onError: function(e) { console.log(e); } })) // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
-  .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8')) // Optionally add autoprefixer
+  // .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8')) // Optionally add autoprefixer
   .pipe(gulp.dest('dist/css/'));
 });
 
