@@ -1,0 +1,18 @@
+~ Make sure you have npm installed
+~ For npm: http://nodejs.org/download/
+
+
+Frontend
+--------
+~First time running:
+	npm install
+	gulp
+	~~ Live on port 4500
+
+~After first time running:
+	gulp
+	~~ Live on port 4500
+
+
+
+
