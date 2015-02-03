@@ -8,25 +8,25 @@ singlePage.directive("singlePane", function(){
             $scope.workshops = [false,false,false,false,false];
             $scope.need = "";
             $scope.insight = "";
-            $scope.problem_description = ""
+            $scope.problem = ""
 
-            $scope.noWorkshop=false;
-            $scope.noProblem = false;
-            $scope.noNeed = false;
-            $scope.noInsight = false;
-            $scope.invalid = true;
+            var workshopSelected = function(workshops){
+				for (var i = 0; i < workshops.length; i++) {
+				    if (workshops[i] == true) {
+				        return true;
+				    }
+				}
+				return false;
+			}
 
-            this.submit = function(need,insight,problem_description,workshops){
-                alert("submitting " + need + insight + problem_description + workshops);
+            this.submit = function(need, insight, problem, workshops){
+                var hasworkshop = workshopSelected(workshops)
+                if(need.length >= 1 && insight.length >= 1 && problem.length >= 1 && hasworkshop) {
+                    alert("submitting " + need + insight + problem + workshops);
+                }
             }
 
-            this.validate = function(){
-                $scope.noWorkshop = workshops == [false,false,false,false,false];
-                $scope.noNeed = need == "";
-                $scope.noInsight = insight=="";
-                $scope.noProblem = problem_description=="";
-                $scope.invalid = noNeed || noProblem || noWorkshop || noInsight;
-            }
+
 		},
 		controllerAs: 'singleCntrl'
 	};
