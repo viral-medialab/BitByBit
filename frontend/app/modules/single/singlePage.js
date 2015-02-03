@@ -5,7 +5,16 @@ singlePage.directive("singlePane", function(){
 		restrict: 'E',
 		templateUrl: '/templates/single-pane.html',
 		controller: function($http,$scope){
-            var test="hi";
+            $scope.dateNotChecked=false;
+
+
+            this.func = function(cat){
+                alert(cat);
+            }
+
+            this.validate = function(){
+                alert(cat);
+            }
 		},
 		controllerAs: 'singleCntrl'
 	};

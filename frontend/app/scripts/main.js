@@ -2,8 +2,9 @@ var angular = require('angular'); // That's right! We can just require angular a
 
 var appRoutes = require('./appRoutes');
 var landingPage = require('../modules/landing/landingPage');
+var singlePage = require('../modules/single/singlePage');
 
-var app = angular.module('bitbybitApp', ['appRoutes', 'landingPage']);
+var app = angular.module('bitbybitApp', ['appRoutes', 'landingPage', 'singlePage']);
 
 
 

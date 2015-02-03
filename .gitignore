@@ -42,3 +42,4 @@ dist
 node_modules
 misc
 virt_env
+.idea

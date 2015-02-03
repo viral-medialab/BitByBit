@@ -10,6 +10,9 @@ angular.module('appRoutes').config(['$routeProvider', '$locationProvider', funct
 		.when('/about',{
 			templateUrl: './templates/aboutPage.html',
 		})
+		.when('/single',{
+			templateUrl: './templates/singlePage.html',
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
