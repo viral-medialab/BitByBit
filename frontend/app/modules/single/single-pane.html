@@ -1,18 +1,42 @@
 <div class="single-pane">
-    <div>
-        I need a way to <input ng-model="need" type="text"> in a way that makes me feel <input ng-model="insight" type="text">
-    </div>
-    <div>
-        I am able to attend the following workshops:
-        <input type="checkbox" ng->
-    </div>
 
-    <div ng-click="singleCntrl.func(cat)">
-        <button type="submit">Submit</button>
-    </div>
+    <form ng-controller="validate" name="signupForm" ng-submit="singleCntrl.submit(need,insight,problem_description,workshops)">
+        <div>
+            I need a way to <input ng-model="need" type="text"> in a way that makes me feel <input ng-model="insight" type="text">
+        </div>
 
-    <div ng-if="dateNotChecked">
-        You forgot to check the date
-    </div>
+        <div>
+            Describe the problem you want to improve: <input ng-model="problem_description" type="textarea">
+        </div>
+        <div>
+            I am able to attend the workshop at the following times:
+            <table>
+            <tbody>
+                <tr><td><input id="workshop1" type="checkbox" ng-model="workshops[0]"></td><td><label for="workshop1">Date 1</label></td></tr>
+                <tr><td><input id="workshop2" type="checkbox" ng-model="workshops[1]"></td><td><label for="workshop2">Date 2</label></td></tr>
+                <tr><td><input id="workshop3" type="checkbox" ng-model="workshops[2]"></td><td><label for="workshop3">Date 3</label></td> </tr>
+                <tr><td><input id="workshop4" type="checkbox" ng-model="workshops[3]"></td><td><label for="workshop4">Date 4</label></td></tr>
+                <tr><td><input id="no_workshop" type="checkbox" ng-model="workshops[4]"></td><td><label for="no_workshop">I can't attend any workshops</label></td></tr>
+            </tbody>
+            </table>
+        </div>
+
+        <div>
+            <button type="submit" ng-disabled="invalid">Submit</button>
+        </div>
+
+        <div ng-if="noNeed">
+            <p>Please fill out the first blank</p>
+        </div>
+        <div ng-if="noInsight">
+            <p>Please fill out the second blank</p>
+        </div>
+        <div ng-if="noProblem">
+            <p>Please enter a description of the problem you would like to solve</p>
+        </div>
+        <div ng-if="noWorkshop">
+            <p>Please check a workshop time</p>
+        </div>
+    </form>
 
 </div>
