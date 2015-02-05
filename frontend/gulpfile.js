@@ -76,7 +76,8 @@ gulp.task('static-resources', function() {
   gulp.src('app/favicon.ico').pipe(gulp.dest('dist/'));
   gulp.src('app/templates/**/*').pipe(gulp.dest('dist/templates/')); // Any other view files from app/templates, Will be put in the dist/templates folder
   gulp.src('app/modules/landing/*.html').pipe(gulp.dest('dist/templates/'));
-  gulp.src('app/modules/single/*.html').pipe(gulp.dest('dist/templates/'));
+  gulp.src('app/modules/team/*.html').pipe(gulp.dest('dist/templates/'));
+  gulp.src('app/modules/wiki/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/images/*').pipe(gulp.dest('dist/images/'));
   gulp.src('app/scripts/libraries/*.js').pipe(gulp.dest('dist/js/'));
   gulp.src('app/content/*').pipe(gulp.dest('dist/content/'));

@@ -1,9 +1,9 @@
-var singlePage = angular.module('singlePage', []);
+var teamPage = angular.module('teamPage', []);
 
-singlePage.directive("singlePane", function(){
+teamPage.directive("teamPane", function(){
 	return{
 		restrict: 'E',
-		templateUrl: '/templates/single-pane.html',
+		templateUrl: '/templates/team-pane.html',
 		controller: function($http,$scope){
             $scope.workshops = [false,false,false,false,false];
             $scope.need = "";
@@ -28,7 +28,7 @@ singlePage.directive("singlePane", function(){
 
 
 		},
-		controllerAs: 'singleCntrl'
+		controllerAs: 'teamCntrl'
 	};
 });
 

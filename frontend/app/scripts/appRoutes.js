@@ -10,8 +10,14 @@ angular.module('appRoutes').config(['$routeProvider', '$locationProvider', funct
 		.when('/about',{
 			templateUrl: './templates/aboutPage.html',
 		})
-		.when('/single',{
-			templateUrl: './templates/singlePage.html',
+		.when('/team',{
+			templateUrl: './templates/teamPage.html',
+		})
+		.when('/wiki',{
+			templateUrl: './templates/wikiPage.html',
+		})
+		.when('/about',{
+			templateUrl: './templates/aboutPage.html',
 		})
 		.otherwise({
 			redirectTo: '/'

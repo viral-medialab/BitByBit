@@ -8,6 +8,27 @@
   	max-width: 1250px;
   	margin: 0 auto;
   	font-family: 'Titillium Web', sans-serif;
+
+  	div.editButton{
+  		width: 50px;
+  		height: 20px;
+  		background-color: black;
+  		line-height: 20px;
+  		text-align: center;
+  		color: white;
+  		padding: 5px;
+
+  		&.light{
+  			background-color: #ccc;
+  			color: black;
+  		}
+  		&.br{
+  			position: absolute;
+  			bottom:2px;
+  			right: 2px;
+  		}
+  	}
+
   	div.team-header{
   		width: 100%;
   		&:after {
@@ -22,11 +43,22 @@
   			width: 20%;
   			height: 200px;
   			float: left;
-  			h1{
-  				font-size: 40px;
-  				text-align: center;
-  				line-height: 200px;
+  			div.logo{
+  				height:200px;
+  				width:100%;
+  				background:url(../images/logo2.png) no-repeat center center;
+	  			background-size: contain;
+
   			}
+  			
+  			// h1{
+  			// 	font-size: 40px;
+  			// 	text-align: center;
+  			// 	line-height: 200px;
+  			// }
+  			// img{
+  			// 	width: 100%;
+  			// }
   		}
   		div.navBox{
   			// width: 33%;
@@ -38,7 +70,7 @@
   				padding-top: 30px;
   				li{
   					font-size: 20px;
-  					padding-bottom: 15px;
+  					padding-bottom: 10px;
   					&:hover{
   						cursor: pointer;
   						color: rgb(49,191,219);
@@ -54,6 +86,8 @@
   			margin-top: 30px;
   			border-top: 8px solid black;
   			text-align: right;
+  			margin-right: 10px;
+  			
   		}
 
   	}
@@ -65,6 +99,7 @@
   		margin-left: 20%;
   		float:left;
   		font-family: 'Titillium Web', sans-serif;
+
   		
 
   		h1{
@@ -82,6 +117,7 @@
   			height:200px;
   			background-color: rgb(49,191,219);
   			color: white;
+  			position: relative;
   			div.profileImage{
 	  			width:20%;
 	  			float:left;
@@ -106,6 +142,7 @@
   			float:left;
   			height: 200px;
   			color: white;
+  			position: relative;
   			h3,p{
   				padding-left: 15%;
   			}
@@ -144,6 +181,11 @@
   			div.blurbContent{
   				width: 88%;
   				float:left;
+  				font-size: 18px;
+  				margin-bottom: 20px;
+  				p{
+  					padding-bottom: 20px;
+  				}
   			}
   		}
   	}
@@ -169,3 +211,17 @@
   		}
   	}
   }
+
+div.team-pane.mobile{
+	min-width: 600px;
+  	// max-width: 900px;
+  	div.mainContentBox{
+  		// clear:left;
+  		// border: 1px solid black;
+  		width: 100%;
+  		max-width: 100%;
+  		margin-left: 0%;
+  		margin-top: 10px;
+
+  	}
+}
