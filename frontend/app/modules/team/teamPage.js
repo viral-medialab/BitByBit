@@ -10,6 +10,32 @@ teamPage.directive("teamPane", function(){
             $scope.insight = "";
             $scope.problem = ""
 
+            $scope.myData = {
+            	'want': "",
+            	'because': "",
+            	'then': "",
+            	'then': "",
+            	'workshop': [false,false,false,false,false],
+            	'blurb_0': "",
+            	'blurb_1': "",
+            	'blurb_2': "",
+            	'blurb_3': "",
+            	'blurb_4': "",
+            };
+
+            $scope.partnerData = {
+            	'want': "",
+            	'because': "",
+            	'then': "",
+            	'then': "",
+            	'workshop': [false,false,false,false,false],
+            	'blurb_0': "",
+            	'blurb_1': "",
+            	'blurb_2': "",
+            	'blurb_3': "",
+            	'blurb_4': "",
+            };
+
             var workshopSelected = function(workshops){
 				for (var i = 0; i < workshops.length; i++) {
 				    if (workshops[i] == true) {

@@ -17,7 +17,9 @@ app.directive('watchResize', function(){
         if(window.innerWidth<900){
           scope.mobile = true;
         }else{
-          scope.mobile = false;
+          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false) {
+            scope.mobile = false;
+          }
         }
         scope.$apply();
         // console.log(scope.mobile);

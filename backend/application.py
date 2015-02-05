@@ -128,5 +128,6 @@ api.add_resource(AllUsers, '/api/allusers')
 
 
 if __name__ == '__main__':
-    application.run(host = '0.0.0.0', debug=True)
+    # application.run(host = '0.0.0.0', debug=True)
+    application.run(host = 'localhost')
     #application.run(debug="true", port=PORT)

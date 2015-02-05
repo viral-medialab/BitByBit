@@ -9,6 +9,10 @@
   	margin: 0 auto;
   	font-family: 'Titillium Web', sans-serif;
 
+    input{
+      border: 0;
+      border-bottom: 1px solid black;
+    }
   	div.editButton{
   		width: 50px;
   		height: 20px;
@@ -24,9 +28,18 @@
   		}
   		&.br{
   			position: absolute;
-  			bottom:2px;
-  			right: 2px;
+  			bottom:20px;
+  			right: 20px;
   		}
+
+      &:hover{
+        
+        cursor: pointer;
+      }
+      &:active{
+        
+        bottom: 19px;
+      }
   	}
 
   	div.team-header{
@@ -71,6 +84,7 @@
   				li{
   					font-size: 20px;
   					padding-bottom: 10px;
+            transition: .15s linear color;
   					&:hover{
   						cursor: pointer;
   						color: rgb(49,191,219);
@@ -86,7 +100,7 @@
   			margin-top: 30px;
   			border-top: 8px solid black;
   			text-align: right;
-  			margin-right: 10px;
+  			margin-right: 20px;
   			
   		}
 
@@ -107,7 +121,7 @@
   			font-size: 30px;
   		}
   		h3{
-  			font-weight: 600;
+  			font-weight: 400;
   		}
   		p{
   			font-weight: 400;
@@ -132,6 +146,9 @@
 	  				padding-left: 20px;
 
 	  			}
+          h1{
+            font-size: 40px;
+          }
 	  			h3{
 	  				padding-top: 20px;
 	  			}
@@ -156,19 +173,42 @@
   		}
   		div.becauseBox{
   			background-color: rgb(23,166,185);
+        border-top: 1px solid rgb(53,183,199);
   		}
   		div.thenBox{
   			background-color: rgb(18,141,157);
+        border-top: 1px solid rgb(49,163,177);
   		}
+
+      div.workshopBox{
+        padding-left: 10%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        clear:both;
+        &:after {
+          content:"";
+          display:table;
+          clear:both;
+        }
+        table{
+          width: 100%;
+          tr{
+            float:left;
+            width: 20%;
+          }
+        }
+        
+      }
 
   		div.blurbBox{
   			padding:20px;
   			clear:both;
+        position: relative;
   			&:after {
-			  content:"";
-			  display:table;
-			  clear:both;
-			}
+  			  content:"";
+  			  display:table;
+  			  clear:both;
+  			}
   			div.quote{
   				width: 12%;
   				// height: 100%;
@@ -181,11 +221,15 @@
   			div.blurbContent{
   				width: 88%;
   				float:left;
-  				font-size: 18px;
+  				font-size: 20px;
   				margin-bottom: 20px;
   				p{
   					padding-bottom: 20px;
   				}
+          span{
+            color: rgb(18,141,157);
+            font-style: italic;
+          }
   			}
   		}
   	}
@@ -198,13 +242,18 @@
   			background-color: rgb(30,30,30);
 
   		}
-  		div.becauseBox{
-  			background-color: rgb(20,20,20);
-  		}
+      div.becauseBox{
+        background-color: rgb(20,20,20);
+        border-top: 1px solid rgb(51,51,51);
+      }
+      div.thenBox{
+        background-color: rgb(0,0,0);
+        border-top: 1px solid rgb(35,35,35);
+      }
 
-  		div.thenBox{
-  			background-color: rgb(0,0,0);
-  		}
+      div.workshopBox{
+        border-left: 2px solid black;
+      }
 
   		div.blurbBox{
   			border-left: 2px solid black;
@@ -222,6 +271,5 @@ div.team-pane.mobile{
   		max-width: 100%;
   		margin-left: 0%;
   		margin-top: 10px;
-
   	}
 }
