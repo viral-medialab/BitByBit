@@ -4,7 +4,10 @@ $width: 800px;
 
 h1,h2,h3,h4,h5,p,input{
 	margin: 0px;
-	paddin: 0px;
+	padding: 0px;
+}
+body{
+	margin: 0;
 }
 
 @import '../modules/landing/landing.scss';

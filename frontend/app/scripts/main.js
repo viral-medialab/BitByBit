@@ -4,7 +4,7 @@ var appRoutes = require('./appRoutes');
 var landingPage = require('../modules/landing/landingPage');
 var singlePage = require('../modules/single/singlePage');
 
-var app = angular.module('bitbybitApp', ['appRoutes', 'landingPage', 'singlePage']);
+var app = angular.module('bitbybitApp', ['appRoutes', 'ngFitText','landingPage', 'singlePage']);
 
 
 
