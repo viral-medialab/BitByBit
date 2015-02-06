@@ -66,9 +66,9 @@ class Public(Resource):
 	def get(self):
 		args = publicGetParser.parse_args()
 		q = args.get('q')
-		cookies = dict([e.split('=') for e in request.headers['Cookie'].replace(' ', '').split(';')])
-		print cookies
-		return "You just did the dang public, sir! You said " + q + " !!!! cookies: " + str(cookies)
+		# cookies = dict([e.split('=') for e in request.headers['Cookie'].replace(' ', '').split(';')])
+		# print cookies
+		return "You just did the dang public, sir! You said " + q + " !!!! cookies: " + request.headers['Cookie']
 		# return MongoInstance.getPublic(uID)
 api.add_resource(Public, '/api/public/test')
 
@@ -81,9 +81,9 @@ class Private(Resource):
 	def get(self):
 		args = privateGetParser.parse_args()
 		q = args.get('q')
-		cookies = dict([e.split('=') for e in request.headers['Cookie'].replace(' ', '').split(';')])
-		print cookies
-		return "Awww Private in this biz! You said " + q + " !!!! cookies: " + str(cookies)
+		# cookies = dict([e.split('=') for e in request.headers['Cookie'].replace(' ', '').split(';')])
+		# print cookies
+		return "Awww Private in this biz! You said " + q + " !!!! cookies: " + request.headers['Cookie']
 		# return MongoInstance.getPublic(uID)
 api.add_resource(Private, '/api/private/test')
 
