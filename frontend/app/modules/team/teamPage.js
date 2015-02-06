@@ -33,14 +33,20 @@ teamPage.directive("teamPane", function(){
                 // updateAllUsers();
                 console.log(result)
                 // console.log(JSON.parse(result)) ;
-                $scope.name = result['name']
-                $scope.image = result['image']
-                goal = JSON.parse(result['goal']);
-                if (goal != false){
-                    $scope.myData = JSON.parse(result['goal']);
+                if(result =="redirect"){
+                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+        
+                }else{
+                    $scope.name = result['name']
+                    $scope.image = result['image']
+                    goal = JSON.parse(result['goal']);
+                    if (goal != false){
+                        $scope.myData = JSON.parse(result['goal']);
+                    }
+                    
+                    $scope.$apply();
                 }
                 
-                $scope.$apply();
             }); 
 
             // $scope.partnerData = {
@@ -76,31 +82,36 @@ teamPage.directive("teamPane", function(){
                 _HTTP("post", "goal", data, function(result){
                     // $scope.getuser_result = result;
                     // updateAllUsers();
-                    try{
-                        JSON.parse(result['goal'])
-                        $scope.updatingProject = false;
-                        $scope.updatedProject = true;
-                        $scope.updatedError = false;
-                        $scope.$apply();
-                        setTimeout(function(){
+                    if(result =="redirect"){
+                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+        
+                    }else{
+                        try{
+                            JSON.parse(result['goal'])
                             $scope.updatingProject = false;
-                            $scope.updatedProject = false;
+                            $scope.updatedProject = true;
                             $scope.updatedError = false;
                             $scope.$apply();
-                        },5000);
-                    }catch(err){
-                        $scope.updatingProject = false;
-                        $scope.updatedProject = false;
-                        $scope.updatedError = true;
-                        $scope.$apply();
-                        setTimeout(function(){
+                            setTimeout(function(){
+                                $scope.updatingProject = false;
+                                $scope.updatedProject = false;
+                                $scope.updatedError = false;
+                                $scope.$apply();
+                            },5000);
+                        }catch(err){
                             $scope.updatingProject = false;
                             $scope.updatedProject = false;
-                            $scope.updatedError = false;
+                            $scope.updatedError = true;
                             $scope.$apply();
-                        },5000);
+                            setTimeout(function(){
+                                $scope.updatingProject = false;
+                                $scope.updatedProject = false;
+                                $scope.updatedError = false;
+                                $scope.$apply();
+                            },5000);
+                        }
+                        $scope.$apply();
                     }
-                    $scope.$apply();
                 }); 
             };
 
