@@ -49,6 +49,12 @@ app.controller('bodyCntrl', ['$scope', '$rootScope', function($scope, $rootScope
    $scope.mobile = true;
   }
 
+  f=navigator.userAgent.search("Firefox");
+
+  if (f>-1){
+      $scope.firefox = true;
+  }
+
 
 }]);
 
