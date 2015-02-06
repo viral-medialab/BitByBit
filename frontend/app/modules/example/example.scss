@@ -52,7 +52,7 @@ div.workshopBox{
   }
 }
 
-div.mobile{
+div.mobile.example-pane{
 
   div.team-header{
     height: 340px;
@@ -90,7 +90,7 @@ div.mobile{
   }
   &:active{
     
-    top: 1px;
+    top: -144px;
   }
 }
 }
