@@ -31,7 +31,7 @@ teamPage.directive("teamPane", function(){
             _HTTP("get", "goal", data, function(result){
                 // $scope.getuser_result = result;
                 // updateAllUsers();
-                console.log(result)
+                // console.log(result)
                 // console.log(JSON.parse(result)) ;
                 if(result =="redirect"){
                     window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
