@@ -25,7 +25,7 @@ teamPage.directive("teamPane", function(){
                 workshops: [false,false,false,false,false],
                 blurb: ["____","____","____","____","____","____","____"]
             };
-
+            $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif'
             data = {
             };
             _HTTP("get", "goal", data, function(result){
@@ -71,7 +71,9 @@ teamPage.directive("teamPane", function(){
             $scope.updatedProject = false;
             $scope.updatedError = false;
 
+
             this.save = function(){
+                // console.log($scope.unsaved);
                 $scope.updatingProject = true;
                 $scope.updatedProject = false;
                 $scope.updatedError = false;
@@ -91,6 +93,7 @@ teamPage.directive("teamPane", function(){
                             $scope.updatingProject = false;
                             $scope.updatedProject = true;
                             $scope.updatedError = false;
+                            // $scope.unsaved = false;
                             $scope.$apply();
                             setTimeout(function(){
                                 $scope.updatingProject = false;

@@ -53,34 +53,35 @@ app.controller('bodyCntrl', ['$scope', '$rootScope', function($scope, $rootScope
 }]);
 
 app.directive('contenteditable', function() {
-        return {
-            require: 'ngModel',
-            link: function(scope, elm, attrs, ctrl) {
-                // view -> model
-                elm.bind('blur', function() {
-                    scope.$apply(function() {
-                        if (elm.html() === ""){
-                          elm.html("____");
-                        // }else if(elm.html() != "____"){
-                        }else if((elm.html().split("_").length - 1) != elm.html().length){
-                          elm.html(elm.html().replace(/_/g,"")) ;
-                        }
-                          ctrl.$setViewValue(elm.html());
-                         
-                    });
-                });
+      return {
+          require: 'ngModel',
+          link: function(scope, elm, attrs, ctrl) {
+              // view -> model
+              elm.bind('blur', function() {
+                  scope.$apply(function() {
+                      if (elm.html() === ""){
+                        elm.html("____");
+                      // }else if(elm.html() != "____"){
+                      }else if((elm.html().split("_").length - 1) != elm.html().length){
+                        elm.html(elm.html().replace(/_/g,"")) ;
+                      }
+                        ctrl.$setViewValue(elm.html());
+                       
+                  });
+              });
 
-                // model -> view
-                ctrl.$render = function() {
-                    elm.html(ctrl.$viewValue);
-                };
+              // model -> view
+              ctrl.$render = function() {
+                  elm.html(ctrl.$viewValue);
+              };
 
-                // load init value from DOM
-                // ctrl.$setViewValue(elm.html());
-                ctrl.$render();
-            }
-        };
-    });
+              // load init value from DOM
+              // ctrl.$setViewValue(elm.html());
+              ctrl.$render();
+              // scope.unsaved = true;
+          }
+      };
+  });
 
 // The following two functions are just abstracting the HTTP call process.
 // These can be isolated in their own js file later, but for simplicity, I put them here.
