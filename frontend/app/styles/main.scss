@@ -8,9 +8,25 @@ h1,h2,h3,h4,h5,p,input{
 }
 body{
 	margin: 0;
+	font-family: 'Titillium Web', sans-serif;
+}
+
+footer{
+	border-top: 1px solid rgba(0,0,0,0.1);
+	// margin-top: 20px;
+	padding: 20px;
+	text-align: center;
+	background-color: #f6f6f6;
+	clear: both;
+}
+
+footer a{
+	color: #707070;
+	text-decoration: none;
 }
 
 @import '../modules/landing/landing.scss';
+@import '../modules/example/example.scss';
 @import '../modules/team/team.scss';
 @import '../modules/wiki/wiki.scss';
 

@@ -77,8 +77,10 @@ gulp.task('static-resources', function() {
   gulp.src('app/templates/**/*').pipe(gulp.dest('dist/templates/')); // Any other view files from app/templates, Will be put in the dist/templates folder
   gulp.src('app/modules/landing/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/modules/team/*.html').pipe(gulp.dest('dist/templates/'));
+  gulp.src('app/modules/example/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/modules/wiki/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/images/*').pipe(gulp.dest('dist/images/'));
+  gulp.src('app/images/users/*').pipe(gulp.dest('dist/images/users'));
   gulp.src('app/scripts/libraries/*.js').pipe(gulp.dest('dist/js/'));
   gulp.src('app/content/*').pipe(gulp.dest('dist/content/'));
 });

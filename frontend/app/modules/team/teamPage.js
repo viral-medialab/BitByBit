@@ -14,13 +14,8 @@ teamPage.directive("teamPane", function(){
             	'want': "",
             	'because': "",
             	'then': "",
-            	'then': "",
-            	'workshop': [false,false,false,false,false],
-            	'blurb_0': "",
-            	'blurb_1': "",
-            	'blurb_2': "",
-            	'blurb_3': "",
-            	'blurb_4': "",
+            	'workshops': [false,false,false,false,false],
+                'blurb': ["","","","","","",""]
             };
 
             $scope.partnerData = {
@@ -29,11 +24,7 @@ teamPage.directive("teamPane", function(){
             	'then': "",
             	'then': "",
             	'workshop': [false,false,false,false,false],
-            	'blurb_0': "",
-            	'blurb_1': "",
-            	'blurb_2': "",
-            	'blurb_3': "",
-            	'blurb_4': "",
+                'blurb': ["","","","","","",""]
             };
 
             var workshopSelected = function(workshops){
@@ -50,7 +41,12 @@ teamPage.directive("teamPane", function(){
                 if(need.length >= 1 && insight.length >= 1 && problem.length >= 1 && hasworkshop) {
                     alert("submitting " + need + insight + problem + workshops);
                 }
-            }
+            };
+
+            this.save = function(){
+                console.log('hi');
+                console.log($scope.myData);
+            };
 
 
 		},

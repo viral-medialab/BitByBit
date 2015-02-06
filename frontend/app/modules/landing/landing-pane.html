@@ -1,58 +1,253 @@
-<div class="landing-pane">
-	<div class="functionBox">
-		<h2>Add User</h2>
-		<h4>uID</h4>
-		<input ng-model="adduser_uID"></input>
-		<div class="button" ng-click="landingCntrl.addUser(adduser_uID)">Submit</div>
-		<div class="result">{{adduser_result}}</div>
-	</div>
-	<div class="functionBox">
-		<h2>Get User</h2>
-		<h4>uID</h4>
-		<input ng-model="getuser_uID"></input>
-		<div class="button" ng-click="landingCntrl.getUser(getuser_uID)">Submit</div>
-		<div class="result">{{getuser_result}}</div>
-	</div>
-	<div class="functionBox">
-		<h2>Delete User</h2>
-		<h4>uID</h4>
-		<input ng-model="deleteuser_uID"></input>
-		<div class="button" ng-click="landingCntrl.deleteUser(deleteuser_uID)">Submit</div>
-		<div class="result">{{deleteuser_result}}</div>
+<div class="front">
+	<div class="landing-pane">
+		<div class="banner">
+			<div class="shadow"></div>
+			<div class="logo-bar">
+				<img class="ml" src="images/ml.png"/>
+				<img class="rwjf" src="images/rwjf.png"/>
+			</div>
+			<div class="logo">
+				<img src="images/logo2_short.png"/>
+			</div>
+			<div class="title">
+
+				<!-- <span data-fittext>
+					<span data-fittext-nl>PUT YOUR SUPERHERO POWERS TO</span>
+					<span data-fittext-nl>WORK FOR EACH OTHER.</span>
+				</span> -->
+				<h1 data-fittext data-fittext-max="100">
+					<p data-fittext-nl>PUT YOUR SUPERHERO POWERS TO WORK</p>
+					<p data-fittext-nl>FOR EACH OTHER.</p>
+				</h1>
+			</div>
+
+			<div class="subtitle">
+				<!-- <h3 data-fittext >What's one behavior in your life you'd like to change?</h3> -->
+
+				<h3 data-fittext data-fittext-load-delay="500">
+					<p data-fittext-nl>If you could change one thing about yourself,</p>
+					<p data-fittext-nl>how could someone help you change it?</p>
+				</h3>
+
+				
+
+			</div>
+			<div class="login">
+				<h3>JOIN</h3>
+			</div>
+		</div>
+
+		<div class="about">
+			<p>BITxBIT is a project by (and for) everyone at the Media Lab, to build a culture of personal and collective wellbeing. It connects everyone at the lab — 2 at a time — and puts their problem-solving superpowers to work for one another.</p>
+		</div>
+
+		<div id="examples">
+		    <div class="sets-wrapper">
+		    <div id="sets">
+		    <div class="set">
+		      <div class="example">
+		        <!-- <img src="images/users/5.png" alt="" /> -->
+		        <img src="images/users/vincent.jpg" alt="" />
+		        is creating something for 
+		        <!-- <img src="images/users/6.png" alt="" /> -->
+		        <img src="images/users/natasha.jpg" alt="" />
+		        to drink more water.
+		      </div>
+
+		      <div class="example">
+		        <!-- <img src="images/users/6.png" alt="" /> -->
+		        <img src="images/users/natasha.jpg" alt="" />
+		        is creating something for 
+		        <!-- <img src="images/users/5.png" alt="" /> -->
+		        <img src="images/users/vincent.jpg" alt="" />
+		        to practice more yoga.
+		      </div>
+		    </div>
+
+		    <div class="set">
+		      <div class="example">
+		        <!-- <img src="images/users/3.png" alt="" /> -->
+		        <img src="images/users/kevin.jpg" alt="" /> 
+		        is creating something for 
+		        <!-- <img src="images/users/4.png" alt="" /> -->
+		        <img src="images/users/travis.jpg" alt="" />
+		        to make time to meditate.
+		      </div>
+
+		      <div class="example">
+		        <!-- <img src="images/users/4.png" alt="" /> -->
+		        <img src="images/users/travis.jpg" alt="" />
+		        is creating something for 
+		        <!-- <img src="images/users/3.png" alt="" /> -->
+		        <img src="images/users/kevin.jpg" alt="" />
+		         to be more diligent in PT.
+		      </div>
+		    </div>
+
+		    <div class="set visible">
+		      <div class="example">
+		        <!-- <img src="images/users/1.png" alt="" />  -->
+		        <img src="images/users/niaja.jpg" alt="" /> 
+		        is creating something for 
+		        <!-- <img src="images/users/2.png" alt="" /> -->
+		        <img src="images/users/karthik.jpg" alt="" />
+		        to eat more regularly.
+		      </div>
+
+		      <div class="example">
+		        <!-- <img src="images/users/2.png" alt="" /> -->
+		        <img src="images/users/karthik.jpg" alt="" />
+		        is creating something for 
+		        <!-- <img src="images/users/1.png" alt="" />  -->
+		        <img src="images/users/niaja.jpg" alt="" /> 
+		        to be more focused at work.
+		      </div>
+		    </div>
+
+		    <div class="example" id="media_lab_example">
+		      <img src="images/users/ml.png" alt="" /> 
+		      is creating something for 
+		      <img src="images/users/ml.png" alt="" />
+		      to be healthier and happier.
+		    </div>
+		  </div>
+		  </div>
+		  </div>
+
+
+		  <div class="desc">
+		    <h2 class="gradient">More About BITxBIT</h2>
+		    <p>BITxBIT is funded by the Robert Wood Johnson Foundation. It is one part of a grant to produce a broader culture of health here at the Media Lab. It takes its name from BITs — Behavioral Intervention Technologies — which might use social, mobile, sensor or other technologies in the goal of achieving personal behavior change. BITs might make use of fitness sensors, text alerts, passive behavior that can be gleaned from a phone, anything that can be embedded in the daily life of the user.</p>
+
+		    <p>Here at the lab, BITxBIT pairs students, staff and faculty with one of their colleagues from the lab. Each partner articulates what behavior they are setting out to change; it might be related to fitness, nutrition, sleep, or other aspects of wellness. Their partner is then tasked with developing a BIT to address that individual behavior, and solve for the individual’s problems. </p>
+
+		    <p>This is symmetric — each participant is designing a BIT for a colleague’s individual behavior, and each participant has the same colleague doing a similar thing for them. Beyond just designing the system, each participant takes responsibility for its effects. No one is a help desk, sponsor, or “buddy,” but a researcher (and a subject) in a study where N=2.</p>
+		    
+		    <p>The project will produce over 150 experimental approaches to behavior change. Not at scale, but rather, to address a very specific behavior in one person. This might seem to be at odds with the conventional goals we have around impact and scale. But it is also at odds with a conventional distance in the ideas and development of our work. This is up-close behavior change: it succeeds in part through a participant’s ability to closely observe or listen to what a real person actually does, and needs to do.</p>
+
+		    <p>Students are enrolled in BITxBIT by default (though a participant may opt out) and faculty and staff are invited to participate as well. The project will last through the Spring semester, and the anonymized results of all of our many approaches will be shared. Along the way, the techniques for behavior change will be communicated on the BITxBIT site, to share the approaches people are taking to designing for problems that many of us face.</p>
+		    
+		    <p>This is an approach to behavior change that is optimized to make best use of the incredibly diverse set of talents, skills, and ideas that are native to the Media Lab. As a community of builders, this represents the opportunity to build for one another. During the day, we still go to work,to try and change the world. But for a few minutes in there we can also focus on changing ourselves.</p>
+
+		    <p>Ultimately this is tilting towards a culture that recognizes — and emphasizes — the role of personal wellbeing in the potential success of our plans and ideas. Along the way, it might also bring the Media Lab a little closer to itself, N=2 at a time. Bit by bit, person by person, the ideas that change the world could start with changing our local version of it.</p>
+		  </div>
+
+
+
+		<section id="faq">
+		<h2 class="gradient">FAQ</h2>
+
+		<div id="faq_sets">
+		<div class="faq_set">
+
+
+		<p class="q">Where did this come from?</p>
+		<p class="answer">This is part of the Media Lab’s work with the <a href="http://www.rwjf.org/">Robert Wood Johnson Foundation</a>, with the goals of making the Media Lab healthier, more health-conscious, and more health-oriented.</p>
+
+		<p class="q">Why is it called BITxBIT?</p>
+		<p class="answer">In part because behavior change happens bit by bit, and in part because this is based on the ideas of BITs: “Behavioral Intervention Technologies.” The phrase is most closely associated with Northwestern University, and describes the use of social, mobile and sensor technology to affect behaviors related to health, mental health, and wellness. There is a good paper on this from Northwestern <a href="http://www.ncbi.nlm.nih.gov/pubmed/24905070">here</a>. </p>
+
+		<p class="q">What is this?</p>
+		<p class="answer">BITxBIT pairs people at the Media Lab to design and build behavioral intervention tech (BIT) for one another, in the hopes of changing one thing, in one person, for the better.</p>
+
+		<p class="q">So this is like a Media Lab buddy, or like that person in my freshman dorm who was making sure we were ok?</p>
+		<p class="answer">No. This is not a buddy, or an AA-style sponsor, and this person might never become your friend. This is an exercise in designing for one thing about one person, and having them do the same for you. In the same way you aren’t friends with the person who designed the medicine you take, you may or may not become friends with your colleague who is designing a BIT for you. This is not about “being there” for one another. It’s about designing and building systems to help one another. </p>
+
+		<p class="q">So it’s not really personal?</p>
+		<p class="answer">In a way, no, it’s not really that personal, in that it’s not about becoming “closer” to one another. That might happen, but it’s not the goal. But you are going to have to spend some time with that person to understand the behavior they want to change, and to figure out what would really, actually help this person… as opposed to what you might imagine might help them, or what you might imagine some generic user might want or need. Bottom line: this is about putting yourself in another specific person’s shoes, and then figuring out what would help them walk more comfortably in them. </p>
+
+		<p class="q">But it’s private, right?</p>
+		<p class="answer">You are not publicly identified with the problem you are looking to solve; only your partner will know that. But the behaviors to change -- and the approaches to changing them -- will all be online so that everyone can learn from everyone.</p>
+
+		<p class="q">How are partners matched?</p>
+		<p class="answer">Randomly, with a few constraints. No one will be matched with anyone in their group, and you can request that you be matched with RAs, as opposed to staff/faculty who might also participate. </p>
+
+		<p class="q">Who will see what problem I propose needs solving?</p>
+		<p class="answer">Important question. Of course your partner will see it, because they’re going to help you solve it. But it will also be entered into a website where it will be visible to everyone interested in BITxBIT, and while it will not be directly associated with your name, it might be deducible. It will also be vetted (see below) by a small group of PIs, staff, and RAs. Whatever problem you’d like to solve for yourself should be a problem you’d be comfortable talking about at a dinner party with strangers present.</p>
+
+		<p class="q">What kind of problems might I propose for my partner to solve?</p>
+		<p class="answer">The problems should be: 
+		<p class="answer"><span>1) Problems</span> Something that you want or need to do, in order to better your wellbeing. That might be physical or emotional, like quitting smoking, or getting more exercise, or making the time to meditate for 15 minutes every day, or drinking more water... or social, like spending more time with someone important, or not eating lunch alone. </p>
+		<p class="answer"><span>2) Behavioral</span> That is, something that can be addressed by modifying your everyday actions. Drinking less coffee, for example, can be addressed behaviorally, where getting over the flu, not really.  It needs to be something in your power, something you could change but haven’t changed.  </p> 
+		<p class="answer"><span>3) Addressable</span> If the problem isn’t something that you’re comfortable having addressed by a partner, that’s ok, but then find a different problem. One person may feel embarrassed about not being able to wake up on time in the morning, but another person may feel quite comfortable about it, providing the conversation and insight to address that problem with a partner. The problem you are going to have someone solve for you in BITxBIT should be a problem that’s real enough to need attention, but not something that would be embarrassing to solve with a partner, in public.</p>
+		<p class="answer"><span>4) Probably Solvable</span> We might or might not be able to solve it in the context of three months with BITxBIT, so use your own internal compass to think about what you might be able to get done with someone’s help. Quitting coffee seems plausible. Running a marathon -- if you’ve never run before -- probably not.</p>
+		</p>
+
+
+		<p class="q">What kinds of problems would be off-limits?</p>
+		<p class="answer">Problems that are not related to wellness, like getting better at League of Legends, or learning to parallel park. But also, problems that are too intimate to solve with a stranger in the public eye; everyone has a different threshold for that. If it feels too intimate to talk about in a group of strangers, then it’s too intimate for BITxBIT. (PS: if there is a real and pressing intimate problem to address, something that’s not right for BITxBIT, please do see Linda Petersen and get confidential help, nothing to do with any of this.)  </p>
+
+		<p class="q">What are some good examples of behavior-change type problems to solve?</p>
+		<p class="answer">These should be as specific as the people who participate, but some examples to establish the type of thing you might want to change: drinking more water, doing yoga or meditation or getting to the gym in a disciplined way, better sleep hygiene, cutting down on refined sugar, drinking less coffee, spending more time with friends, not eating alone, breaking up long sitting work sessions, walking 30 minutes a day, quitting tobacco, reducing saturated fats, you name it. Things that would help you.</p>
+
+		<p class="q">Does anyone vet the problems?</p>
+		<p class="answer">Yes, the BITxBIT team -- led by Kevin Slavin, but together with staff and some RAs -- will review anonymized “problems to solve” in order to make sure that there’s nothing weird in there. Weird would be “learning to parallel park” or, alternately something self-declared and serious about someone’s emotional state (e.g., “I am so anxious I can barely find a way to leave the house.”) If something gets tagged, the system will prompt you. It might be better addressed another way, like driving lessons or therapy, both of which are available at MIT. </p>
+
+		<p class="q">What if my partner’s problem feels like something to be worried about?</p>
+		<p class="answer">In principle, the problems to solve should be broad enough that they’re not worrisome. Further, it may be of great value to think about something that feels far from your own experience. But if, beyond that, the type or magnitude of the problem feels worrisome enough, you should bring it to Kevin Slavin or one of the RWJF fellows, or the MAS office. </p>
+
+		<p class="q">How long does this run?</p>
+		<p class="answer">BITxBIT runs through the Spring semester. You have through May to change your partner’s specified behavior, using whatever novel BIT you can come up with. There will be a concluding meeting at the end of the semester to see how we all did.</p>
+
+		<p class="q">So my partner is going to give me a problem to solve. Where am I supposed to start?</p>
+		<p class="answer">Good question. The very first thing you’ll do is think about the problem you need to solve. But in a week, you’ll enter into a workshop with our friends from IDEO about Human-Centric Design and start thinking about your partner’s problem and how to address it. Details on that to come. </p>
+
+		<p class="q">How much work is this going to be?</p>
+		<p class="answer">That’s up to you, and -- importantly -- the majority of the work is in the first few weeks. This is not meant to eclipse any of your work, pursuits, or interests, but rather to incorporate them into something specifically focused on wellness. If a hackathon is a unit of measurement, you might anticipate 1.5 hackathons worth of effort, but at your own pace, spread over a one month period. </p> 
+
+		<p class="q">Are there other meetings?</p>
+		<p class="answer">Yes, but not many. There’s that series of IDEO workshops following the launch, to do some preliminary training in Human-Centric Design and there will be a second lab-wide lunch after that, to check in on our ability to get this going en masse. But like all things in the Media Lab, the idea is to use the least time in meetings and the most time working things out.</p>
+
+		<p class="q">How will I find the time for this?</p>
+		<p class="answer">This is deliberately timed around starting at the beginning of the semester, before classes get too intense, and while everyone is still getting settled. It will be a small part of your time for a few weeks, and then you’ll deploy the BIT for your partner. Once it’s up and running, your commitment is only to making sure that it’s running as you intend it. Hopefully it’s making a change in someone’s life.</p>
+
+		<p class="q">What if it doesn’t work for my partner? What if it doesn’t work for me?</p>
+		<p class="answer">Behavior change is really hard, which is why most people are sort of messed up most of the time. This is an experiment about experiments, several dozen experiments where N=2. Some of them, maybe many of them, will fail. As with all things you do here, the most important thing is to try and do the best and most thoughtful work possible, and to deploy. Your partner may be unchangeable! Or you might really fix their life. The latter is preferable but not mandatory. </p>
+
+		<p class="q">Is any of this mandatory?</p>
+		<p class="answer">No. Every RA starts out enrolled, but you are not officially taking part until you sign consent forms at the launch. And you can choose to opt-out with no consequences in any direction. This is an experiment in raising the individual -- and collective -- sense of wellness in the lab. Participating in it is a chance to get some help with whatever you’d like to change, a chance to help someone who could use some help, and a chance to build a stronger culture here at the Lab. You can opt out for whatever reason you have without explanation, but we hope you’ll help strengthen the Media Lab’s collective health. </p>
+
+		<p class="q">What if I get matched with the wrong person?</p>
+		<p class="answer">Remember, this isn’t necessarily about becoming friends. The relationship isn’t necessarily any “tighter” than someone who happens to be in a class with you. But you will be working together on something personal. What’s important to focus on is that you’re trying to solve a specific problem, not a life. Helping someone to drink more water every day is a personal problem, but not an intimate one; the “wrong” person would only be someone who can’t find a way to care.</p>  
+
+		<p class="q">But what if I don’t know anything about the problem I am tasked with solving?</p>
+		<p class="answer">That’s maybe a great thing, a great opportunity. If we matched people up with people who knew a lot about the specific problems they were addressing, we’d probably see a lot of the same answers we’ve seen in human history. We’re looking for something insightful new, and that is likely to come from embracing actual problems in another person, problems that are unfamiliar. As has been true for many people, many times, here at the Media Lab, embracing unfamiliar material is often the source of great inspiration.</p> 
+
+		<p class="q">Do you have to be an RA at the Media Lab?</p>
+		<p class="answer">Mostly yes, but you could be faculty or staff at the Media Lab too. If you’re faculty or staff here, drop a line and we’ll add you into the system. </p>
+
+		<p class="q">When will I find out who my partner is?</p>
+		<p class="answer">At the opening event, at lunch on February 6th.</p>
+
+		<p class="q">Can I swap if I don’t like my partner?</p>
+		<p class="answer">No. You can always opt-out of the program. But part of the exercise here is in designing and solving for problems that you don’t come up with yourself. That’s valuable for many reasons, and to many people. You have the rest of the time at the Media Lab to pick your problems and solve them. This is an opportunity to stretch. </p>
+
+		<p class="q">Will any of this matter?</p>
+		<p class="answer">We often talk about designing for impact at the Media Lab. This is impact. You have the opportunity to use your skills, experience, and expertise to address a specific problem in a specific person’s life, a problem that matters. That’s impact. And with everyone together, that’s scale.</p>
+
+		<p class="q">Where does all this go?</p>
+		<p class="answer">All the BITs will be posted on our website so that everyone can learn from what we are trying to do. No identities will be associated with the problems or solutions.</p>
+
+		<p class="q">My partner is doing a horrible job, what can I do?</p>
+		<p class="answer">Communicate with your partner. It is their job to find solve a problem that matters: yours. </p>
+
+		<p class="q">Who decides if a solution works?</p>
+		<p class="answer">If it’s your problem, you’ll know whether it’s working. You’ll have quit smoking, or been taking time to meditate, or you’ll have been drinking more water. If it’s your partner, they’ll know whether it’s been working, same way. Part of the process will be setting goals for yourselves, so your partner can design a BIT that can help you to achieve it. Only you will know whether it’s working, but we ask you report in no matter which way it goes. </p>
+
+		<p class="q">Is this going to solve all the problems at the lab?</p>
+		<p class="answer">Probably not. But you might be able to use everything you know to really help one person. And you might change your own life in some meaningful and positive ways. Either of those would be a big deal.</p>
+
+
+
+
+
+
+
+		</div></div>
+
+		</section>
+		
 	</div>
 
-	<div class="functionBox">
-		<h2>Add Goal</h2>
-		<h4>uID</h4>
-		<input ng-model="addgoal_uID"></input>
-		<h4>goal</h4>
-		<input ng-model="addgoal_goal"></input>
-		<div class="button" ng-click="landingCntrl.addGoal(addgoal_uID, addgoal_goal)">Submit</div>
-		<div class="result">{{addgoal_result}}</div>
-	</div>
-	<div class="functionBox">
-		<h2>Get Goal</h2>
-		<h4>uID</h4>
-		<input ng-model="getgoal_uID"></input>
-		<div class="button" ng-click="landingCntrl.getGoal(getgoal_uID)">Submit</div>
-		<div class="result">{{getgoal_result}}</div>
-	</div>
-	<div class="functionBox">
-		<h2>Delete Goal</h2>
-		<h4>uID</h4>
-		<input ng-model="deletegoal_uID"></input>
-		<div class="button" ng-click="landingCntrl.deleteGoal(deletegoal_uID)">Submit</div>
-		<div class="result">{{deletegoal_result}}</div>
-	</div>
-
-	<div class="allUsers">
-		<h2>All Users</h2>
-		<ul>
-			<li ng-repeat="user in allUsers">
-				<h3>uID: {{user['uID']}}</h3>
-				<h4>goal: {{user['goal']}}</h4>
-			</li>
-		</ul>
-	</div>
-	
 </div>
+

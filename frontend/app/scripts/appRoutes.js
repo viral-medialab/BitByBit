@@ -10,6 +10,9 @@ angular.module('appRoutes').config(['$routeProvider', '$locationProvider', funct
 		.when('/about',{
 			templateUrl: './templates/aboutPage.html',
 		})
+		.when('/example',{
+			templateUrl: './templates/examplePage.html',
+		})
 		.when('/team',{
 			templateUrl: './templates/teamPage.html',
 		})

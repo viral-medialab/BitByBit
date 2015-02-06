@@ -7,7 +7,7 @@
   	min-width: 900px;
   	max-width: 1250px;
   	margin: 0 auto;
-  	font-family: 'Titillium Web', sans-serif;
+  	
 
     input{
       border: 0;
@@ -113,6 +113,7 @@
   		margin-left: 20%;
   		float:left;
   		font-family: 'Titillium Web', sans-serif;
+      position: relative;
 
   		
 
@@ -148,6 +149,9 @@
 	  			}
           h1{
             font-size: 40px;
+            height: 151px;
+            overflow: scroll;
+            text-transform: uppercase;
           }
 	  			h3{
 	  				padding-top: 20px;
@@ -169,6 +173,8 @@
   			}
   			p{
   				padding-right: 10%;
+          height: 121px;
+          overflow: scroll;
   			}
   		}
   		div.becauseBox{

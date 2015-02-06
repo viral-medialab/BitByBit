@@ -1,0 +1,45 @@
+div.exampleText{
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: -36px;
+  z-index: 100;
+
+  h2{
+    font-weight: 300;
+  }
+
+}
+
+div.continueButton{
+  width: 80%;
+  height: 40px;
+  background-color: black;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 30px;
+  
+  
+
+  &:hover{
+    
+    cursor: pointer;
+  }
+  &:active{
+    
+    top: 1px;
+  }
+}
+
+div.workshopBox{
+  &.example{
+    pointer-events: none;
+  }
+}

@@ -13,7 +13,7 @@
         <div class="nextBox">
             <h2>UP NEXT</h2>
             <p>Workshop Session</p>
-            <p>Wednesday Feb 18</p>
+            <p>Wednesday Feb 18{{cat}}</p>
         </div>
     </div>
 
@@ -24,19 +24,19 @@
             </div>
             <div class="challengeContent">
                 <h3>I want to...</h3>
-                <h1>GO TO YOGA MORE OFTEN</h1>
+                <h1 contentEditable="true" ng-model="myData.want">GO TO YOGA MORE OFTEN</h1>
                 
             </div>
 
         </div>
         <div class="becauseBox miniBox">
             <h3>because...</h3>
-            <p>it makes me feel amazing, calms me down, and helps me find balance.</p>
+            <p contentEditable="true" ng-model="myData.because">it makes me feel amazing, calms me down, and helps me find balance.</p>
             
         </div>
         <div class="thenBox miniBox">
             <h3>and then I'll be...</h3>
-            <p>someone who feels like a strong physical machine ready to take on the world!</p>
+            <p contentEditable="true" ng-model="myData.then">someone who feels like a strong physical machine ready to take on the world!</p>
             
         </div>
 
@@ -44,10 +44,10 @@
             <h3>I can attend the workshop on:</h3>
             <table>
             <tbody>
-                <tr><td><input id="workshop1" type="checkbox" name="workshops" ng-model="workshops[0]"></td><td><label for="workshop1">Date 1</label></td></tr>
-                <tr><td><input id="workshop2" type="checkbox" name="workshops" ng-model="workshops[1]"></td><td><label for="workshop2">Date 2</label></td></tr>
-                <tr><td><input id="workshop3" type="checkbox" name="workshops" ng-model="workshops[2]"></td><td><label for="workshop3">Date 3</label></td> </tr>
-                <tr><td><input id="workshop4" type="checkbox" name="workshops" ng-model="workshops[3]"></td><td><label for="workshop4">Date 4</label></td></tr>
+                <tr><td><input id="workshop1" type="checkbox" name="workshops" ng-model="myData.workshops[0]"></td><td><label for="workshop1">Date 1</label></td></tr>
+                <tr><td><input id="workshop2" type="checkbox" name="workshops" ng-model="myData.workshops[1]"></td><td><label for="workshop2">Date 2</label></td></tr>
+                <tr><td><input id="workshop3" type="checkbox" name="workshops" ng-model="myData.workshops[2]"></td><td><label for="workshop3">Date 3</label></td> </tr>
+                <tr><td><input id="workshop4" type="checkbox" name="workshops" ng-model="myData.workshops[3]"></td><td><label for="workshop4">Date 4</label></td></tr>
                 <tr><td><input id="no_workshop" type="checkbox" name="workshops" ng-model="workshops[4]"></td><td><label for="no_workshop">None</label></td></tr>
             </tbody>
             </table>
@@ -56,8 +56,8 @@
         <div class="blurbBox">
             <div class="quote">“</div>
             <div class="blurbContent">
-                <p>Some challenges I have in changing this behavior are <span>finding the time</span> and <span>feelings too tired after work to go</span>. I have tried <span>creating a google calendar alarm</span> but <span>I just ignore it</span>.</p>
-                <div class="editButton br">SAVE</div>
+                <p>Some challenges I have in changing this behavior are <span contentEditable="true" ng-model="myData.blurb[0]">finding the time</span> and <span contentEditable="true" ng-model="myData.blurb[1]">feelings too tired after work to go</span>. I have tried <span contentEditable="true" ng-model="myData.blurb[2]">creating a google calendar alarm</span> but <span contentEditable="true" ng-model="myData.blurb[3]">I just ignore it</span>. I'm happiest when <span contentEditable="true" ng-model="myData.blurb[4]">my brain is hard at work</span>. I care deeply about <span contentEditable="true" ng-model="myData.blurb[5]">having a fun life filled with travelling</span> and not about <span contentEditable="true" ng-model="myData.blurb[6]">being rich</span>.</p>
+                <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
             <div class="quote">“</div>
             <div class="blurbContent">
                 <p>Some challenges I have in changing this behavior are finding the time and feelings too tired after work to go. I have tried creating a google calendar alaram but I just ignore it.</p>
-                <div class="editButton br">SAVE</div>
+                <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div>
             </div>
         </div>
     </div>
@@ -110,13 +110,13 @@
 
 
 
-    <hr>
+    <!-- <hr>
     <div class="single-pane">
 
     <form name="signup" class="signup-form" novalidate>
         I need a way to <input ng-model="need" type="text" name="need" required> in a way that makes me feel <input ng-model="insight" name="insight" type="text" required> </br>
         </br>
-        Describe the problem you want to improve: <input ng-model="problem" name="problem" type="textarea" required> </br>
+        Describe the problem you want to improve: <input ng-model="problem" placeholder="Hey I''m an elephant" name="problem" type="textarea" required> </br>
         </br>
         I am able to attend the workshop at the following times:
         <table>
@@ -143,7 +143,7 @@
     </div>
     <div ng-show="signup.$submitted || signup.workshops.$touched">
         <div ng-show="!workshops || !(workshops[0] || workshops[1] || workshops[2] || workshops[3] || workshops[4])">Please select one of the workshops</div>
-    </div>
+    </div> -->
 </div>
 </div>
 

@@ -2,10 +2,11 @@ var angular = require('angular'); // That's right! We can just require angular a
 
 var appRoutes = require('./appRoutes');
 var landingPage = require('../modules/landing/landingPage');
+var examplePage = require('../modules/example/examplePage');
 var teamPage = require('../modules/team/teamPage');
 var wikiPage = require('../modules/wiki/wikiPage');
 
-var app = angular.module('bitbybitApp', ['appRoutes', 'ngFitText','landingPage', 'teamPage', 'wikiPage']);
+var app = angular.module('bitbybitApp', ['appRoutes', 'ngFitText','landingPage', 'teamPage','examplePage', 'wikiPage']);
 
 
 
@@ -17,7 +18,7 @@ app.directive('watchResize', function(){
         if(window.innerWidth<900){
           scope.mobile = true;
         }else{
-          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false) {
+          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) === false) {
             scope.mobile = false;
           }
         }
@@ -25,7 +26,7 @@ app.directive('watchResize', function(){
         // console.log(scope.mobile);
       });
     }
-  }
+  };
 });
 
 app.controller('bodyCntrl', ['$scope', '$rootScope', function($scope, $rootScope) {
@@ -40,6 +41,28 @@ app.controller('bodyCntrl', ['$scope', '$rootScope', function($scope, $rootScope
 
 
 }]);
+
+app.directive('contenteditable', function() {
+        return {
+            require: 'ngModel',
+            link: function(scope, elm, attrs, ctrl) {
+                // view -> model
+                elm.bind('blur', function() {
+                    scope.$apply(function() {
+                        ctrl.$setViewValue(elm.html());
+                    });
+                });
+
+                // model -> view
+                ctrl.$render = function() {
+                    elm.html(ctrl.$viewValue);
+                };
+
+                // load init value from DOM
+                ctrl.$setViewValue(elm.html());
+            }
+        };
+    });
 
 // The following two functions are just abstracting the HTTP call process.
 // These can be isolated in their own js file later, but for simplicity, I put them here.

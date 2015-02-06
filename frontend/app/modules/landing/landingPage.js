@@ -5,84 +5,37 @@ landingPage.directive("landingPane", function(){
 		restrict: 'E',
 		templateUrl: '/templates/landing-pane.html',
 		controller: function($http,$scope){
-			var updateAllUsers = function(){
-				_HTTP("get", "allusers", {}, function(results){
-			    	var allUsers = [];
-			    	angular.forEach(results, function(user){
-			    		allUsers.push(user);
-			    	});
-			    	$scope.allUsers = allUsers;
-			    	$scope.$apply();
-			    }); 
-			}
+			 
 
-			updateAllUsers();
 
-			this.addUser = function(uID){
-				data = {
-					uID: uID
-				};
-			    _HTTP("post", "user", data, function(result){
-			    	$scope.adduser_result = result;
-			    	updateAllUsers();
-			    	$scope.$apply();
-			    });	 
-			};
+		    var counter = 0;
 
-			this.getUser = function(uID){
-				data = {
-					uID: uID
-				};
-			    _HTTP("get", "user", data, function(result){
-			    	$scope.getuser_result = result;
-			    	updateAllUsers();
-			    	$scope.$apply();
-			    }); 
-			};
-			this.deleteUser = function(uID){
-				data = {
-					uID: uID
-				};
-			    _HTTP("delete", "user", data, function(result){
-			    	$scope.deleteuser_result = result;
-			    	updateAllUsers();
-			    	$scope.$apply();
-			    }); 
-			};
+		    function switch_examples() {
+		    	// console.log('hi');
+		    	var showPair = document.getElementsByClassName('visible')[0];
+		    	showPair.className = "set visible out";
+		    	setTimeout(function(){
+		    		showPair.className = "set";
+		    	},1000)
 
-			this.addGoal = function(uID, goal){
-				data = {
-					uID: uID,
-					goal: goal
-				};
-			    _HTTP("post", "goal", data, function(result){
-			    	$scope.addgoal_result = result;
-			    	updateAllUsers();
-			    	$scope.$apply();
-			    }); 
-			};
+		    	// console.log(document.getElementsByClassName('set'));
+		    	var newPair = document.getElementsByClassName('set')[counter];
+		    	// console.log(newPair);
+		    	newPair.className = "set visible";
+		      counter = (counter+1)%3;
+		    };
 
-			this.getGoal = function(uID){
-				data = {
-					uID: uID
-				};
-			    _HTTP("get", "goal", data, function(result){
-			    	$scope.getgoal_result = result;
-			    	updateAllUsers();
-			    	$scope.$apply();
-			    }); 
-			};
-
-			this.deleteGoal = function(uID){
-				data = {
-					uID: uID
-				};
-			    _HTTP("delete", "goal", data, function(result){
-			    	$scope.deletegoal_result = result;
-			    	updateAllUsers();
-			    	$scope.$apply();
-			    }); 
-			};
+		    setInterval(switch_examples, 5000);
+		 
+		 	backgroundCounter = 1;
+		    function switch_background(){
+		    	var background = document.getElementsByClassName('banner')[0]
+		    	background.style.background = "url('/images/superhero"+backgroundCounter+".jpg') no-repeat center center";
+		    	background.style.backgroundSize= "cover";
+		    	backgroundCounter = (backgroundCounter+1)%3;
+		    };
+		    setInterval(switch_background, 10000);
+		  	
 					
 		},
 		controllerAs: 'landingCntrl'
