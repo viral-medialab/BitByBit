@@ -22,7 +22,7 @@ class mongoInstance(object):
         updateFields['name'] = name
         updateFields['image'] = image
 
-        MongoInstance.client['bitbybit']['userdata'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+        MongoInstance.client['bxbUsers']['userdata'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
 
     ############################
     # Goal
