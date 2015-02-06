@@ -66,7 +66,9 @@ class Public(Resource):
 	def get(self):
 		args = publicGetParser.parse_args()
 		q = args.get('q')
-		return "You just did the dang public, sir! You said " + q
+		cookies = dict([e.split('=') for e in request.headers['Cookie'].replace(' ', '').split(';')])
+		print cookies
+		return "You just did the dang public, sir! You said " + q + " !!!! cookies: " + str(cookies)
 		# return MongoInstance.getPublic(uID)
 api.add_resource(Public, '/api/public/test')
 
@@ -79,7 +81,9 @@ class Private(Resource):
 	def get(self):
 		args = privateGetParser.parse_args()
 		q = args.get('q')
-		return "Awww Private in this biz! You said " + q
+		cookies = dict([e.split('=') for e in request.headers['Cookie'].replace(' ', '').split(';')])
+		print cookies
+		return "Awww Private in this biz! You said " + q + " !!!! cookies: " + str(cookies)
 		# return MongoInstance.getPublic(uID)
 api.add_resource(Private, '/api/private/test')
 
@@ -157,6 +161,6 @@ api.add_resource(AllUsers, '/api/allusers')
 
 
 if __name__ == '__main__':
-    # application.run(host = '0.0.0.0', debug=True)
-    application.run(host = 'localhost')
+    application.run(host = '0.0.0.0', debug=True)
+    # application.run(host = 'localhost')
     #application.run(debug="true", port=PORT)
