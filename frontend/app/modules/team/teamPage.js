@@ -35,7 +35,11 @@ teamPage.directive("teamPane", function(){
                 // console.log(JSON.parse(result)) ;
                 $scope.name = result['name']
                 $scope.image = result['image']
-                $scope.myData = JSON.parse(result['goal']);
+                goal = JSON.parse(result['goal']);
+                if (goal != false){
+                    $scope.myData = JSON.parse(result['goal']);
+                }
+                
                 $scope.$apply();
             }); 
 

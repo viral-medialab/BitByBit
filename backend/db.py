@@ -21,7 +21,7 @@ class mongoInstance(object):
         if MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}):
             return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
         else:
-            return []
+            return False
 
     def postGoal(self, uID, goal): 
         updateFields = {}
