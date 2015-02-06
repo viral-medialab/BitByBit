@@ -36,9 +36,10 @@ class mongoInstance(object):
     def postGoal(self, uID, goal): 
         updateFields = {}
         updateFields['goal'] = goal
-
+        timestamp = int(time.time())
 
         MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+        MongoInstance.client['bitbybit']['usersArchive'].insert({'uID':uID, 'goal':goal,'time':timestamp})
         return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
 
         # thing = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
