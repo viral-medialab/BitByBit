@@ -18,7 +18,10 @@ class mongoInstance(object):
     # Goal
     ############################
     def getGoal(self,uID):
-        return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
+        if MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}):
+            return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
+        else:
+            return []
 
     def postGoal(self, uID, goal): 
         updateFields = {}
@@ -35,7 +38,7 @@ class mongoInstance(object):
         # # print json.loads(thing)['want']
 
 
-        
+
     def deleteGoal(self, uID):
         updateFields = {}
         updateFields['goal'] = ''

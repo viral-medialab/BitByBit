@@ -27,14 +27,15 @@ teamPage.directive("teamPane", function(){
             };
 
             data = {
-                uID: 'travis',
             };
             _HTTP("get", "goal", data, function(result){
                 // $scope.getuser_result = result;
                 // updateAllUsers();
                 console.log(result)
-                console.log(JSON.parse(result)) ;
-                $scope.myData = JSON.parse(result);
+                // console.log(JSON.parse(result)) ;
+                $scope.name = result['name']
+                $scope.image = result['image']
+                $scope.myData = JSON.parse(result['goal']);
                 $scope.$apply();
             }); 
 
@@ -66,7 +67,6 @@ teamPage.directive("teamPane", function(){
                 $scope.updatedError = false;
 
                 data = {
-                    uID: 'travis',
                     goal: JSON.stringify($scope.myData)
                 };
                 _HTTP("post", "goal", data, function(result){
