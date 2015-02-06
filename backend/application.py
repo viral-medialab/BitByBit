@@ -116,47 +116,47 @@ class Goal(Resource):
 	def get(self):
 		args = goalGetParser.parse_args()
 		# uID = args.get('uID')
-		# try:
-		cookie = request.headers['Cookie']
-		req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
-		req.add_header('Cookie', cookie)
-		r = urllib2.urlopen(req)
-		# print r.read()
-		if r.read()[:4]=='true':
-			# print 'yep'
-			c = Cookie.SimpleCookie()
-			# print hcook
-			c.load(str(cookie))
-			mlCookie = c['MediaLabUser'].value
-			user = urllib.unquote(mlCookie).split(';')[0]
-			uID = urllib.unquote(mlCookie).split(';')[5]
-			# print user
-			# print uID
+		try:
+			cookie = request.headers['Cookie']
+			req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
+			req.add_header('Cookie', cookie)
+			r = urllib2.urlopen(req)
+			# print r.read()
+			if r.read()[:4]=='true':
+				# print 'yep'
+				c = Cookie.SimpleCookie()
+				# print hcook
+				c.load(str(cookie))
+				mlCookie = c['MediaLabUser'].value
+				user = urllib.unquote(mlCookie).split(';')[0]
+				uID = urllib.unquote(mlCookie).split(';')[5]
+				# print user
+				# print uID
 
-			if len(user.split('@media.mit.edu')) == 2:
-				username = user.split('@media.mit.edu')[0]
+				if len(user.split('@media.mit.edu')) == 2:
+					username = user.split('@media.mit.edu')[0]
+				else:
+					username = user
+
+				# print username
+
+				try:
+					req2 = urllib2.Request('http://data.media.mit.edu/spm/contacts/json?username='+username)
+					# req2.add_header('Cookie', cookie)
+					r2 = urllib2.urlopen(req2)
+					x = r2.read()
+					name = json.loads(x)['profile']['first_name']
+					image = json.loads(x)['profile']['picture_url']
+				except:
+					name = 'You'
+					image = 'images/face.jpg'
+				return {'name':name, 'image':image, 'goal':MongoInstance.getGoal(uID)}
 			else:
-				username = user
-
-			# print username
-
-			try:
-				req2 = urllib2.Request('http://data.media.mit.edu/spm/contacts/json?username='+username)
-				# req2.add_header('Cookie', cookie)
-				r2 = urllib2.urlopen(req2)
-				x = r2.read()
-				name = json.loads(x)['profile']['first_name']
-				image = json.loads(x)['profile']['picture_url']
-			except:
-				name = 'You'
-				image = 'images/face.jpg'
-			return {'name':name, 'image':image, 'goal':MongoInstance.getGoal(uID)}
-		else:
-			return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
+				return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
 			
-		# except:
-		# 	cookie = "No Cookies!"
-		# 	return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
+		except:
+			cookie = "No Cookies!"
+			return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
 		# return cookie
 		
 	def post(self):
