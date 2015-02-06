@@ -58,6 +58,34 @@ def set_allow_origin(resp):
 ############################
 
 ############################
+# publicTest
+############################
+publicGetParser = reqparse.RequestParser()
+publicGetParser.add_argument('q', type=str, required=True)
+class Public(Resource):
+	def get(self):
+		args = publicGetParser.parse_args()
+		q = args.get('q')
+		return "You just did the dang public, sir! You said " + q
+		# return MongoInstance.getPublic(uID)
+api.add_resource(Public, '/api/public/test')
+
+############################
+# privateTest
+############################
+privateGetParser = reqparse.RequestParser()
+privateGetParser.add_argument('q', type=str, required=True)
+class Private(Resource):
+	def get(self):
+		args = privateGetParser.parse_args()
+		q = args.get('q')
+		return "Awww Private in this biz! You said " + q
+		# return MongoInstance.getPublic(uID)
+api.add_resource(Private, '/api/private/test')
+
+
+
+############################
 # Goal
 ############################
 goalGetParser = reqparse.RequestParser()
@@ -79,6 +107,7 @@ class Goal(Resource):
 		args = goalPostParser.parse_args()
 		uID = args.get('uID')
 		goal = args.get('goal')
+		# print goal
 		return MongoInstance.postGoal(uID, goal)
 	def delete(self):
 		args = goalDeleteParser.parse_args()

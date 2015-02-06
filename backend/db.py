@@ -23,9 +23,19 @@ class mongoInstance(object):
     def postGoal(self, uID, goal): 
         updateFields = {}
         updateFields['goal'] = goal
+
+
         MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
         return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
 
+        # thing = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
+        # print thing
+        # print json.loads(thing['goal'])['want']
+        # # print json.loads(thing)
+        # # print json.loads(thing)['want']
+
+
+        
     def deleteGoal(self, uID):
         updateFields = {}
         updateFields['goal'] = ''

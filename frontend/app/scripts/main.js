@@ -59,7 +59,8 @@ app.directive('contenteditable', function() {
                 };
 
                 // load init value from DOM
-                ctrl.$setViewValue(elm.html());
+                // ctrl.$setViewValue(elm.html());
+                ctrl.$render();
             }
         };
     });

@@ -5,9 +5,9 @@
         </div>
         <div class="navBox">
             <ul>
-                <li>Landing</li>
-                <li>Team</li>
-                <li>Help</li>
+                <a href="/"><li>Home</li></a>
+                <a href="/team"><li>Team</li></a>
+                <!-- <li>Help</li> -->
             </ul>
         </div>
         <div class="nextBox">
@@ -24,19 +24,19 @@
             </div>
             <div class="challengeContent">
                 <h3>I want to...</h3>
-                <h1 contentEditable="true" ng-model="myData.want">GO TO YOGA MORE OFTEN</h1>
+                <h1 contentEditable="true" ng-model="myData.want">{{myData.want}}</h1>
                 
             </div>
 
         </div>
         <div class="becauseBox miniBox">
             <h3>because...</h3>
-            <p contentEditable="true" ng-model="myData.because">it makes me feel amazing, calms me down, and helps me find balance.</p>
+            <p contentEditable="true" ng-model="myData.because">{{myData.because}}</p>
             
         </div>
         <div class="thenBox miniBox">
             <h3>and then I'll be...</h3>
-            <p contentEditable="true" ng-model="myData.then">someone who feels like a strong physical machine ready to take on the world!</p>
+            <p contentEditable="true" ng-model="myData.then">{{myData.then}}</p>
             
         </div>
 
@@ -48,7 +48,7 @@
                 <tr><td><input id="workshop2" type="checkbox" name="workshops" ng-model="myData.workshops[1]"></td><td><label for="workshop2">Date 2</label></td></tr>
                 <tr><td><input id="workshop3" type="checkbox" name="workshops" ng-model="myData.workshops[2]"></td><td><label for="workshop3">Date 3</label></td> </tr>
                 <tr><td><input id="workshop4" type="checkbox" name="workshops" ng-model="myData.workshops[3]"></td><td><label for="workshop4">Date 4</label></td></tr>
-                <tr><td><input id="no_workshop" type="checkbox" name="workshops" ng-model="workshops[4]"></td><td><label for="no_workshop">None</label></td></tr>
+                <tr><td><input id="no_workshop" type="checkbox" name="workshops" ng-model="myData.workshops[4]"></td><td><label for="no_workshop">None</label></td></tr>
             </tbody>
             </table>
         </div>
@@ -64,11 +64,12 @@
     <div class="partnerContent mainContentBox">
         <div class="challengeBox">
             <div class="profileImage">
-                <img src="images/face2.jpg"/>
+                <img src="images/partner.jpg"/>
             </div>
             <div class="challengeContent">
                 <h3>I want to...</h3>
-                <h1>DRINK MORE WATER</h1>
+                <h4>(Partner will appear here when matched)</h4>
+                <h1 class="blurryText light double">DRINK MORE WATER EVERY DAY</h1>
                 
             </div>
 
@@ -76,74 +77,29 @@
         </div>
         <div class="becauseBox miniBox">
             <h3>because...</h3>
-            <p>it makes me feel amazing, calms me down, and helps me find balance.</p>
+            <p class="blurryText light">it makes me feel amazing, calms me down, and helps me find balance.</p>
             
         </div>
         <div class="thenBox miniBox">
             <h3>and then I'll be...</h3>
-            <p>someone who feels like a strong physical machine ready to take on the world!</p>
+            <p class="blurryText light">someone who feels like a strong physical machine ready to take on the world!</p>
             
         </div> 
 
-         <div class="workshopBox">
+         <!-- <div class="workshopBox">
             <h3>I can attend the workshop on:</h3>
-            <table>
-            <tbody>
-                <tr><td><input id="workshop1" type="checkbox" name="workshops" ng-model="workshops[0]"></td><td><label for="workshop1">Date 1</label></td></tr>
-                <tr><td><input id="workshop2" type="checkbox" name="workshops" ng-model="workshops[1]"></td><td><label for="workshop2">Date 2</label></td></tr>
-                <tr><td><input id="workshop3" type="checkbox" name="workshops" ng-model="workshops[2]"></td><td><label for="workshop3">Date 3</label></td> </tr>
-                <tr><td><input id="workshop4" type="checkbox" name="workshops" ng-model="workshops[3]"></td><td><label for="workshop4">Date 4</label></td></tr>
-                <tr><td><input id="no_workshop" type="checkbox" name="workshops" ng-model="workshops[4]"></td><td><label for="no_workshop">None</label></td></tr>
-            </tbody>
-            </table>
-        </div>
+            
+        </div> -->
 
         <div class="blurbBox">
             <div class="quote">“</div>
             <div class="blurbContent">
-                <p>Some challenges I have in changing this behavior are finding the time and feelings too tired after work to go. I have tried creating a google calendar alaram but I just ignore it.</p>
-                <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div>
+                <p class="blurryText">Some challenges I have in changing this behavior are finding the time and feelings too tired after work to go. I have tried creating a google calendar alaram but I just ignore it.</p>
+                <!-- <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div> -->
             </div>
         </div>
     </div>
 
-
-
-
-    <!-- <hr>
-    <div class="single-pane">
-
-    <form name="signup" class="signup-form" novalidate>
-        I need a way to <input ng-model="need" type="text" name="need" required> in a way that makes me feel <input ng-model="insight" name="insight" type="text" required> </br>
-        </br>
-        Describe the problem you want to improve: <input ng-model="problem" placeholder="Hey I''m an elephant" name="problem" type="textarea" required> </br>
-        </br>
-        I am able to attend the workshop at the following times:
-        <table>
-        <tbody>
-            <tr><td><input id="workshop1" type="checkbox" name="workshops" ng-model="workshops[0]"></td><td><label for="workshop1">Date 1</label></td></tr>
-            <tr><td><input id="workshop2" type="checkbox" name="workshops" ng-model="workshops[1]"></td><td><label for="workshop2">Date 2</label></td></tr>
-            <tr><td><input id="workshop3" type="checkbox" name="workshops" ng-model="workshops[2]"></td><td><label for="workshop3">Date 3</label></td> </tr>
-            <tr><td><input id="workshop4" type="checkbox" name="workshops" ng-model="workshops[3]"></td><td><label for="workshop4">Date 4</label></td></tr>
-            <tr><td><input id="no_workshop" type="checkbox" name="workshops" ng-model="workshops[4]"></td><td><label for="no_workshop">I can't attend any workshops</label></td></tr>
-        </tbody>
-        </table>
-        </br>
-
-        <button type="submit" ng-click="singleCntrl.submit(need, insight, problem, workshops)">Submit</button>
-    </form>
-    <div ng-show="signup.$submitted || signup.need.$touched">
-        <div ng-show="signup.need.$error.required">Please fill in the first blank</div>
-    </div>
-    <div ng-show="signup.$submitted || signup.insight.$touched">
-        <div ng-show="signup.insight.$error.required">Please fill in the second blank</div>
-    </div>
-    <div ng-show="signup.$submitted || signup.problem.$touched">
-        <div ng-show="signup.problem.$error.required">Please provide a description of your problem</div>
-    </div>
-    <div ng-show="signup.$submitted || signup.workshops.$touched">
-        <div ng-show="!workshops || !(workshops[0] || workshops[1] || workshops[2] || workshops[3] || workshops[4])">Please select one of the workshops</div>
-    </div> -->
 </div>
 </div>
 

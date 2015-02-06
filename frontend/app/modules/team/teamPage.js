@@ -11,11 +11,11 @@ teamPage.directive("teamPane", function(){
             $scope.problem = ""
 
             $scope.myData = {
-            	'want': "",
-            	'because': "",
-            	'then': "",
-            	'workshops': [false,false,false,false,false],
-                'blurb': ["","","","","","",""]
+            	want: "GO TO YOGA MORE OFTEN",
+            	because: "it makes me feel amazing, calms me down, and helps me find balance.",
+            	then: "someone who feels like a strong physical machine ready to take on the world!",
+            	workshops: [false,false,false,false,false],
+                blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
             };
 
             $scope.partnerData = {
@@ -36,16 +36,19 @@ teamPage.directive("teamPane", function(){
 				return false;
 			}
 
-            this.submit = function(need, insight, problem, workshops){
-                var hasworkshop = workshopSelected(workshops)
-                if(need.length >= 1 && insight.length >= 1 && problem.length >= 1 && hasworkshop) {
-                    alert("submitting " + need + insight + problem + workshops);
-                }
-            };
 
             this.save = function(){
-                console.log('hi');
                 console.log($scope.myData);
+                data = {
+                    uID: 'travis',
+                    goal: JSON.stringify($scope.myData)
+                };
+                _HTTP("post", "goal", data, function(result){
+                    // $scope.getuser_result = result;
+                    // updateAllUsers();
+                    console.log(JSON.parse(result['goal']));
+                    $scope.$apply();
+                }); 
             };
 
 
