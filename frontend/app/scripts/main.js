@@ -108,7 +108,8 @@ getQueryString = function(obj) {
 _HTTP = function(method, entity, data, callback) {
   var url, xhr;
   // var base_url = 'https://www.bitbybit.me/api';
-  var base_url = 'http://localhost:5000/api';
+  var base_url = 'http://bitxbit.media.mit.edu/api';
+  // var base_url = 'http://localhost:5000/api';
   if (method === 'post' || method === 'put') {
     url = base_url + "/" + entity;
     xhr = new XMLHttpRequest();
