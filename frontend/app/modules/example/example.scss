@@ -23,8 +23,9 @@ div.continueButton{
   color: white;
   
   margin: 0 auto;
-  position: relative;
-  margin-bottom: 30px;
+  position: absolute;
+  top:-80px;
+  // margin-bottom: 30px;
   
   h3{
     // padding: 5px;
@@ -53,23 +54,20 @@ div.workshopBox{
 
 div.mobile{
   div.continueButton{
-    clear:both;
-  width: 80%;
-  height: 150px;
-  background-color: black;
-  line-height: 150px;
-  font-size: 60px;
-  text-align: center;
-  color: white;
+  //   clear:both;
+  // width: 80%;
+  // height: 150px;
+  // background-color: black;
+  // line-height: 150px;
+  // font-size: 60px;
+  // text-align: center;
+  // color: white;
   
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 30px;
+  // margin: 0 auto;
+  // position: relative;
+  // margin-bottom: 30px;
   
-  h3{
-    // padding: 5px;
-
-  }
+  
   a{
     color: white;
     text-decoration: none;
