@@ -5,6 +5,8 @@ BitByBit Restful API
 import json
 import time
 
+import urllib, urllib2, Cookie
+
 from flask import Flask, request, abort, redirect, Response, jsonify
 from flask.ext.restful import Resource, Api, reqparse
 
@@ -101,10 +103,10 @@ api.add_resource(Private, '/api/private/test')
 # Goal
 ############################
 goalGetParser = reqparse.RequestParser()
-goalGetParser.add_argument('uID', type=str, required=True)
+# goalGetParser.add_argument('uID', type=str, required=True)
 
 goalPostParser = reqparse.RequestParser()
-goalPostParser.add_argument('uID', type=str, required=True)
+# goalPostParser.add_argument('uID', type=str, required=True)
 goalPostParser.add_argument('goal', type=str, required=True)
 
 goalDeleteParser = reqparse.RequestParser()
@@ -113,19 +115,97 @@ goalDeleteParser.add_argument('uID', type=str, required=True)
 class Goal(Resource):
 	def get(self):
 		args = goalGetParser.parse_args()
-		uID = args.get('uID')
-		return MongoInstance.getGoal(uID)
+		# uID = args.get('uID')
+		try:
+			cookie = request.headers['Cookie']
+			req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
+			req.add_header('Cookie', cookie)
+			r = urllib2.urlopen(req)
+			# print r.read()
+			if r.read()[:4]=='true':
+				# print 'yep'
+				c = Cookie.SimpleCookie()
+				# print hcook
+				c.load(str(cookie))
+				mlCookie = c['MediaLabUser'].value
+				user = urllib.unquote(mlCookie).split(';')[0]
+				uID = urllib.unquote(mlCookie).split(';')[5]
+				print user
+				print uID
+
+				if len(user.split('@media.mit.edu')) == 2:
+					username = user.split('@media.mit.edu')[0]
+				else:
+					username = user
+
+				print username
+
+				
+				req2 = urllib2.Request('http://data.media.mit.edu/spm/contacts/json?username='+username)
+				# req2.add_header('Cookie', cookie)
+				r2 = urllib2.urlopen(req2)
+				x = r2.read()
+				name = json.loads(x)['profile']['first_name']
+				image = json.loads(x)['profile']['picture_url']
+				return {'name':name, 'image':image, 'goal':MongoInstance.getGoal(uID)}
+			else:
+				return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
+			
+		except:
+			cookie = "No Cookies!"
+			return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
+		# return cookie
+		
 	def post(self):
 		args = goalPostParser.parse_args()
-		uID = args.get('uID')
+		# uID = args.get('uID')
 		goal = args.get('goal')
 		# print goal
-		return MongoInstance.postGoal(uID, goal)
+		
+		try:
+			cookie = request.headers['Cookie']
+			req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
+			req.add_header('Cookie', cookie)
+			r = urllib2.urlopen(req)
+			# print r.read()
+			if r.read()[:4]=='true':
+				# print 'yep'
+				c = Cookie.SimpleCookie()
+				# print hcook
+				c.load(str(cookie))
+				mlCookie = c['MediaLabUser'].value
+				user = urllib.unquote(mlCookie).split(';')[0]
+				uID = urllib.unquote(mlCookie).split(';')[5]
+				print user
+				print uID
+
+				# if len(user.split('@media.mit.edu')) == 2:
+				# 	username = user.split('@media.mit.edu')[0]
+				# else:
+				# 	username = user
+
+				# print username
+
+				
+				# req2 = urllib2.Request('http://data.media.mit.edu/spm/contacts/json?username='+username)
+				# # req2.add_header('Cookie', cookie)
+				# r2 = urllib2.urlopen(req2)
+				# x = r2.read()
+				# name = json.loads(x)['profile']['first_name']
+				# image = json.loads(x)['profile']['picture_url']
+				return MongoInstance.postGoal(uID, goal)
+			else:
+				return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
+			
+		except:
+			cookie = "No Cookies!"
+			return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
+		
 	def delete(self):
 		args = goalDeleteParser.parse_args()
 		uID = args.get('uID')
 		return MongoInstance.deleteGoal(uID)
-api.add_resource(Goal, '/api/goal')
+api.add_resource(Goal, '/api/private/goal')
 
 
 ############################
@@ -151,7 +231,7 @@ class User(Resource):
 		return MongoInstance.postUser(uID)
 	def delete(self):
 		args = userDeleteParser.parse_args()
-		uID = args.get('uID')
+		uID = args.get('uID') 
 		return MongoInstance.deleteUser(uID)
 api.add_resource(User, '/api/user')
 
@@ -170,5 +250,5 @@ api.add_resource(AllUsers, '/api/allusers')
 
 if __name__ == '__main__':
     # application.run(host = '0.0.0.0', debug=True)
-    application.run(host = 'localhost')
+    application.run(host = 'localhost.media.mit.edu', debug=True)
     #application.run(debug="true", port=PORT)
