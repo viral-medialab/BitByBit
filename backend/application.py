@@ -164,6 +164,7 @@ class Goal(Resource):
 			
 		except:
 			cookie = "No Cookies!"
+			print cookie
 			return 'redirect'
 			# return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
 		# return cookie

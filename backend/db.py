@@ -15,7 +15,7 @@ import sys
 class mongoInstance(object):
 
 
-    def addUserData(uID,user,name,image):
+    def addUserData(self, uID,user,name,image):
         updateFields = {}
         updateFields['uID'] = uID
         updateFields['user'] = user
