@@ -5,6 +5,7 @@ examplePage.directive("examplePane", function(){
 		restrict: 'E',
 		templateUrl: '/templates/example-pane.html',
 		controller: function($http,$scope){
+            
             $scope.workshops = [true,false,true,false,false];
             $scope.need = "";
             $scope.insight = "";

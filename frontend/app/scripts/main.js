@@ -29,6 +29,16 @@ app.directive('watchResize', function(){
   };
 });
 
+app.directive("loadingAnimation", function(){
+  return{
+    restrict: 'E',
+    templateUrl: '/templates/loadingAnimation.html',
+    controller: function($scope,$rootScope){
+    },
+    controllerAs: 'loadingAnimationCntrl'
+  };
+});
+
 app.controller('bodyCntrl', ['$scope', '$rootScope', function($scope, $rootScope) {
   if(window.innerWidth<900){
     $scope.mobile = true;
@@ -49,7 +59,11 @@ app.directive('contenteditable', function() {
                 // view -> model
                 elm.bind('blur', function() {
                     scope.$apply(function() {
-                        ctrl.$setViewValue(elm.html());
+                        if (elm.html() === ""){
+                          elm.html("blank");
+                        }
+                          ctrl.$setViewValue(elm.html());
+                         
                     });
                 });
 

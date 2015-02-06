@@ -42,6 +42,21 @@
       }
   	}
 
+    .result-box{
+      position: absolute;
+      bottom: 55px;
+      right: 120px;
+      pointer-events: none;
+      div{
+        position: absolute;
+        text-align: center;
+        font-size: 25px;
+        width: 40px;
+        color: #128d9d;
+        line-height: 43px;
+      }
+    }
+
   	div.team-header{
   		width: 100%;
   		&:after {
@@ -214,6 +229,10 @@
             width: 20%;
           }
         }
+        h4{
+          font-weight: 300;
+
+        }
         
       }
 
@@ -246,6 +265,8 @@
           span{
             color: rgb(18,141,157);
             font-style: italic;
+            // text-decoration: underline;
+            // min-width: 20px;
           }
   			}
   		}
@@ -259,7 +280,7 @@
          text-shadow: 0 0 10px rgba(0,0,0,0.5);
 
          &.light{
-          text-shadow: 0 0 15px rgba(255,255,255,1.0);
+          text-shadow: 0 0 25px rgba(255,255,255,1.0);
          }
 
          &.double{
@@ -273,7 +294,7 @@
   		}
       div.becauseBox{
         background-color: rgb(20,20,20);
-        border-top: 1px solid rgb(51,51,51);
+        border-top: 1px solid rgb(40,40,40);
       }
       div.thenBox{
         background-color: rgb(0,0,0);
@@ -300,5 +321,177 @@ div.team-pane.mobile{
   		max-width: 100%;
   		margin-left: 0%;
   		margin-top: 10px;
+
+      div.challengeBox{
+        width: 100%;
+        height:300px;
+        
+        color: white;
+        position: relative;
+        div.profileImage{
+          width:20%;
+          float:left;
+          img{
+            width:100%;
+          }
+        }
+        div.challengeContent{
+          width:80%;
+          float:left;
+          h1, h3{
+            padding-left: 20px;
+
+          }
+          h1{
+            font-size: 60px;
+            height: 219px;
+            overflow: scroll;
+            text-transform: uppercase;
+          }
+          h3{
+            padding-top: 20px;
+            font-size: 40px;
+          }
+          h4{
+            padding-left: 20px;
+            font-weight: 300;
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            font-size: 30px;
+          }
+        } 
+      }
+      div.miniBox{
+        width:100%;
+        // float:left;
+        height: 400px;
+        color: white;
+        position: relative;
+        h3,p{
+          padding-left: 15%;
+        }
+        h3{
+          padding-top: 10px;
+          padding-bottom: 30px;
+          font-size: 40px;
+        }
+        p{
+          padding-right: 10%;
+          height: 311px;
+          overflow: scroll;
+          font-size: 40px;
+          font-weight: 300;
+        }
+      }
+      div.workshopBox{
+        padding-left: 10%;
+        padding-top: 20px;
+        padding-bottom: 100px;
+        clear:both;
+        font-size: 40px;
+        input[type=checkbox] {width:30px; height:100px;}
+        &:after {
+          content:"";
+          display:table;
+          clear:both;
+        }
+        table{
+          width: 100%;
+          tr{
+            float:left;
+            width: 20%;
+            font-size: 40px;
+          }
+        }
+        h4{
+          font-weight: 300;
+          font-size: 30px;
+        }
+        
+      }
+      div.blurbBox{
+        padding:20px;
+        padding-bottom: 140px;
+        // clear:both;
+        // position: relative;
+        // &:after {
+        //   content:"";
+        //   display:table;
+        //   clear:both;
+        // }
+        // div.quote{
+        //   width: 12%;
+        //   // height: 100%;
+        //   float:left;
+        //   font-size: 85px;
+        //   font-family: Georgia, serif;
+        //   line-height: 55px;
+        //   text-align: center;
+        // }
+        // div.blurbContent{
+        //   width: 88%;
+        //   float:left;
+        //   font-size: 20px;
+        //   margin-bottom: 20px;
+        //   p{
+        //     padding-bottom: 20px;
+        //   }
+        //   span{
+        //     color: rgb(18,141,157);
+        //     font-style: italic;
+        //   }
+        // }
+      }
   	}
+    div.editButton{
+      width: 200px;
+      height: 80px;
+      background-color: black;
+      line-height: 80px;
+      text-align: center;
+      color: white;
+      padding: 5px;
+      font-size: 30px;
+
+      &.light{
+        background-color: #ccc;
+        color: black;
+      }
+      &.br{
+        position: absolute;
+        bottom:40px;
+        right: 60px;
+      }
+
+      &:hover{
+        
+        cursor: pointer;
+      }
+      &:active{
+        
+        bottom: 39px;
+      }
+    }
+
+    .result-box{
+      position: absolute;
+      bottom: 135px;
+      right: 375px;
+      pointer-events: none;
+      svg{
+        width: 100px;
+        height: 100px;
+      }
+      div{
+        position: absolute;
+        text-align: center;
+        font-size: 75px;
+        width: 100px;
+        color: #128d9d;
+        line-height: 103px;
+      }
+    }
+
+    
 }

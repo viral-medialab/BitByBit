@@ -5,6 +5,7 @@ teamPage.directive("teamPane", function(){
 		restrict: 'E',
 		templateUrl: '/templates/team-pane.html',
 		controller: function($http,$scope){
+            
             $scope.workshops = [false,false,false,false,false];
             $scope.need = "";
             $scope.insight = "";
@@ -22,7 +23,7 @@ teamPage.directive("teamPane", function(){
                 because: "",
                 then: "",
                 workshops: [false,false,false,false,false],
-                blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
+                blurb: ["blank","blank","blank","blank","blank","blank","blank"]
             };
 
             data = {
@@ -55,9 +56,15 @@ teamPage.directive("teamPane", function(){
 				return false;
 			}
 
+            $scope.updatingProject = false;
+            $scope.updatedProject = false;
+            $scope.updatedError = false;
 
             this.save = function(){
-                console.log($scope.myData);
+                $scope.updatingProject = true;
+                $scope.updatedProject = false;
+                $scope.updatedError = false;
+
                 data = {
                     uID: 'travis',
                     goal: JSON.stringify($scope.myData)
@@ -65,7 +72,30 @@ teamPage.directive("teamPane", function(){
                 _HTTP("post", "goal", data, function(result){
                     // $scope.getuser_result = result;
                     // updateAllUsers();
-                    console.log(JSON.parse(result['goal']));
+                    try{
+                        JSON.parse(result['goal'])
+                        $scope.updatingProject = false;
+                        $scope.updatedProject = true;
+                        $scope.updatedError = false;
+                        $scope.$apply();
+                        setTimeout(function(){
+                            $scope.updatingProject = false;
+                            $scope.updatedProject = false;
+                            $scope.updatedError = false;
+                            $scope.$apply();
+                        },5000);
+                    }catch(err){
+                        $scope.updatingProject = false;
+                        $scope.updatedProject = false;
+                        $scope.updatedError = true;
+                        $scope.$apply();
+                        setTimeout(function(){
+                            $scope.updatingProject = false;
+                            $scope.updatedProject = false;
+                            $scope.updatedError = false;
+                            $scope.$apply();
+                        },5000);
+                    }
                     $scope.$apply();
                 }); 
             };

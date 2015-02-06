@@ -50,3 +50,37 @@ div.workshopBox{
     pointer-events: none;
   }
 }
+
+div.mobile{
+  div.continueButton{
+  width: 80%;
+  height: 150px;
+  background-color: black;
+  line-height: 150px;
+  font-size: 60px;
+  text-align: center;
+  color: white;
+  
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 30px;
+  
+  h3{
+    // padding: 5px;
+
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+
+  &:hover{
+    
+    cursor: pointer;
+  }
+  &:active{
+    
+    top: 1px;
+  }
+}
+}
