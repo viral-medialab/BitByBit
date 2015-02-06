@@ -53,20 +53,31 @@ div.workshopBox{
 }
 
 div.mobile{
+
+  div.team-header{
+    height: 340px;
+  }
+
+  div.exampleText{
+    top: -60px;
+    h2{
+      font-size: 40px;
+    }
+  }
   div.continueButton{
   //   clear:both;
   // width: 80%;
-  // height: 150px;
+  height: 80px;
   // background-color: black;
-  // line-height: 150px;
-  // font-size: 60px;
+  line-height: 80px;
+  font-size: 40px;
   // text-align: center;
   // color: white;
   
   // margin: 0 auto;
   // position: relative;
   // margin-bottom: 30px;
-  
+  top: -145px;
   
   a{
     color: white;
