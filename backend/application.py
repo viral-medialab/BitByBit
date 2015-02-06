@@ -6,6 +6,7 @@ import json
 import time
 
 import urllib, urllib2, Cookie
+import hashlib
 
 from flask import Flask, request, abort, redirect, Response, jsonify
 from flask.ext.restful import Resource, Api, reqparse
@@ -129,7 +130,11 @@ class Goal(Resource):
 				c.load(str(cookie))
 				mlCookie = c['MediaLabUser'].value
 				user = urllib.unquote(mlCookie).split(';')[0]
-				uID = urllib.unquote(mlCookie).split(';')[5]
+				hash_object = hashlib.sha1(user)
+				uID = hash_object.hexdigest()
+				
+
+				# = urllib.unquote(mlCookie).split(';')[5]
 				# print user
 				# print uID
 
@@ -150,13 +155,17 @@ class Goal(Resource):
 				except:
 					name = 'You'
 					image = 'images/face.jpg'
+
+				MongoInstance.addUserData(uID,user,name,image)
 				return {'name':name, 'image':image, 'goal':MongoInstance.getGoal(uID)}
 			else:
-				return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
+				return 'redirect'
+				# return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
 			
 		except:
 			cookie = "No Cookies!"
-			return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
+			return 'redirect'
+			# return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
 		# return cookie
 		
 	def post(self):
@@ -178,7 +187,9 @@ class Goal(Resource):
 				c.load(str(cookie))
 				mlCookie = c['MediaLabUser'].value
 				user = urllib.unquote(mlCookie).split(';')[0]
-				uID = urllib.unquote(mlCookie).split(';')[5]
+				hash_object = hashlib.sha1(user)
+				uID = hash_object.hexdigest()
+
 				# print user
 				# print uID
 
@@ -198,11 +209,13 @@ class Goal(Resource):
 				# image = json.loads(x)['profile']['picture_url']
 				return MongoInstance.postGoal(uID, goal)
 			else:
-				return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
+				return 'redirect'
+				# return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
 			
 		except:
 			cookie = "No Cookies!"
-			return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
+			return 'redirect'
+			# return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
 		
 	def delete(self):
 		args = goalDeleteParser.parse_args()

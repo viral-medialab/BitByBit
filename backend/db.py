@@ -14,6 +14,16 @@ import sys
 
 class mongoInstance(object):
 
+
+    def addUserData(uID,user,name,image):
+        updateFields = {}
+        updateFields['uID'] = uID
+        updateFields['user'] = user
+        updateFields['name'] = name
+        updateFields['image'] = image
+
+        MongoInstance.client['bitbybit']['userdata'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+
     ############################
     # Goal
     ############################

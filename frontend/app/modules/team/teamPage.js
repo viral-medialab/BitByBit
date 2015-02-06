@@ -19,11 +19,11 @@ teamPage.directive("teamPane", function(){
             //     blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
             // };
             $scope.myData = {
-                want: "",
-                because: "",
-                then: "",
+                want: "____",
+                because: "____",
+                then: "____",
                 workshops: [false,false,false,false,false],
-                blurb: ["blank","blank","blank","blank","blank","blank","blank"]
+                blurb: ["____","____","____","____","____","____","____"]
             };
 
             data = {

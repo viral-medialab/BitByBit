@@ -60,7 +60,10 @@ app.directive('contenteditable', function() {
                 elm.bind('blur', function() {
                     scope.$apply(function() {
                         if (elm.html() === ""){
-                          elm.html("blank");
+                          elm.html("____");
+                        // }else if(elm.html() != "____"){
+                        }else if((elm.html().split("_").length - 1) != elm.html().length){
+                          elm.html(elm.html().replace(/_/g,"")) ;
                         }
                           ctrl.$setViewValue(elm.html());
                          
