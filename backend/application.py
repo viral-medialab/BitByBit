@@ -117,6 +117,26 @@ class Goal(Resource):
 	def get(self):
 		args = goalGetParser.parse_args()
 		# uID = args.get('uID')
+
+
+		##############
+		# For local Debug and Develop
+		##############
+		# user = 'trich@media.mit.edu'
+		# username = 'trich'
+		# hash_object = hashlib.sha1(user)
+		# uID = hash_object.hexdigest()
+		# name = 'TestYou'
+		# image = 'http://pldb.media.mit.edu/research/images/nophoto.gif'
+
+		# MongoInstance.addUserData(uID,user,name,image)
+		# return {'name':name, 'image':image, 'goal':MongoInstance.getGoal(uID)}
+		##############
+		# End Debug Section
+		##############
+
+
+
 		try:
 			cookie = request.headers['Cookie']
 			req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
@@ -124,26 +144,18 @@ class Goal(Resource):
 			r = urllib2.urlopen(req)
 			# print r.read()
 			if r.read()[:4]=='true':
-				# print 'yep'
 				c = Cookie.SimpleCookie()
-				# print hcook
 				c.load(str(cookie))
 				mlCookie = c['MediaLabUser'].value
 				user = urllib.unquote(mlCookie).split(';')[0]
 				hash_object = hashlib.sha1(user)
 				uID = hash_object.hexdigest()
 				
-
-				# = urllib.unquote(mlCookie).split(';')[5]
-				# print user
-				# print uID
-
 				if len(user.split('@media.mit.edu')) == 2:
 					username = user.split('@media.mit.edu')[0]
 				else:
 					username = user
 
-				# print username
 
 				try:
 					req2 = urllib2.Request('http://data.media.mit.edu/spm/contacts/json?username='+username)
@@ -166,10 +178,9 @@ class Goal(Resource):
 			
 		except:
 			cookie = "No Cookies!"
-			print cookie
+			# print cookie
 			return 'redirect'
-			# return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
-		# return cookie
+			
 		
 	def post(self):
 		args = goalPostParser.parse_args()
@@ -177,6 +188,23 @@ class Goal(Resource):
 		goal = args.get('goal')
 		# print goal
 		
+
+		##############
+		# For local Debug and Develop
+		##############
+		# user = 'trich@media.mit.edu'
+		# username = 'trich'
+		# hash_object = hashlib.sha1(user)
+		# uID = hash_object.hexdigest()
+		# name = 'TestYou'
+		# image = 'http://pldb.media.mit.edu/research/images/nophoto.gif'
+
+		# return MongoInstance.postGoal(uID, goal)
+		##############
+		# End Debug Section
+		##############
+
+
 		try:
 			cookie = request.headers['Cookie']
 			req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
@@ -193,32 +221,14 @@ class Goal(Resource):
 				hash_object = hashlib.sha1(user)
 				uID = hash_object.hexdigest()
 
-				# print user
-				# print uID
-
-				# if len(user.split('@media.mit.edu')) == 2:
-				# 	username = user.split('@media.mit.edu')[0]
-				# else:
-				# 	username = user
-
-				# print username
-
-				
-				# req2 = urllib2.Request('http://data.media.mit.edu/spm/contacts/json?username='+username)
-				# # req2.add_header('Cookie', cookie)
-				# r2 = urllib2.urlopen(req2)
-				# x = r2.read()
-				# name = json.loads(x)['profile']['first_name']
-				# image = json.loads(x)['profile']['picture_url']
 				return MongoInstance.postGoal(uID, goal)
 			else:
 				return 'redirect'
-				# return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
 			
 		except:
 			cookie = "No Cookies!"
 			return 'redirect'
-			# return redirect("http://www.media.mit.edu/login?destination=http%3A%2F%2Fbitxbit.media.mit.edu%2Fteam&previous=http%3A%2F%2Fbitxbit.media.mit.edu", code=302)
+
 		
 	def delete(self):
 		args = goalDeleteParser.parse_args()

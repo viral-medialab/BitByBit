@@ -18,6 +18,7 @@ teamPage.directive("teamPane", function(){
             // 	workshops: [false,false,false,false,false],
             //     blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
             // };
+            
             $scope.myData = {
                 want: "____",
                 because: "____",
@@ -39,9 +40,10 @@ teamPage.directive("teamPane", function(){
                 }else{
                     $scope.name = result['name']
                     $scope.image = result['image']
-                    goal = JSON.parse(result['goal']);
+                    // console.log(result)
+                    goal = result['goal'];
                     if (goal != false){
-                        $scope.myData = JSON.parse(result['goal']);
+                        $scope.myData = result['goal'];
                     }
                     
                     $scope.$apply();
@@ -89,7 +91,7 @@ teamPage.directive("teamPane", function(){
         
                     }else{
                         try{
-                            JSON.parse(result['goal'])
+                            result['goal']
                             $scope.updatingProject = false;
                             $scope.updatedProject = true;
                             $scope.updatedError = false;
