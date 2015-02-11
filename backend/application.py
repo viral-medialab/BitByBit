@@ -285,26 +285,26 @@ class Workshops(Resource):
 		
 		
 
-		try:
-			cookie = request.headers['Cookie']
-			req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
-			req.add_header('Cookie', cookie)
-			r = urllib2.urlopen(req)
-			# print r.read()
-			if r.read()[:4]=='true':
-				c = Cookie.SimpleCookie()
-				c.load(str(cookie))
-				mlCookie = c['MediaLabUser'].value
-				user = urllib.unquote(mlCookie).split(';')[0]
-				hash_object = hashlib.sha1(user)
-				uID = hash_object.hexdigest()
-				
-				if len(user.split('@media.mit.edu')) == 2:
-					username = user.split('@media.mit.edu')[0]
-					if username == "jaquesn" or username == "trich":
-						return MongoInstance.workshops()
-		except: 
-			return "No way"
+		# try:
+		cookie = request.headers['Cookie']
+		req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
+		req.add_header('Cookie', cookie)
+		r = urllib2.urlopen(req)
+		# print r.read()
+		if r.read()[:4]=='true':
+			c = Cookie.SimpleCookie()
+			c.load(str(cookie))
+			mlCookie = c['MediaLabUser'].value
+			user = urllib.unquote(mlCookie).split(';')[0]
+			hash_object = hashlib.sha1(user)
+			uID = hash_object.hexdigest()
+			
+			if len(user.split('@media.mit.edu')) == 2:
+				username = user.split('@media.mit.edu')[0]
+				if username == "jaquesn" or username == "trich":
+					return MongoInstance.workshops()
+		# except: 
+		# 	return "No way"
 
 api.add_resource(Workshops, '/api/private/workshops')
 
