@@ -112,7 +112,7 @@ class mongoInstance(object):
 		for result in results:
 			stringResults = stringResults + results[result]['email']
 			for workshop in results[result]['workshops']:
-				stringResults = stringResults  + "," + workshop
+				stringResults = stringResults  + "," + str(workshop)
 			stringResults = stringResults + "\n"
 
 
