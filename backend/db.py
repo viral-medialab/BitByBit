@@ -111,7 +111,7 @@ class mongoInstance(object):
 		stringResults = "email,workshop1,workshop2,workshop3,workshop4,workshop5\n"
 		for result in results:
 			stringResults = stringResults + results[result]['email']
-			for workshop in result[result]['workshops']:
+			for workshop in results[result]['workshops']:
 				stringResults = stringResults  + "," + workshop
 			stringResults = stringResults + "\n"
 
