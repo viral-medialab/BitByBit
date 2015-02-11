@@ -121,7 +121,7 @@ class mongoInstance(object):
 			stringResults = stringResults + "\n"
 
 
-		return stringResults
+		return print stringResults
 		# return results
 
 
