@@ -95,11 +95,11 @@ class mongoInstance(object):
 		for user in cursor:
 			uID = user['uID']
 			try:
-                userData = MongoInstance.client['bxbUsers']['userdata'].find_one({'uID':uID}, {'_id': 0})
-                if userData:
-    				results[uID] = {}
-    				results[uID]['workshops'] = user['goal']['workshops']
-                    results[uID]['email'] = userData['user']
+				userData = MongoInstance.client['bxbUsers']['userdata'].find_one({'uID':uID}, {'_id': 0})
+				if userData:
+					results[uID] = {}
+					results[uID]['workshops'] = user['goal']['workshops']
+					results[uID]['email'] = userData['user']
 
 			except:
 				# del results[uID]
@@ -122,7 +122,7 @@ class mongoInstance(object):
 
 
 		# return stringResults
-        return results
+		return results
 
 
 
