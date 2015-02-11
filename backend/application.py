@@ -301,7 +301,7 @@ class Workshops(Resource):
 			
 			if len(user.split('@media.mit.edu')) == 2:
 				username = user.split('@media.mit.edu')[0]
-				if username == "jaquesn" or username == "trich":
+				if username == "jaquesn" or username == "trich" or username == "cvx":
 					return MongoInstance.workshops()
 		# except: 
 		# 	return "No way"
