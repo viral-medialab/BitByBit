@@ -98,6 +98,7 @@ class mongoInstance(object):
 				results[uID] = {}
 				results[uID]['workshops'] = user['goal']['workshops']
 			except:
+				del results[uID]
 				print "That was a fake one"
 
 		cursor2 = MongoInstance.client['bxbUsers']['userdata'].find({}, {'_id': 0})
