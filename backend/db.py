@@ -103,7 +103,11 @@ class mongoInstance(object):
         cursor2 = MongoInstance.client['bxbUsers']['userdata'].find({}, {'_id': 0})
         for user in cursor2:
             uID = user['uID']
-            results[uID]['email'] = user['user']
+            try:
+                results[uID]['email'] = user['user']
+            except:
+                print "That user had no data"     
+
             
             
         return results
