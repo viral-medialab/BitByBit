@@ -15,115 +15,121 @@ import sys
 class mongoInstance(object):
 
 
-    def addUserData(self, uID,user,name,image):
-        updateFields = {}
-        updateFields['uID'] = uID
-        updateFields['user'] = user
-        updateFields['name'] = name
-        updateFields['image'] = image
+	def addUserData(self, uID,user,name,image):
+		updateFields = {}
+		updateFields['uID'] = uID
+		updateFields['user'] = user
+		updateFields['name'] = name
+		updateFields['image'] = image
 
-        MongoInstance.client['bxbUsers']['userdata'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+		MongoInstance.client['bxbUsers']['userdata'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
 
-    ############################
-    # Goal
-    ############################
-    def getGoal(self,uID):
-        if MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}):
-            return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
-        else:
-            return False
+	############################
+	# Goal
+	############################
+	def getGoal(self,uID):
+		if MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}):
+			return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
+		else:
+			return False
 
-    def postGoal(self, uID, goal): 
-        updateFields = {}
-        updateFields['goal'] = {}
-        timestamp = int(time.time())
+	def postGoal(self, uID, goal):
+		updateFields = {}
+		updateFields['goal'] = {}
+		timestamp = int(time.time())
 
-        # print goal
-        x =  json.loads(goal)
-        for item in x:
-            # print item + ' :  '+str(x[item])
-            updateFields['goal'][item] = x[item]
+		# print goal
+		x =  json.loads(goal)
+		for item in x:
+			# print item + ' :  '+str(x[item])
+			updateFields['goal'][item] = x[item]
 
-        MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
-        MongoInstance.client['bitbybit']['usersArchive'].insert({'uID':uID, 'goal':updateFields['goal'],'time':timestamp})
-        return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
+		MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+		MongoInstance.client['bitbybit']['usersArchive'].insert({'uID':uID, 'goal':updateFields['goal'],'time':timestamp})
+		return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
 
-        # thing = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
-        # print thing
-        # print json.loads(thing['goal'])['want']
-        # # print json.loads(thing)
-        # # print json.loads(thing)['want']
-
-
-
-    def deleteGoal(self, uID):
-        updateFields = {}
-        updateFields['goal'] = ''
-        MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=False)
-        return {'goalDeleted': True}
-
-    ############################
-    # User
-    ############################
-    def getUser(self,uID):
-        return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
-
-    def postUser(self, uID): 
-        updateFields = {}
-        updateFields['uID'] = uID
-        MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
-        return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
-
-    def deleteUser(self, uID):
-        MongoInstance.client['bitbybit']['users'].remove({'uID': uID})             
-        return {'userDeleted': True}
-
-
-    ############################
-    # Get All Users
-    ############################
-    def allUsers(self):
-        cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
-        results = []
-        for result in cursor:
-            results.append(result)
-        return results
-            
-    def workshops(self):
-        cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
-        results = {}
-        for user in cursor:
-            uID = user['uID']
-            results[uID] = {}
-            try:
-                results[uID]['workshops'] = user['goal']['workshops']
-            except:
-                print "That was a fake one"
-
-        cursor2 = MongoInstance.client['bxbUsers']['userdata'].find({}, {'_id': 0})
-        for user in cursor2:
-            uID = user['uID']
-            try:
-                results[uID]['email'] = user['user']
-            except:
-                print "That user had no data"     
-
-            
-            
-        return results
-            
-
-    
+		# thing = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
+		# print thing
+		# print json.loads(thing['goal'])['want']
+		# # print json.loads(thing)
+		# # print json.loads(thing)['want']
 
 
 
-        
-    # Client corresponding to a single connection
-    @property
-    def client(self):
-        if not hasattr(self, '_client'):
-            self._client = pymongo.MongoClient(host='localhost:27017')
-        return self._client
+	def deleteGoal(self, uID):
+		updateFields = {}
+		updateFields['goal'] = ''
+		MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=False)
+		return {'goalDeleted': True}
+
+	############################
+	# User
+	############################
+	def getUser(self,uID):
+		return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
+
+	def postUser(self, uID):
+		updateFields = {}
+		updateFields['uID'] = uID
+		MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+		return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
+
+	def deleteUser(self, uID):
+		MongoInstance.client['bitbybit']['users'].remove({'uID': uID})
+		return {'userDeleted': True}
+
+
+	############################
+	# Get All Users
+	############################
+	def allUsers(self):
+		cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
+		results = []
+		for result in cursor:
+			results.append(result)
+		return results
+
+	def workshops(self):
+		cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
+		results = {}
+		for user in cursor:
+			uID = user['uID']
+			results[uID] = {}
+			try:
+				results[uID]['workshops'] = user['goal']['workshops']
+			except:
+				print "That was a fake one"
+
+		cursor2 = MongoInstance.client['bxbUsers']['userdata'].find({}, {'_id': 0})
+		for user in cursor2:
+			uID = user['uID']
+			try:
+				results[uID]['email'] = user['user']
+			except:
+				print "That user had no data"
+
+		stringResults = "email,workshop1,workshop2,workshop3,workshop4,workshop5\n"
+		for result in results:
+			stringResults = stringResults + results[result]['email']
+			for workshop in result[result]['workshops']:
+				stringResults = stringResults  + "," + workshop
+			stringResults = stringResults + "\n"
+
+
+		return stringResults
+
+
+
+
+
+
+
+	# Client corresponding to a single connection
+	@property
+	def client(self):
+		if not hasattr(self, '_client'):
+			self._client = pymongo.MongoClient(host='localhost:27017')
+		return self._client
 
 # A Singleton Object
 MongoInstance = mongoInstance()
