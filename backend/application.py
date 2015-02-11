@@ -302,35 +302,13 @@ class Workshops(Resource):
 				if len(user.split('@media.mit.edu')) == 2:
 					username = user.split('@media.mit.edu')[0]
 					if username == "jaquesn" or username == "trich":
-						return "yep"
+						return MongoInstance.workshops()
 		except: 
 			return "No way"
 
 api.add_resource(Workshops, '/api/private/workshops')
 
-		# 		try:
-		# 			req2 = urllib2.Request('http://data.media.mit.edu/spm/contacts/json?username='+username)
-		# 			# req2.add_header('Cookie', cookie)
-		# 			r2 = urllib2.urlopen(req2)
-		# 			x = r2.read()
-		# 			name = json.loads(x)['profile']['first_name']
-		# 			image = json.loads(x)['profile']['picture_url']
-		# 			if image == "":
-		# 				image = 'http://pldb.media.mit.edu/research/images/nophoto.gif'
-		# 		except:
-		# 			name = 'You'
-		# 			image = 'http://pldb.media.mit.edu/research/images/nophoto.gif'
-
-		# 		MongoInstance.addUserData(uID,user,name,image)
-		# 		return {'name':name, 'image':image, 'goal':MongoInstance.getGoal(uID)}
-		# 	else:
-		# 		return 'redirect'
-		# 		# return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
-			
-		# except:
-		# 	cookie = "No Cookies!"
-		# 	# print cookie
-		# 	return 'redirect'
+	
 
 
 

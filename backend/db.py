@@ -89,6 +89,22 @@ class mongoInstance(object):
             results.append(result)
         return results
             
+    def workshops(self):
+        cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
+        results = {}
+        for user in cursor:
+            uID = user['uID']
+            results[uID] = {}
+            results[uID]['workshops'] = user['goal']['workshops']
+
+        cursor2 = MongoInstance.client['bxbUsers']['userdata'].find({}, {'_id': 0})
+        for user in cursor2:
+            uID = user['uID']
+            results[uID]['email'] = user['user']
+            
+            
+        return results
+            
 
     
 
