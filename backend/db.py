@@ -94,8 +94,8 @@ class mongoInstance(object):
 		results = {}
 		for user in cursor:
 			uID = user['uID']
-			results[uID] = {}
 			try:
+				results[uID] = {}
 				results[uID]['workshops'] = user['goal']['workshops']
 			except:
 				print "That was a fake one"
