@@ -282,7 +282,7 @@ api.add_resource(AllUsers, '/api/allusers')
 class Workshops(Resource):
 
 	def get(self):
-		workshopsGetParser.parse_args()
+		
 		
 
 		try:
