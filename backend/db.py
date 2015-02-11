@@ -95,29 +95,34 @@ class mongoInstance(object):
 		for user in cursor:
 			uID = user['uID']
 			try:
-				results[uID] = {}
-				results[uID]['workshops'] = user['goal']['workshops']
+                userData = MongoInstance.client['bxbUsers']['userdata'].find_one({'uID':uID}, {'_id': 0})
+                if userData:
+    				results[uID] = {}
+    				results[uID]['workshops'] = user['goal']['workshops']
+                    results[uID]['email'] = userData['user']
+
 			except:
-				del results[uID]
+				# del results[uID]
 				print "That was a fake one"
 
-		cursor2 = MongoInstance.client['bxbUsers']['userdata'].find({}, {'_id': 0})
-		for user in cursor2:
-			uID = user['uID']
-			try:
-				results[uID]['email'] = user['user']
-			except:
-				print "That user had no data"
+		# cursor2 = MongoInstance.client['bxbUsers']['userdata'].find({}, {'_id': 0})
+		# for user in cursor2:
+		# 	uID = user['uID']
+		# 	try:
+		# 		results[uID]['email'] = user['user']
+		# 	except:
+		# 		print "That user had no data"
 
-		stringResults = "email,workshop1,workshop2,workshop3,workshop4,workshop5\n"
-		for result in results:
-			stringResults = stringResults + results[result]['email']
-			for workshop in results[result]['workshops']:
-				stringResults = stringResults  + "," + str(workshop)
-			stringResults = stringResults + "\n"
+		# stringResults = "email,workshop1,workshop2,workshop3,workshop4,workshop5\n"
+		# for result in results:
+		# 	stringResults = stringResults + results[result]['email']
+		# 	for workshop in results[result]['workshops']:
+		# 		stringResults = stringResults  + "," + str(workshop)
+		# 	stringResults = stringResults + "\n"
 
 
-		return stringResults
+		# return stringResults
+        return results
 
 
 
