@@ -284,7 +284,6 @@ def admin_cookie(fn):
 		req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
 		req.add_header('Cookie', cookie)
 		r = urllib2.urlopen(req)
-		# print r.read()
 		if r.read()[:4]=='true':
 			c = Cookie.SimpleCookie()
 			c.load(str(cookie))
@@ -298,19 +297,6 @@ def admin_cookie(fn):
 				if username == "jaquesn" or username == "trich" or username == "cvx":
 					return fn(*args, **kwargs)
 		return "Invalid Key"
-		# # print "Request from %s" % (request.args.get('key'))
-		# # print "Request for %s" % (request.args.get('pID'))
-		# pID = request.args.get('pID')
-		# if pID == None: # If the pID is in the payload of a POST, rather than the url args
-		# 	pID = request.form['pID']
-		# key = request.args.get('key')
-		# if key == None: # If the key is in the payload of a POST, rather than the url args
-		# 	key = request.form['key']
-		# isValid = MongoInstance.isValidAdmin(pID,key)
-		# if isValid:
-			
-		# else:
-		# 	return "Invalid Key"
 	return decorated_fn
 
 ############################
