@@ -32,27 +32,40 @@ adminPage.directive("adminPane", function(){
                 },
                 ];
 
-            var numResponses = $scope.responseArray.length;
+            $scope.numResponses = $scope.responseArray.length;
             $scope.feedbackDisplayed = [];
-            for (var i=0;i++;i < numResponses){
+            for (var i=0;i++;i < $scope.numResponses){
                 $scope.feedbackDisplayed.push(false);
             }
             $scope.participantDisplayed = [true];
-            for (var i=0;i++;i < numResponses-1){
+            for (var i=0;i++;i < $scope.numResponses-1){
                 $scope.participantDisplayed.push(false);
             }
 
 
             data = {
             };
-            //_HTTP("get", "admindata", data, function(result){
-            //    if(result =="redirect"){
-            //        window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
-            //    }else{
-            //        $scope.responseArray = result;
-            //        $scope.$apply();
-            //    }
-            //});
+            _HTTP("get", "admindata", data, function(result){
+               if(result =="redirect"){
+                   window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+               }else{
+                   $scope.responseArray = result;
+
+                   $scope.numResponses = $scope.responseArray.length;
+                   $scope.feedbackDisplayed = [];
+                   for (var i=0;i++;i < $scope.numResponses){
+                       $scope.feedbackDisplayed.push(false);
+                   }
+                   $scope.participantDisplayed = [true];
+                   for (var i=0;i++;i < $scope.numResponses-1){
+                       $scope.participantDisplayed.push(false);
+                   }
+                   
+                   $scope.$apply();
+                   console.log( $scope.responseArray)
+
+               }
+            });
 
 
 
@@ -83,7 +96,7 @@ adminPage.directive("adminPane", function(){
 
             this.approve = function(idx) {
                 $scope.participantDisplayed[idx] = false;
-                if (idx < numResponses) {
+                if (idx < $scope.numResponses) {
                     $scope.participantDisplayed[idx+1] = true;
                 }
             }

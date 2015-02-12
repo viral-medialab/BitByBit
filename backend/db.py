@@ -147,10 +147,10 @@ class mongoInstance(object):
 
 		message = sendgrid.Mail()
 		message.add_to('Travis Rich <trich@media.mit.edu>')
-		message.set_subject('Example')
-		message.set_html('Body')
-		message.set_text('Body')
-		message.set_from('Doe John <doe@email.com>')
+		message.set_subject('BITxBIT Notice')
+		# message.set_html('Body')
+		message.set_text(message)
+		message.set_from('Kevin Slavin <slavin@media.mit.edu>')
 		status, msg = sg.send(message)
 
 
