@@ -60,7 +60,7 @@ adminPage.directive("adminPane", function(){
                    for (var i=0;i++;i < $scope.numResponses-1){
                        $scope.participantDisplayed.push(false);
                    }
-                   
+
                    $scope.$apply();
                    console.log( $scope.responseArray)
 
@@ -75,13 +75,14 @@ adminPage.directive("adminPane", function(){
                     uID: uID,
                     message: $scope.feedback[idx]
                 };
-            //    _HTTP("post", "adminemail", data, function(result){
-            //        if(result =="redirect"){
-            //          window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
-            //        }else{
-            //            this.approve(idx);
-            //        }
-            //    });
+               _HTTP("post", "adminemail", data, function(result){
+                   if(result =="redirect"){
+                     window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+                   }else{
+                       // this.approve(idx);
+                       console.log(result)
+                   }
+               });
             };
 
             this.flag = function(idx) {
