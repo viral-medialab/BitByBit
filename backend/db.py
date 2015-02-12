@@ -142,14 +142,14 @@ class mongoInstance(object):
 				print "Didn't have necessary fields"
 		return usersArray
 
-	def adminemail(self,uID, message):
+	def adminemail(self,uID, messageText):
 		sg = sendgrid.SendGridClient('BITxBIT-ML', 'kevinlives4pizza')
 
 		message = sendgrid.Mail()
 		message.add_to('Travis Rich <trich@media.mit.edu>')
 		message.set_subject('BITxBIT Notice')
 		# message.set_html('Body')
-		message.set_text(message)
+		message.set_text(messageText)
 		message.set_from('Kevin Slavin <slavin@media.mit.edu>')
 		status, msg = sg.send(message)
 		return [status, msg]
