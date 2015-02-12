@@ -6,63 +6,87 @@ adminPage.directive("adminPane", function(){
 		templateUrl: '/templates/admin-pane.html',
 		controller: function($http,$scope){
 
-            $scope.feedback = "Send a response to this participant";
+            $scope.feedback = {};
 
             $scope.responseArray = [
                 {
+                    uID: "user1",
                     want: "GO TO YOGA MORE OFTEN",
                     because: "it makes me feel amazing, calms me down, and helps me find balance.",
                     then: "someone who feels like a strong physical machine ready to take on the world!",
                     blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
                 },
                 {
-                    want: "FUCK YOUR MOTHER",
-                    because: "fuck you",
-                    then: "giggity",
-                    blurb: ["fuck","fuck","fuck","fuck","fuck","fuck","fuck"]
+                    uID: "user2",
+                    want: "laser eyes",
+                    because: "cool",
+                    then: "pew pew pew",
+                    blurb: ["pew","pew","pew","pew","pew","pew","pew"]
                 },
                 {
-                    want: "bang everyone",
-                    because: "giggity",
-                    then: "hot damn",
+                    uID: "user3",
+                    want: "fuck",
+                    because: "fuck",
+                    then: "fuckfuckfuck",
                     blurb: ["fuck","fuck","fuck","fuck","fuck","fuck","fuck"]
                 },
                 ];
 
-            $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif'
+            var numResponses = $scope.responseArray.length;
+            $scope.feedbackDisplayed = [];
+            for (var i=0;i++;i < numResponses){
+                $scope.feedbackDisplayed.push(false);
+            }
+            $scope.participantDisplayed = [true];
+            for (var i=0;i++;i < numResponses-1){
+                $scope.participantDisplayed.push(false);
+            }
 
-            //data = {
-            //};
+
+            data = {
+            };
             //_HTTP("get", "admindata", data, function(result){
             //    if(result =="redirect"){
             //        window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
             //    }else{
-            //        $scope.name = result['name']
-            //        $scope.image = result['image']
-            //        goal = result['goal'];
-            //        if (goal != false){
-            //            $scope.myData = result['goal'];
-            //        }
+            //        $scope.responseArray = result;
             //        $scope.$apply();
             //    }
             //});
 
 
 
-
-            //    data = {
-            //        goal: JSON.stringify($scope.myData)
-            //    };
+            this.send = function(uID, idx){
+                alert("trying to send " + $scope.feedback[idx] + " to user " + uID + " from box " + idx);
+                data = {
+                    uID: uID,
+                    message: $scope.feedback[idx]
+                };
             //    _HTTP("post", "adminemail", data, function(result){
             //        if(result =="redirect"){
-            //        window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+            //          window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
             //        }else{
-            //            try{
-            //            }catch(err){
-            //            }
+            //            this.approve(idx);
             //        }
             //    });
-            //};
+            };
+
+            this.flag = function(idx) {
+                if ($scope.feedbackDisplayed[idx]){
+                    this.approve(idx);
+                }
+                else {
+                    $scope.feedbackDisplayed[idx] = true;
+                    $scope.feedback[idx] = "Send a message to this participant";
+                }
+            }
+
+            this.approve = function(idx) {
+                $scope.participantDisplayed[idx] = false;
+                if (idx < numResponses) {
+                    $scope.participantDisplayed[idx+1] = true;
+                }
+            }
 
 
 		},

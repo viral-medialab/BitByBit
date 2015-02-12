@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div ng-repeat="response in responseArray" class="oneParticipant">
+    <div ng-repeat="response in responseArray" class="oneParticipant" ng-show="participantDisplayed[$index]">
         <div class="myContent mainContentBox">
             <div class="challengeBox">
                 <div class="challengeContent">
@@ -52,13 +52,13 @@
             </div>
         </div>
         <div class="adminContent mainContentBox">
-            <div class="buttonBox">
-                <a href="javascript:process_response(1, {{peak.num}})" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Approve"><i class="fa fa-check fa-4x fa-fw"></i></a>
-                <a href="javascript:process_response(3, {{peak.num}})" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Flag"><i class="fa fa-close fa-4x fa-fw"></i></a>
+            <div class="buttonBox" id="buttons{{$index}}">
+                <a ng-click="adminCntrl.approve($index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Approve"><i class="fa fa-check fa-4x fa-fw"></i></a>
+                <a ng-click="adminCntrl.flag($index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Flag"><i class="fa fa-close fa-4x fa-fw"></i></a>
             </div>
-            <div class="responseBox">
-                <div contentEditable="true" ng-model="feedback" class="feedback">Send a response to this participant</div>
-                <div class="sendButton" ng-click="teamCntrl.save()">Send</div>
+            <div class="responseBox" id="response{{$index}}" ng-show="feedbackDisplayed[$index]">
+                <div contentEditable="true" ng-model="feedback[$index]" class="feedback">Send a response to this participant</div>
+                <div class="sendButton" ng-click="adminCntrl.send(response.uID, $index)">Send</div>
             </div>
         </div>
     </div>
