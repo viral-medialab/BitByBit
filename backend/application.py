@@ -24,34 +24,34 @@ PORT = 8888
 ############################
 @application.before_request
 def option_autoreply():
-    """ Always reply 200 on OPTIONS request """
-    if request.method == 'OPTIONS':
-        resp = application.make_default_options_response()
+	""" Always reply 200 on OPTIONS request """
+	if request.method == 'OPTIONS':
+		resp = application.make_default_options_response()
 
-        headers = None
-        if 'ACCESS_CONTROL_REQUEST_HEADERS' in request.headers:
-            headers = request.headers['ACCESS_CONTROL_REQUEST_HEADERS']
+		headers = None
+		if 'ACCESS_CONTROL_REQUEST_HEADERS' in request.headers:
+			headers = request.headers['ACCESS_CONTROL_REQUEST_HEADERS']
 
-        h = resp.headers
+		h = resp.headers
 
-        h['Access-Control-Allow-Origin'] = request.headers['Origin']# Allow the origin which made the XHR
-        h['Access-Control-Allow-Methods'] = request.headers['Access-Control-Request-Method']# Allow the actual method
-        h['Access-Control-Max-Age'] = "10"# Allow for 10 seconds
+		h['Access-Control-Allow-Origin'] = request.headers['Origin']# Allow the origin which made the XHR
+		h['Access-Control-Allow-Methods'] = request.headers['Access-Control-Request-Method']# Allow the actual method
+		h['Access-Control-Max-Age'] = "10"# Allow for 10 seconds
 
-        if headers is not None:        # We also keep current headers 
-            h['Access-Control-Allow-Headers'] = headers
+		if headers is not None:        # We also keep current headers 
+			h['Access-Control-Allow-Headers'] = headers
 
-        return resp
+		return resp
 
 @application.after_request
 def set_allow_origin(resp):
-    """ Set origin for GET, POST, PUT, DELETE requests """
-    h = resp.headers
-    if request.method != 'OPTIONS' and 'Origin' in request.headers: # Allow crossdomain for other HTTP Verbs
-        h['Access-Control-Allow-Origin'] = request.headers['Origin']
-        
-    h['Access-Control-Allow-Credentials'] = 'true'
-    return resp
+	""" Set origin for GET, POST, PUT, DELETE requests """
+	h = resp.headers
+	if request.method != 'OPTIONS' and 'Origin' in request.headers: # Allow crossdomain for other HTTP Verbs
+		h['Access-Control-Allow-Origin'] = request.headers['Origin']
+		
+	h['Access-Control-Allow-Credentials'] = 'true'
+	return resp
 
 
 
@@ -279,8 +279,8 @@ api.add_resource(AllUsers, '/api/allusers')
 
 
 def admin_cookie(fn):
-    def decorated_fn(*args, **kwargs):
-    	cookie = request.headers['Cookie']
+	def decorated_fn(*args, **kwargs):
+		cookie = request.headers['Cookie']
 		req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
 		req.add_header('Cookie', cookie)
 		r = urllib2.urlopen(req)
@@ -298,20 +298,20 @@ def admin_cookie(fn):
 				if username == "jaquesn" or username == "trich" or username == "cvx":
 					return fn(*args, **kwargs)
 		return "Invalid Key"
-        # # print "Request from %s" % (request.args.get('key'))
-        # # print "Request for %s" % (request.args.get('pID'))
-        # pID = request.args.get('pID')
-        # if pID == None: # If the pID is in the payload of a POST, rather than the url args
-        # 	pID = request.form['pID']
-        # key = request.args.get('key')
-        # if key == None: # If the key is in the payload of a POST, rather than the url args
-        # 	key = request.form['key']
-        # isValid = MongoInstance.isValidAdmin(pID,key)
-        # if isValid:
-        	
-        # else:
-        # 	return "Invalid Key"
-    return decorated_fn
+		# # print "Request from %s" % (request.args.get('key'))
+		# # print "Request for %s" % (request.args.get('pID'))
+		# pID = request.args.get('pID')
+		# if pID == None: # If the pID is in the payload of a POST, rather than the url args
+		# 	pID = request.form['pID']
+		# key = request.args.get('key')
+		# if key == None: # If the key is in the payload of a POST, rather than the url args
+		# 	key = request.form['key']
+		# isValid = MongoInstance.isValidAdmin(pID,key)
+		# if isValid:
+			
+		# else:
+		# 	return "Invalid Key"
+	return decorated_fn
 
 ############################
 # Get Workshops
@@ -355,7 +355,7 @@ api.add_resource(AdminEmail, '/api/private/adminemail')
 
 
 if __name__ == '__main__':
-    # application.run(host = '0.0.0.0', debug=True)
-    # application.run(host = 'localhost.media.mit.edu', debug=True)
-    application.run(host = 'localhost', debug=True)
-    #application.run(debug="true", port=PORT)
+	# application.run(host = '0.0.0.0', debug=True)
+	# application.run(host = 'localhost.media.mit.edu', debug=True)
+	application.run(host = 'localhost', debug=True)
+	#application.run(debug="true", port=PORT)
