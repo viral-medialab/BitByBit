@@ -159,7 +159,7 @@ class mongoInstance(object):
 		# status, msg = sg.send(message)
 
 		status = 200
-		message = {'message':'success'}
+		msg = {'message':'success'}
 
 		return [status, msg]
 
