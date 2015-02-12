@@ -143,10 +143,14 @@ class mongoInstance(object):
 		return usersArray
 
 	def adminemail(self,uID, messageText):
+		userData = MongoInstance.client['bxbUsers']['userdata'].find_one({'uID':uID}, {'_id': 0})
+		userEmail = userData['user']
+		userName = userData['name']
+
 		sg = sendgrid.SendGridClient('BITxBIT-ML', 'kevinlives4pizza')
 
 		message = sendgrid.Mail()
-		message.add_to('BITxBIT Team <bitxbit@media.mit.edu>')
+		message.add_to(userName+' <'+userEmail+'>')
 		message.set_subject('BITxBIT Notice')
 		message.set_html('<html><body><p>'+messageText+'</p> <p>Please visit http://bitxbit.media.mit.edu to update your information.</p><h3>NOTE: This email is completely anonymous.  Our admin interface never reveals your name, email, or any identifying information. Our backend handles all email addresses and we delete all records of having sent this message to you. If you reply to this email - we will of course then know your identity. </h3></body></html>')
 		# message.set_text(messageText)
