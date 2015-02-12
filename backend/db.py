@@ -10,6 +10,7 @@ import json
 from operator import itemgetter
 import random
 import sys
+import sendgrid
 
 
 class mongoInstance(object):
@@ -125,6 +126,32 @@ class mongoInstance(object):
 		# return results
 
 
+	def admindata(self):
+		cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
+		usersArray = []
+		for user in cursor:
+			try:
+				userObject = {}
+				uID = user['uID']
+				want = user['goal']['want']
+				because = user['goal']['because']
+				then = user['goal']['then']
+				blurb = user['goal']['blurb']
+				usersArray.append(userObject)
+			except:
+				print "Didn't have necessary fields"
+		return usersArray
+
+	def adminemail(uID, message):
+		sg = sendgrid.SendGridClient('BITxBIT-ML', 'kevinlives4pizza')
+
+		message = sendgrid.Mail()
+		message.add_to('Travis Rich <trich@media.mit.edu>')
+		message.set_subject('Example')
+		message.set_html('Body')
+		message.set_text('Body')
+		message.set_from('Doe John <doe@email.com>')
+		status, msg = sg.send(message)
 
 
 

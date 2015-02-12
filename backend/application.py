@@ -276,17 +276,11 @@ class AllUsers(Resource):
 api.add_resource(AllUsers, '/api/allusers')
 
 
-############################
-# Get Workshops
-############################
-class Workshops(Resource):
 
-	def get(self):
-		
-		
 
-		# try:
-		cookie = request.headers['Cookie']
+def admin_cookie(fn):
+    def decorated_fn(*args, **kwargs):
+    	cookie = request.headers['Cookie']
 		req = urllib2.Request('http://www.media.mit.edu/login/valid/index.html')
 		req.add_header('Cookie', cookie)
 		r = urllib2.urlopen(req)
@@ -302,12 +296,59 @@ class Workshops(Resource):
 			if len(user.split('@media.mit.edu')) == 2:
 				username = user.split('@media.mit.edu')[0]
 				if username == "jaquesn" or username == "trich" or username == "cvx":
-					return MongoInstance.workshops()
-		# except: 
-		# 	return "No way"
+					return fn(*args, **kwargs)
+		return "Invalid Key"
+        # # print "Request from %s" % (request.args.get('key'))
+        # # print "Request for %s" % (request.args.get('pID'))
+        # pID = request.args.get('pID')
+        # if pID == None: # If the pID is in the payload of a POST, rather than the url args
+        # 	pID = request.form['pID']
+        # key = request.args.get('key')
+        # if key == None: # If the key is in the payload of a POST, rather than the url args
+        # 	key = request.form['key']
+        # isValid = MongoInstance.isValidAdmin(pID,key)
+        # if isValid:
+        	
+        # else:
+        # 	return "Invalid Key"
+    return decorated_fn
+
+############################
+# Get Workshops
+############################
+class Workshops(Resource):
+	@admin_cookie
+	def get(self):
+			return MongoInstance.workshops()
 
 api.add_resource(Workshops, '/api/private/workshops')
 
+############################
+# Get AdminData
+############################
+class AdminData(Resource):
+	@admin_cookie
+	def get(self):
+			return MongoInstance.admindata()
+
+api.add_resource(AdminData, '/api/private/admindata')
+
+############################
+# AdminEmail
+############################
+adminEmailPostParser = reqparse.RequestParser()
+adminEmailPostParser.add_argument('uID', type=str, required=True)
+adminEmailPostParser.add_argument('message', type=str, required=True)
+
+class AdminEmail(Resource):
+	@admin_cookie
+	def post(self):
+		args = adminEmailPostParser.parse_args()
+		uID = args.get('uID')
+		message = args.get('message')
+		return MongoInstance.adminemail(uID, message)
+
+api.add_resource(AdminEmail, '/api/private/adminemail')
 	
 
 
