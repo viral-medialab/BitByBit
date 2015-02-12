@@ -148,8 +148,8 @@ class mongoInstance(object):
 		message = sendgrid.Mail()
 		message.add_to('Travis Rich <trich@media.mit.edu>')
 		message.set_subject('BITxBIT Notice')
-		# message.set_html('Body')
-		message.set_text(messageText)
+		message.set_html('<html><body><p>'+messageText+'</p> <p>Please visit http://bitxbit.media.mit.edu to update your information.</p><h2>NOTE: This email is completely anonymous. We sent this email using our admin interface which never reveals your name, email, or any identifying information. Our backend handles all email addresses and we delete all records of having sent this message to you. If you reply to this email - we will of course then know your identity. </h2></body></html>')
+		# message.set_text(messageText)
 		message.set_from('Kevin Slavin <slavin@media.mit.edu>')
 		status, msg = sg.send(message)
 		return [status, msg]
