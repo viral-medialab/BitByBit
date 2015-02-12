@@ -1,0 +1,70 @@
+<div class="admin-pane" ng-class="{mobile:mobile}">
+    <div class="team-header">
+        <div class="logoBox">
+            <div class="logo" onclick="location.href='/';" style="cursor:pointer;"></div>
+        </div>
+        <div class="navBox">
+            <ul>
+                <a href="/"><li>Home</li></a>
+                <a href="/example"><li>Example</li></a>
+                <a href="/team"><li>Team</li></a>
+            </ul>
+        </div>
+        <div class="nextBox">
+            <h2>UP NEXT</h2>
+            <p>Workshop Session</p>
+            <p>Wednesday Feb 18</p>
+        </div>
+    </div>
+
+    <div ng-repeat="response in responseArray" class="oneParticipant">
+        <div class="myContent mainContentBox">
+            <div class="challengeBox">
+                <div class="challengeContent">
+                    <h3>I want to...</h3>
+                    <h1>{{response.want}}</h1>
+
+                </div>
+
+            </div>
+            <div class="becauseBox miniBox">
+                <h3>because...</h3>
+                <p>{{response.because}}</p>
+
+            </div>
+            <div class="thenBox miniBox">
+                <h3>and then I'll be...</h3>
+                <p>{{response.then}}</p>
+
+            </div>
+
+            <div class="blurbBox">
+                <div class="quote">“</div>
+                <div class="blurbContent">
+                    <p>Some challenges I have in changing this behavior are <span>{{response.blurb[0]}}</span>
+                        and <span>{{response.blurb[1]}}</span>.
+                        I have tried <span>{{response.blurb[2]}}</span>
+                        but <span>{{response.blurb[3]}}</span>.
+                        I'm happiest when <span>{{response.blurb[4]}}</span>.
+                        I care deeply about <span>{{response.blurb[5]}}</span>
+                        and not about <span>{{response.blurb[6]}}</span>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="adminContent mainContentBox">
+            <div class="buttonBox">
+                <a href="javascript:process_response(1, {{peak.num}})" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Approve"><i class="fa fa-check fa-4x fa-fw"></i></a>
+                <a href="javascript:process_response(3, {{peak.num}})" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Flag"><i class="fa fa-close fa-4x fa-fw"></i></a>
+            </div>
+            <div class="responseBox">
+                <div contentEditable="true" ng-model="feedback" class="feedback">Send a response to this participant</div>
+                <div class="sendButton" ng-click="teamCntrl.save()">Send</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+

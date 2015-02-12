@@ -1,0 +1,661 @@
+  .signup-form input.ng-invalid.ng-touched {
+    background-color: #E6C0CC;
+  }
+
+
+  div.admin-pane{
+  	min-width: 900px;
+  	max-width: 1250px;
+  	margin: 0 auto;
+
+
+    input{
+      border: 1;
+      border-bottom: 1px solid black;
+    }
+  	div.editButton{
+  		width: 50px;
+  		height: 20px;
+  		background-color: black;
+  		line-height: 20px;
+  		text-align: center;
+  		color: white;
+  		padding: 5px;
+
+  		&.light{
+  			background-color: #ccc;
+  			color: black;
+  		}
+  		&.br{
+  			position: absolute;
+  			bottom:20px;
+  			right: 20px;
+  		}
+
+      &:hover{
+
+        cursor: pointer;
+      }
+      &:active{
+
+        bottom: 19px;
+      }
+  	}
+  	div.sendButton{
+  	    margin-left: 20px;
+  	    position: absolute;
+  	    right: 20px;
+  		width: 50px;
+  		height: 20px;
+  		background-color: black;
+  		line-height: 20px;
+  		text-align: center;
+  		color: white;
+  		padding: 5px;
+
+  		&.light{
+  			background-color: #ccc;
+  			color: black;
+  		}
+  		&.br{
+  			position: absolute;
+  			bottom:20px;
+  			right: 20px;
+  		}
+
+      &:hover{
+
+        cursor: pointer;
+      }
+      &:active{
+            background-color: #128d9d;
+      }
+  	}
+
+    .result-box{
+      position: absolute;
+      bottom: 55px;
+      right: 120px;
+      pointer-events: none;
+      div{
+        position: absolute;
+        text-align: center;
+        font-size: 25px;
+        width: 40px;
+        color: #128d9d;
+        line-height: 43px;
+      }
+    }
+
+  	div.team-header{
+  		width: 100%;
+  		&:after {
+		  content:"";
+		  display:table;
+		  clear:both;
+		}
+
+  		div.logoBox{
+  			background-color: black;
+  			color: white;
+  			width: 20%;
+  			height: 200px;
+  			float: left;
+  			div.logo{
+  				height:200px;
+  				width:100%;
+  				background:url(../images/logo2.png) no-repeat center center;
+	  			background-size: contain;
+
+  			}
+
+  			// h1{
+  			// 	font-size: 40px;
+  			// 	text-align: center;
+  			// 	line-height: 200px;
+  			// }
+  			// img{
+  			// 	width: 100%;
+  			// }
+  		}
+  		div.navBox{
+  			// width: 33%;
+  			height: 200px;
+  			float: left;
+  			ul{
+  				list-style: none;
+  				padding-left: 5px;
+  				padding-top: 30px;
+          a{
+            text-decoration: none;
+            color: black;
+          }
+  				li{
+  					font-size: 20px;
+  					padding-bottom: 10px;
+            transition: .15s linear color;
+  					&:hover{
+  						cursor: pointer;
+  						color: rgb(49,191,219);
+  					}
+  				}
+
+  			}
+  		}
+  		div.nextBox{
+  			// width:33%;
+  			height: 162px;
+  			float:right;
+  			margin-top: 30px;
+  			border-top: 8px solid black;
+  			text-align: right;
+  			margin-right: 20px;
+
+  		}
+
+  	}
+  	div.mainContentBox{
+  		// clear:left;
+  		// border: 1px solid black;
+  		width: 40%;
+  		max-width: 500px;
+  		margin-left: 20%;
+  		float:left;
+  		font-family: 'Titillium Web', sans-serif;
+      position: relative;
+
+
+
+  		h1{
+  			font-weight: 200;
+  			font-size: 30px;
+  		}
+  		h3{
+  			font-weight: 400;
+  		}
+  		p{
+  			font-weight: 400;
+  		}
+  		div.challengeBox{
+  			width: 100%;
+  			height:200px;
+  			background-color: rgb(49,191,219);
+  			color: white;
+  			position: relative;
+  			div.profileImage{
+	  			width:20%;
+	  			float:left;
+	  			img{
+	  				width:100%;
+	  			}
+          h3{
+            width: 100%;
+            font-size: 18px;
+            text-align: center;
+          }
+	  		}
+	  		div.challengeContent{
+	  			width:80%;
+	  			float:left;
+	  			h1, h3{
+	  				padding-left: 20px;
+
+	  			}
+          h1{
+            font-size: 40px;
+            height: 151px;
+            overflow: scroll;
+            text-transform: uppercase;
+          }
+	  			h3{
+	  				padding-top: 20px;
+	  			}
+          h4{
+            padding-left: 20px;
+            font-weight: 300;
+            position: absolute;
+            top: 0px;
+            right: 5px;
+          }
+	  		}
+  		}
+  		div.miniBox{
+  			width:50%;
+  			float:left;
+  			height: 200px;
+  			color: white;
+  			position: relative;
+  			h3,p{
+  				padding-left: 15%;
+  			}
+  			h3{
+  				padding-top: 10%;
+  				padding-bottom: 10%;
+  			}
+  			p{
+  				padding-right: 10%;
+          height: 121px;
+          overflow: scroll;
+  			}
+  		}
+  		div.becauseBox{
+  			background-color: rgb(23,166,185);
+        border-top: 1px solid rgb(53,183,199);
+  		}
+  		div.thenBox{
+  			background-color: rgb(18,141,157);
+        border-top: 1px solid rgb(49,163,177);
+  		}
+      div.workshopBox{
+        padding-left: 10%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        clear:both;
+        &:after {
+          content:"";
+          display:table;
+          clear:both;
+        }
+        table{
+          width: 100%;
+          tr{
+            float:left;
+            width: 20%;
+          }
+
+          td{
+            height: 60px;
+            float:left;
+            width: 2%;
+
+
+            input[type='checkbox'] {
+                -webkit-appearance:none;
+                // -moz-appearance: none;
+                width:100%;
+                height:100%;
+                background-color:white;
+                border-radius:5px;
+                border:2px solid #555;
+                text-align: center;
+                line-height: 60px;
+
+
+
+
+            }
+            input[type='checkbox']:checked {
+                background-color: rgb(49,191,219);
+                color: white;
+            }
+
+
+
+          }
+
+          tbody.firefox{
+            input[type='checkbox'] {
+                // -webkit-appearance:default;
+                // -moz-appearance: default;
+                width:50px;
+                height:50px;
+                margin-top: 15px;
+                // background-color:white;
+                // border-radius:5px;
+                // border:2px solid #555;
+                // text-align: center;
+                // line-height: 60px;
+
+
+
+
+            }
+            input[type='checkbox']:checked {
+                // background-color: rgb(49,191,219);
+                // color: white;
+            }
+          }
+          tr:nth-child(1){
+            input:after,{
+              content:"9-10:30";
+            }
+            input::after,{
+              content:"9-10:30";
+            }
+          }
+          tr:nth-child(2){
+            input:after{
+              content:"10:30-12";
+            }
+          }
+          tr:nth-child(3){
+            input:after{
+              content:"4-5:30";
+            }
+          }
+          tr:nth-child(4){
+            input:after{
+              content:"5:30-7";
+            }
+          }
+          tr:nth-child(5){
+            input:after{
+              content:"None";
+            }
+          }
+        }
+        h4{
+          font-weight: 300;
+
+        }
+
+      }
+
+  		div.blurbBox{
+  			padding:20px;
+  			clear:both;
+        position: relative;
+  			&:after {
+  			  content:"";
+  			  display:table;
+  			  clear:both;
+  			}
+  			div.quote{
+  				width: 12%;
+  				// height: 100%;
+  				float:left;
+  				font-size: 85px;
+  				font-family: Georgia, serif;
+  				line-height: 55px;
+  				text-align: center;
+  			}
+  			div.blurbContent{
+  				width: 88%;
+  				float:left;
+  				font-size: 20px;
+  				margin-bottom: 20px;
+  				p{
+  					padding-bottom: 20px;
+  				}
+          span{
+            color: rgb(18,141,157);
+            font-style: italic;
+            // text-decoration: underline;
+            // min-width: 20px;
+          }
+  			}
+  		}
+  	}
+  	div.myContent{
+  		// border-right: 1px solid black;
+  	}
+  	div.adminContent{
+      .blurryText {
+         color: transparent;
+         text-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+         &.light{
+          text-shadow: 0 0 25px rgba(255,255,255,1.0);
+         }
+
+         &.double{
+          text-shadow: 0 0 25px rgba(255,255,255,1.0);
+         }
+      }
+  		margin-left: 0;
+  		div.challengeBox{
+  			background-color: rgb(30,30,30);
+
+  		}
+      div.becauseBox{
+        background-color: rgb(20,20,20);
+        border-top: 1px solid rgb(40,40,40);
+      }
+      div.thenBox{
+        background-color: rgb(0,0,0);
+        border-top: 1px solid rgb(35,35,35);
+      }
+      div.feedback{
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 5px;
+            padding: 5px;
+            height: 200px;
+            border: 1px solid black;
+      }
+      div.buttonBox{
+            margin: 20px;
+            a{
+                color: black;
+                  &:active{
+                    color: #128d9d;
+                  }
+            }
+      }
+
+      div.workshopBox{
+        border-left: 2px solid black;
+      }
+
+  		div.blurbBox{
+  			border-left: 2px solid black;
+  		}
+  	}
+  }
+
+div.admin-pane.mobile{
+	min-width: 600px;
+  	// max-width: 900px;
+  	div.mainContentBox{
+  		// clear:left;
+  		// border: 1px solid black;
+  		width: 100%;
+  		max-width: 100%;
+  		margin-left: 0%;
+  		margin-top: 10px;
+
+      div.challengeBox{
+        width: 100%;
+        height:300px;
+
+        color: white;
+        position: relative;
+        div.profileImage{
+          width:20%;
+          float:left;
+          img{
+            width:100%;
+          }
+        }
+        div.challengeContent{
+          width:80%;
+          float:left;
+          h1, h3{
+            padding-left: 20px;
+
+          }
+          h1{
+            font-size: 60px;
+            height: 219px;
+            overflow: scroll;
+            text-transform: uppercase;
+          }
+          h3{
+            padding-top: 20px;
+            font-size: 40px;
+          }
+          h4{
+            padding-left: 20px;
+            font-weight: 300;
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            font-size: 30px;
+          }
+        }
+      }
+      div.miniBox{
+        width:100%;
+        // float:left;
+        height: 400px;
+        color: white;
+        position: relative;
+        h3,p{
+          padding-left: 15%;
+        }
+        h3{
+          padding-top: 10px;
+          padding-bottom: 30px;
+          font-size: 40px;
+        }
+        p{
+          padding-right: 10%;
+          height: 311px;
+          overflow: scroll;
+          font-size: 40px;
+          font-weight: 300;
+        }
+      }
+      div.workshopBox{
+        padding-left: 10%;
+        padding-top: 20px;
+        padding-bottom: 100px;
+        clear:both;
+        font-size: 40px;
+
+        input[type=checkbox] {
+          height:100px;
+          font-size: 20px;
+          line-height: 100px;
+        }
+        tbody.firefox{
+          label{
+            font-size: 25px;
+          }
+            input[type='checkbox'] {
+                // -webkit-appearance:default;
+                // -moz-appearance: default;
+                width:50px;
+                height:50px;
+                margin-top: 30px;
+
+                // background-color:white;
+                // border-radius:5px;
+                // border:2px solid #555;
+                // text-align: center;
+                // line-height: 60px;
+
+
+
+
+            }
+            input[type='checkbox']:checked {
+                // background-color: rgb(49,191,219);
+                // color: white;
+            }
+          }
+        &:after {
+          content:"";
+          display:table;
+          clear:both;
+        }
+        table{
+          width: 100%;
+          tr{
+            float:left;
+            width: 20%;
+            font-size: 40px;
+          }
+        }
+        h4{
+          font-weight: 300;
+          font-size: 30px;
+        }
+
+      }
+      div.blurbBox{
+        padding:20px;
+        padding-bottom: 140px;
+        // clear:both;
+        // position: relative;
+        // &:after {
+        //   content:"";
+        //   display:table;
+        //   clear:both;
+        // }
+        // div.quote{
+        //   width: 12%;
+        //   // height: 100%;
+        //   float:left;
+        //   font-size: 85px;
+        //   font-family: Georgia, serif;
+        //   line-height: 55px;
+        //   text-align: center;
+        // }
+        // div.blurbContent{
+        //   width: 88%;
+        //   float:left;
+        //   font-size: 20px;
+        //   margin-bottom: 20px;
+        //   p{
+        //     padding-bottom: 20px;
+        //   }
+        //   span{
+        //     color: rgb(18,141,157);
+        //     font-style: italic;
+        //   }
+        // }
+      }
+  	}
+    div.editButton{
+      width: 200px;
+      height: 80px;
+      background-color: black;
+      line-height: 80px;
+      text-align: center;
+      color: white;
+      padding: 5px;
+      font-size: 30px;
+
+      &.light{
+        background-color: #ccc;
+        color: black;
+      }
+      &.br{
+        position: absolute;
+        bottom:40px;
+        right: 60px;
+      }
+
+      &:hover{
+
+        cursor: pointer;
+      }
+      &:active{
+
+        bottom: 39px;
+      }
+
+    }
+
+    .result-box{
+      position: absolute;
+      bottom: 135px;
+      right: 375px;
+      pointer-events: none;
+      svg{
+        width: 100px;
+        height: 100px;
+      }
+      div{
+        position: absolute;
+        text-align: center;
+        font-size: 75px;
+        width: 100px;
+        color: #128d9d;
+        line-height: 103px;
+      }
+    }
+
+
+}

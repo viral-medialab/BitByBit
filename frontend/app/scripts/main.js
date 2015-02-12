@@ -4,9 +4,10 @@ var appRoutes = require('./appRoutes');
 var landingPage = require('../modules/landing/landingPage');
 var examplePage = require('../modules/example/examplePage');
 var teamPage = require('../modules/team/teamPage');
+var adminPage = require('../modules/admin/adminPage');
 var wikiPage = require('../modules/wiki/wikiPage');
 
-var app = angular.module('bitbybitApp', ['appRoutes', 'ngFitText','landingPage', 'teamPage','examplePage', 'wikiPage']);
+var app = angular.module('bitbybitApp', ['appRoutes', 'ngFitText','landingPage', 'teamPage', 'adminPage', 'examplePage', 'wikiPage']);
 
 
 

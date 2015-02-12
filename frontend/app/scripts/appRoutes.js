@@ -16,6 +16,9 @@ angular.module('appRoutes').config(['$routeProvider', '$locationProvider', funct
 		.when('/team',{
 			templateUrl: './templates/teamPage.html',
 		})
+		.when('/admin',{
+			templateUrl: './templates/adminPage.html',
+		})
 		.when('/wiki',{
 			templateUrl: './templates/wikiPage.html',
 		})
