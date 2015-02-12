@@ -132,11 +132,11 @@ class mongoInstance(object):
 		for user in cursor:
 			try:
 				userObject = {}
-				uID = user['uID']
-				want = user['goal']['want']
-				because = user['goal']['because']
-				then = user['goal']['then']
-				blurb = user['goal']['blurb']
+				userObject['uID'] = user['uID']
+				userObject['want'] = user['goal']['want']
+				userObject['because'] = user['goal']['because']
+				userObject['then'] = user['goal']['then']
+				userObject['blurb'] = user['goal']['blurb']
 				usersArray.append(userObject)
 			except:
 				print "Didn't have necessary fields"
