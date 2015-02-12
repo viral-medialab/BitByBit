@@ -11,25 +11,11 @@ adminPage.directive("adminPane", function(){
             $scope.responseArray = [
                 {
                     uID: "user1",
-                    want: "GO TO YOGA MORE OFTEN",
-                    because: "it makes me feel amazing, calms me down, and helps me find balance.",
-                    then: "someone who feels like a strong physical machine ready to take on the world!",
+                    want: "LOADING...",
+                    because: "LOADING...",
+                    then: "LOADING...",
                     blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
-                },
-                {
-                    uID: "user2",
-                    want: "laser eyes",
-                    because: "cool",
-                    then: "pew pew pew",
-                    blurb: ["pew","pew","pew","pew","pew","pew","pew"]
-                },
-                {
-                    uID: "user3",
-                    want: "fuck",
-                    because: "fuck",
-                    then: "fuckfuckfuck",
-                    blurb: ["fuck","fuck","fuck","fuck","fuck","fuck","fuck"]
-                },
+                }
                 ];
 
             $scope.numResponses = $scope.responseArray.length;
