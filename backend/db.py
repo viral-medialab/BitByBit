@@ -101,6 +101,7 @@ class mongoInstance(object):
 					results[uID] = {}
 					results[uID]['workshops'] = user['goal']['workshops']
 					results[uID]['email'] = userData['user']
+					results[uID]['firstName'] = userData['name']
 
 			except:
 				# del results[uID]
