@@ -56,7 +56,7 @@ adminPage.directive("adminPane", function(){
 
 
             this.send = function(uID, idx){
-                alert("trying to send " + $scope.feedback[idx] + " to user " + uID + " from box " + idx);
+                //alert("trying to send " + $scope.feedback[idx] + " to user " + uID + " from box " + idx);
                 data = {
                     uID: uID,
                     message: $scope.feedback[idx]
@@ -66,7 +66,11 @@ adminPage.directive("adminPane", function(){
                      window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
                    }else{
                         console.log(result);
-                        // this.approve(idx);
+                        $scope.participantDisplayed[idx] = false;
+                        if (idx < $scope.numResponses) {
+                            $scope.participantDisplayed[idx+1] = true;
+                        }
+                        $scope.$apply();
 
                    }
                });
