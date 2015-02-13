@@ -294,7 +294,7 @@ def admin_cookie(fn):
 			
 			if len(user.split('@media.mit.edu')) == 2:
 				username = user.split('@media.mit.edu')[0]
-				if username == "jaquesn" or username == "trich" or username == "cvx":
+				if username == "jaquesn" or username == "trich" or username == "cvx" or username == 'slavin':
 					return fn(*args, **kwargs)
 		return "Invalid Key"
 	return decorated_fn
