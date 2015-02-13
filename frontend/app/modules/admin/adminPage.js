@@ -7,6 +7,7 @@ adminPage.directive("adminPane", function(){
 		controller: function($http,$scope){
 
             $scope.feedback = {};
+            $scope.checkall = false;
 
             $scope.responseArray = [
                 {
@@ -18,16 +19,6 @@ adminPage.directive("adminPane", function(){
                 }
                 ];
 
-            $scope.numResponses = $scope.responseArray.length;
-            $scope.feedbackDisplayed = [];
-            for (var i=0;i++;i < $scope.numResponses){
-                $scope.feedbackDisplayed.push(false);
-            }
-            $scope.participantDisplayed = [true];
-            for (var i=0;i++;i < $scope.numResponses-1){
-                $scope.participantDisplayed.push(false);
-            }
-
 
             data = {
             };
@@ -38,14 +29,12 @@ adminPage.directive("adminPane", function(){
                    $scope.responseArray = result;
 
                    $scope.numResponses = $scope.responseArray.length;
-                   $scope.feedbackDisplayed = [];
-                   for (var i=0;i++;i < $scope.numResponses){
-                       $scope.feedbackDisplayed.push(false);
-                   }
-                   $scope.participantDisplayed = [true];
-                   for (var i=0;i++;i < $scope.numResponses-1){
-                       $scope.participantDisplayed.push(false);
-                   }
+                    $scope.feedbackDisplayed = $scope.responseArray.map(function() {
+                        return false;
+                    });
+                    $scope.participantDisplayed = $scope.responseArray.map(function(val,i) {
+                        return i == 0;
+                    });
 
                    $scope.$apply();
                    console.log( $scope.responseArray)
@@ -91,6 +80,16 @@ adminPage.directive("adminPane", function(){
                 if (idx < $scope.numResponses) {
                     $scope.participantDisplayed[idx+1] = true;
                 }
+            }
+
+            this.checkAll = function() {
+                $scope.checkall = !$scope.checkall;
+                $scope.participantDisplayed = $scope.participantDisplayed.map(function() {
+                    return $scope.checkall;
+                });
+                $scope.participantDisplayed[0] = true;
+                $scope.$apply();
+
             }
 
 
