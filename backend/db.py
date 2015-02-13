@@ -115,9 +115,10 @@ class mongoInstance(object):
 		# 	except:
 		# 		print "That user had no data"
 
-		stringResults = 'email,workshop1,workshop2,workshop3,workshop4,workshop5\n'
+		stringResults = 'email,firstName,workshop1,workshop2,workshop3,workshop4,workshop5\n'
 		for result in results:
 			stringResults = stringResults + results[result]['email']
+			stringResults = stringResults + ',' + results[result]['firstName']
 			for workshop in results[result]['workshops']:
 				stringResults = stringResults  + ',' + str(workshop)
 			stringResults = stringResults + '\n'
