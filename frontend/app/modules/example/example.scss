@@ -1,3 +1,12 @@
+div.example-pane div.team-header{
+  div.logoBox{
+    opacity: 0;
+  }
+  div.navBox{
+    opacity: 0;
+  }
+}
+
 div.exampleText{
   width: 100%;
   background-color: black;
@@ -15,20 +24,39 @@ div.exampleText{
 }
 
 div.continueButton{
-  width: 80%;
-  height: 40px;
-  background-color: black;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0,0,0,0.85);
   line-height: 40px;
   text-align: center;
   color: white;
   
   margin: 0 auto;
   position: absolute;
-  top:-80px;
+  top:35px;
+  left:-130px;
+  z-index: 400;
+
+  opacity: 0;
+  transition: .2s ease-in-out opacity;
   // margin-bottom: 30px;
+  div.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 75px solid transparent;
+    border-bottom: 75px solid transparent;
+    
+    border-left: 45px solid rgba(0,0,0,0.85);
+    position: absolute;
+    right: -45px;
+    bottom: 0;
+
+  }
   
   h3{
-    // padding: 5px;
+    padding: 5px;
+    padding-top: 12px;
+    font-size: 30px;
 
   }
   a{
@@ -42,7 +70,7 @@ div.continueButton{
   }
   &:active{
     
-    top: -79px;
+    // top: -79px;
   }
 }
 
@@ -55,7 +83,7 @@ div.workshopBox{
 div.mobile.example-pane{
 
   div.team-header{
-    height: 340px;
+    height: 390px;
   }
 
   div.exampleText{
@@ -65,32 +93,54 @@ div.mobile.example-pane{
     }
   }
   div.continueButton{
-  //   clear:both;
-  // width: 80%;
-  height: 80px;
-  // background-color: black;
-  line-height: 80px;
-  font-size: 40px;
-  // text-align: center;
-  // color: white;
-  
-  // margin: 0 auto;
-  // position: relative;
-  // margin-bottom: 30px;
-  top: -145px;
-  
-  a{
+    width: 300px;
+    height: 300px;
+    background-color: rgba(0,0,0,0.85);
+    line-height: 40px;
+    text-align: center;
     color: white;
-    text-decoration: none;
-  }
+    
+    margin: 0 auto;
+    position: fixed;
+    top:20px;
+    left:0px;
+    z-index: 400;
 
-  &:hover{
+    opacity: 0;
+    transition: .2s ease-in-out opacity;
+    // margin-bottom: 30px;
+    div.arrow-right {
+      width: 0; 
+      height: 0; 
+      border-top: 150px solid transparent;
+      border-bottom: 150px solid transparent;
+      
+      border-left: 80px solid rgba(0,0,0,0.85);
+      position: absolute;
+      right: -80px;
+      bottom: 0;
+
+    }
     
-    cursor: pointer;
+    h3{
+      padding: 5px;
+      padding-top: 39px;
+      font-size: 60px;
+      line-height: 70px;
+
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover{
+      
+      cursor: pointer;
+    }
+    &:active{
+      
+      // top: -79px;
+    }
   }
-  &:active{
-    
-    top: -144px;
-  }
-}
 }
