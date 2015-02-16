@@ -171,13 +171,13 @@ class mongoInstance(object):
 
 		timestamp = int(time.time())
 		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
-		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'message':messageText, 'reviewer':reviewer,'time':timestamp, 'approved':false})
+		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'message':messageText, 'reviewer':reviewer,'time':timestamp, 'approved':False})
 		return [status, msg]
 
 	def adminApprove(self,uID,reviewer):
 		timestamp = int(time.time())
 		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
-		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'reviewer':reviewer, 'time':timestamp, 'approved':true})
+		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'reviewer':reviewer, 'time':timestamp, 'approved':True})
 		return 'approved'
 
 	# def getAdminApproval(self, uID):
