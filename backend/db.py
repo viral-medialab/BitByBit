@@ -141,15 +141,11 @@ class mongoInstance(object):
 				userObject['then'] = user['goal']['then']
 				userObject['blurb'] = user['goal']['blurb']
 				try:
-					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})
-					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})[0]
-					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])
-					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])[0]
-					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)
-					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]
 					userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['approved']
+					userObject['reviewer'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['reviewer']
 				except:
 					userObject['approval'] = 'nodata'
+					userObject['reviewer'] = 'nodata'
 				usersArray.append(userObject)
 			except:
 				print "Didn't have necessary fields"
@@ -185,7 +181,7 @@ class mongoInstance(object):
 		timestamp = int(time.time())
 		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
 		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'reviewer':reviewer, 'time':timestamp, 'approved':True})
-		return 'approved'
+		return '200: approved'
 
 	# def getAdminApproval(self, uID):
 	# 	try:
