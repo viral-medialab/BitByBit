@@ -157,6 +157,7 @@
   	div.listAll{
         //float: left;
         width:20%;
+        height:70px;
         //top:30px;
         position:relative;
         input{
@@ -164,6 +165,8 @@
             margin-top: 20px;
         }
   	}
+
+
 
   	//div.allParticipants .listAll {
   	//    visibility: hidden;
@@ -262,6 +265,15 @@
   		div.thenBox{
   			background-color: rgb(18,141,157);
         border-top: 1px solid rgb(49,163,177);
+  		}
+  		div.reviewBox{
+  		    position:absolute;
+  		    left:-240px;
+  		    top:0px;
+  		    div.rejected{
+  		        margin-left:10px;
+  		        width:225px;
+  		    }
   		}
       div.workshopBox{
         padding-left: 10%;
@@ -448,6 +460,12 @@
                     color: #128d9d;
                   }
             }
+            .green{
+                color:green;
+            }
+            .red{
+                color:red;
+            }
       }
 
       div.workshopBox{
@@ -459,6 +477,12 @@
   		}
   	}
   }
+.green{
+    color:green;
+}
+.red{
+    color:red;
+}
 
 div.admin-pane.mobile{
 	min-width: 600px;

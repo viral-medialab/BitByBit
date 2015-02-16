@@ -24,6 +24,16 @@
     <div class="allParticipants">
         <div ng-repeat="response in responseArray" class="oneParticipant" ng-show="participantDisplayed[$index]">
             <div class="myContent mainContentBox">
+                <div class="reviewBox">
+                    <h4>Review history:</h4>
+                    <div ng-repeat="review in response.reviewHistory">
+                        <p ng-show="review.approved"><strong class="green">Approved</strong> by {{review.reviewer}}</p>
+                        <p ng-hide="review.approved"><strong class="red">Rejected</strong> by {{review.reviewer}}</p>
+                        <div ng-hide="review.approved" class="rejected">&ldquo;{{review.message}}&rdquo;</div>
+                    </div>
+
+                </div>
+
                 <div class="challengeBox">
                     <div class="challengeContent">
                         <h3>I want to...</h3>
@@ -58,8 +68,8 @@
             </div>
             <div class="adminContent mainContentBox">
                 <div class="buttonBox" id="buttons{{$index}}">
-                    <a ng-click="adminCntrl.approve(response.uID,$index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Approve"><i class="fa fa-check fa-4x fa-fw"></i></a>
-                    <a ng-click="adminCntrl.flag($index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Flag"><i class="fa fa-close fa-4x fa-fw"></i></a>
+                    <a ng-class="{green:participantApproved[$index]}"ng-click="adminCntrl.approve(response.uID,$index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Approve"><i class="fa fa-check fa-4x fa-fw"></i></a>
+                    <a ng-class="{red:participantDisapproved[$index]}" ng-click="adminCntrl.flag($index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Flag"><i class="fa fa-close fa-4x fa-fw"></i></a>
                 </div>
                 <div class="responseBox" id="response{{$index}}" ng-show="feedbackDisplayed[$index]">
                     <div contentEditable="true" ng-model="feedback[$index]" class="feedback">Send a response to this participant</div>

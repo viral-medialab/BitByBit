@@ -7,7 +7,7 @@ adminPage.directive("adminPane", function(){
 		controller: function($http,$scope){
 
             $scope.feedback = {};
-            $scope.checkall = false;
+            $scope.checkall = true;
 
             $scope.responseArray = [
                 {
@@ -34,8 +34,15 @@ adminPage.directive("adminPane", function(){
                         return false;
                     });
                     $scope.participantDisplayed = $scope.responseArray.map(function(val,i) {
-                        return i == 0;
+                        return true;
                     });
+                    $scope.participantApproved = $scope.responseArray.map(function(val,i) {
+                        return false;
+                    });
+                    $scope.participantDisapproved = $scope.responseArray.map(function(val,i) {
+                        return false;
+                    });
+
 
                    $scope.$apply();
                    console.log( $scope.responseArray)
@@ -56,14 +63,17 @@ adminPage.directive("adminPane", function(){
                      window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
                    }else{
                         console.log(result);
-                        $scope.participantDisplayed[idx] = false;
-                        if (idx < $scope.numResponses) {
-                            $scope.participantDisplayed[idx+1] = true;
+                        if (!$scope.checkall){
+                            $scope.participantDisplayed[idx] = false;
+                            if (idx < $scope.numResponses) {
+                                $scope.participantDisplayed[idx+1] = true;
+                            }
                         }
                         $scope.$apply();
 
                    }
                });
+               $scope.participantDisapproved[idx] = true;
             };
 
             this.flag = function(idx) {
@@ -77,10 +87,14 @@ adminPage.directive("adminPane", function(){
             }
 
             this.approve = function(uID,idx) {
-                $scope.participantDisplayed[idx] = false;
-                if (idx < $scope.numResponses) {
-                    $scope.participantDisplayed[idx+1] = true;
+                if (!$scope.checkall){
+                    $scope.participantDisplayed[idx] = false;
+                    if (idx < $scope.numResponses) {
+                        $scope.participantDisplayed[idx+1] = true;
+                    }
                 }
+                $scope.participantApproved[idx] = true;
+
                 data = {
                     uID: uID
                 };
