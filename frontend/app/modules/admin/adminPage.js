@@ -26,6 +26,7 @@ adminPage.directive("adminPane", function(){
                if(result =="redirect"){
                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
                }else{
+                    console.log(result)
                    $scope.responseArray = result;
 
                    $scope.numResponses = $scope.responseArray.length;

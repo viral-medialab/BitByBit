@@ -329,6 +329,7 @@ adminEmailPostParser.add_argument('message', type=str, required=True)
 class AdminEmail(Resource):
 	@admin_cookie
 	def post(self):
+		cookie = request.headers['Cookie']
 		c = Cookie.SimpleCookie()
 		c.load(str(cookie))
 		mlCookie = c['MediaLabUser'].value
