@@ -140,12 +140,13 @@ class mongoInstance(object):
 				userObject['because'] = user['goal']['because']
 				userObject['then'] = user['goal']['then']
 				userObject['blurb'] = user['goal']['blurb']
+				userObject['reviewHistory'] = []
 				try:
-					userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['approved']
-					userObject['reviewer'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['reviewer']
+					historyCursor = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])
+					for item in historyCursor:
+						userObject['reviewHistory'].append(item)
 				except:
-					userObject['approval'] = 'nodata'
-					userObject['reviewer'] = 'nodata'
+					print 'No Review History'
 				usersArray.append(userObject)
 			except:
 				print "Didn't have necessary fields"
