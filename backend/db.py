@@ -132,7 +132,7 @@ class mongoInstance(object):
 		cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
 		usersArray = []
 		for user in cursor:
-			print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['approved']
+			# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['approved']
 			try:
 				userObject = {}
 				userObject['uID'] = user['uID']
@@ -141,7 +141,13 @@ class mongoInstance(object):
 				userObject['then'] = user['goal']['then']
 				userObject['blurb'] = user['goal']['blurb']
 				try:
-					userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort({'time': -1}).limit(1)[0]['approved']
+					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})
+					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})[0]
+					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])
+					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])[0]
+					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)
+					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]
+					userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['approved']
 				except:
 					userObject['approval'] = 'nodata'
 				usersArray.append(userObject)
