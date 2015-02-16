@@ -333,6 +333,7 @@ class AdminEmail(Resource):
 		c = Cookie.SimpleCookie()
 		c.load(str(cookie))
 		mlCookie = c['MediaLabUser'].value
+		user = urllib.unquote(mlCookie).split(';')[0]
 		reviewer = user.split('@media.mit.edu')[0]
 
 		args = adminEmailPostParser.parse_args()
