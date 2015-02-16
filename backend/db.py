@@ -142,7 +142,7 @@ class mongoInstance(object):
 				userObject['blurb'] = user['goal']['blurb']
 				userObject['reviewHistory'] = []
 				try:
-					historyCursor = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}, {'_id': 0}).sort([('time', -1)])
+					historyCursor = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}, {'_id': 0, 'uID':0}).sort([('time', -1)])
 					for item in historyCursor:
 						userObject['reviewHistory'].append(item)
 				except:
