@@ -132,7 +132,7 @@ class mongoInstance(object):
 		cursor = MongoInstance.client['bitbybit']['users'].find({}, {'_id': 0})
 		usersArray = []
 		for user in cursor:
-			MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort({'time': -1}).limit(1)[0]['approved']
+			MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['approved']
 			try:
 				userObject = {}
 				userObject['uID'] = user['uID']
