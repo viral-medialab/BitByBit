@@ -139,10 +139,10 @@ class mongoInstance(object):
 				userObject['because'] = user['goal']['because']
 				userObject['then'] = user['goal']['then']
 				userObject['blurb'] = user['goal']['blurb']
-				try:
-					userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':uID}).sort({'time': -1}).limit(1)[0]['approved']
-				except:
-					userObject['approval'] = 'nodata'
+				# try:
+				userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':uID}).sort({'time': -1}).limit(1)[0]['approved']
+				# except:
+				# 	userObject['approval'] = 'nodata'
 				usersArray.append(userObject)
 			except:
 				print "Didn't have necessary fields"
