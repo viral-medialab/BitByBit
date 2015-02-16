@@ -139,12 +139,16 @@ class mongoInstance(object):
 				userObject['because'] = user['goal']['because']
 				userObject['then'] = user['goal']['then']
 				userObject['blurb'] = user['goal']['blurb']
+				try:
+					userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find_one({$query: {'uID':uID}, $orderby: {'time': -1}})['approved']
+				except:
+					userObject['approval'] = 'nodata'
 				usersArray.append(userObject)
 			except:
 				print "Didn't have necessary fields"
 		return usersArray
 
-	def adminemail(self,uID, messageText):
+	def adminemail(self,uID, messageText, reviewer):
 		# userData = MongoInstance.client['bxbUsers']['userdata'].find_one({'uID':uID}, {'_id': 0})
 		# userEmail = userData['user']
 		# userName = userData['name']
@@ -162,8 +166,25 @@ class mongoInstance(object):
 
 		status = 200
 		msg = "{'message':'success'}"
+		
 
+
+		timestamp = int(time.time())
+		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
+		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'message':messageText, 'reviewer':reviewer,'time':timestamp, 'approved':false})
 		return [status, msg]
+
+	def adminApprove(self,uID,reviewer):
+		timestamp = int(time.time())
+		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
+		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'reviewer':reviewer, 'time':timestamp, 'approved':true})
+		return 'approved'
+
+	# def getAdminApproval(self, uID):
+	# 	try:
+	# 		return MongoInstance.client['bitbybit']['adminresponse'].find_one({$query: {'uID':uID}, $orderby: {'time': -1}})
+	# 	except:
+	# 		return 'nodata'
 
 
 

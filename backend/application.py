@@ -329,10 +329,15 @@ adminEmailPostParser.add_argument('message', type=str, required=True)
 class AdminEmail(Resource):
 	@admin_cookie
 	def post(self):
+		c = Cookie.SimpleCookie()
+		c.load(str(cookie))
+		mlCookie = c['MediaLabUser'].value
+		reviewer = user.split('@media.mit.edu')[0]
+
 		args = adminEmailPostParser.parse_args()
 		uID = args.get('uID')
 		message = args.get('message')
-		return MongoInstance.adminemail(uID, message)
+		return MongoInstance.adminemail(uID, message, reviewer)
 
 api.add_resource(AdminEmail, '/api/private/adminemail')
 	
