@@ -141,12 +141,12 @@ class mongoInstance(object):
 				userObject['then'] = user['goal']['then']
 				userObject['blurb'] = user['goal']['blurb']
 				try:
-					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})
-					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})[0]
-					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])
-					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])[0]
-					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)
-					print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]
+					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})
+					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']})[0]
+					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])
+					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)])[0]
+					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)
+					# print MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]
 					userObject['approval'] = MongoInstance.client['bitbybit']['adminresponse'].find({'uID':user['uID']}).sort([('time', -1)]).limit(1)[0]['approved']
 				except:
 					userObject['approval'] = 'nodata'
@@ -181,7 +181,7 @@ class mongoInstance(object):
 		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'message':messageText, 'reviewer':reviewer,'time':timestamp, 'approved':False})
 		return [status, msg]
 
-	def adminApprove(self,uID,reviewer):
+	def adminapprove(self,uID,reviewer):
 		timestamp = int(time.time())
 		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
 		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'reviewer':reviewer, 'time':timestamp, 'approved':True})

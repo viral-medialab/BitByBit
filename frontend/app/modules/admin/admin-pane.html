@@ -58,7 +58,7 @@
             </div>
             <div class="adminContent mainContentBox">
                 <div class="buttonBox" id="buttons{{$index}}">
-                    <a ng-click="adminCntrl.approve($index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Approve"><i class="fa fa-check fa-4x fa-fw"></i></a>
+                    <a ng-click="adminCntrl.approve(response.uID,$index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Approve"><i class="fa fa-check fa-4x fa-fw"></i></a>
                     <a ng-click="adminCntrl.flag($index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Flag"><i class="fa fa-close fa-4x fa-fw"></i></a>
                 </div>
                 <div class="responseBox" id="response{{$index}}" ng-show="feedbackDisplayed[$index]">

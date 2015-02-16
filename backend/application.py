@@ -342,6 +342,27 @@ class AdminEmail(Resource):
 		return MongoInstance.adminemail(uID, message, reviewer)
 
 api.add_resource(AdminEmail, '/api/private/adminemail')
+
+############################
+# AdminApprove
+############################
+adminApprovePostParser = reqparse.RequestParser()
+adminApprovePostParser.add_argument('uID', type=str, required=True)
+class AdminApprove(Resource):
+	@admin_cookie
+	def post(self):
+		cookie = request.headers['Cookie']
+		c = Cookie.SimpleCookie()
+		c.load(str(cookie))
+		mlCookie = c['MediaLabUser'].value
+		user = urllib.unquote(mlCookie).split(';')[0]
+		reviewer = user.split('@media.mit.edu')[0]
+
+		args = adminApprovePostParser.parse_args()
+		uID = args.get('uID')
+		return MongoInstance.adminapprove(uID, reviewer)
+
+api.add_resource(AdminApprove, '/api/private/adminapprove')
 	
 
 

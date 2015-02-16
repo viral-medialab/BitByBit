@@ -76,11 +76,21 @@ adminPage.directive("adminPane", function(){
                 }
             }
 
-            this.approve = function(idx) {
+            this.approve = function(uID,idx) {
                 $scope.participantDisplayed[idx] = false;
                 if (idx < $scope.numResponses) {
                     $scope.participantDisplayed[idx+1] = true;
                 }
+                data = {
+                    uID: uID
+                };
+                _HTTP("post", "adminapprove", data, function(result){
+                   if(result =="redirect"){
+                     window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+                   }else{
+                        console.log(result);
+                   }
+               });
             }
 
             this.checkAll = function() {
