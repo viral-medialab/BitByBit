@@ -146,6 +146,55 @@
   		p{
   			font-weight: 400;
   		}
+
+      div.number{
+        position: absolute;
+        left: -45px;
+        font-size: 50px;
+        line-height: 50px;
+        top: 0px;
+        color: black;
+        font-weight: 700;
+      }
+
+      div.modal{
+        position: fixed;
+        // left: 50px;
+        top: 50px;
+        width: 40%;
+        height: 300px;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 1000;
+        color: white;
+        border-radius: 5px;
+        h2{
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        p{
+          padding: 5px;
+          text-align: center;
+        }
+        div{
+
+          text-align: center;
+          border: 1px solid white;
+          width: 80%;
+          line-height: 50px;
+          font-size: 20px;
+          height: 50px;
+          margin: 0 auto;
+          margin-top: 30px;
+          background-color: rgba(0,0,0,0.95);
+          cursor: pointer;
+          position: relative;
+          &:active{
+            top: 1px;
+          }
+        }
+      }
+
+
   		div.challengeBox{
   			width: 100%;
   			height:200px;
@@ -222,6 +271,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
         clear:both;
+        position: relative;
         &:after {
           content:"";
           display:table;
@@ -361,6 +411,7 @@
   		// border-right: 1px solid black;
   	}
   	div.partnerContent{
+      opacity: 0;
       .blurryText {
          color: transparent;
          text-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -408,6 +459,44 @@ div.team-pane.mobile{
   		margin-left: 0%;
   		margin-top: 10px;
 
+      div.modal{
+        position: fixed;
+        // left: 50px;
+        top: 50px;
+        width: 100%;
+        height: 500px;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 1000;
+        color: white;
+        border-radius: 5px;
+        h2{
+          text-align: center;
+          margin-bottom: 20px;
+          font-size: 60px;
+        }
+        p{
+          padding: 5px;
+          font-size: 40px;
+          text-align: center;
+        }
+        div{
+
+          text-align: center;
+          border: 1px solid white;
+          width: 80%;
+          line-height: 120px;
+          font-size: 60px;
+          height: 120px;
+          margin: 0 auto;
+          margin-top: 30px;
+          background-color: rgba(0,0,0,0.95);
+          cursor: pointer;
+          position: relative;
+          &:active{
+            top: 1px;
+          }
+        }
+      }
       div.challengeBox{
         width: 100%;
         height:300px;

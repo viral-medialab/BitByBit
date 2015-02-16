@@ -72,8 +72,12 @@ teamPage.directive("teamPane", function(){
             $scope.updatingProject = false;
             $scope.updatedProject = false;
             $scope.updatedError = false;
+            $scope.showModal = false;
 
 
+            this.closeModal = function(){
+                $scope.showModal = false;
+            }
             this.save = function(){
                 // console.log($scope.unsaved);
                 $scope.updatingProject = true;
@@ -97,6 +101,13 @@ teamPage.directive("teamPane", function(){
                             $scope.updatedError = false;
                             // $scope.unsaved = false;
                             $scope.$apply();
+                            setTimeout(function(){
+                                $scope.updatingProject = false;
+                                $scope.updatedProject = false;
+                                $scope.updatedError = false;
+                                $scope.$apply();
+                            },5000);
+                            $scope.showModal = true;
                             setTimeout(function(){
                                 $scope.updatingProject = false;
                                 $scope.updatedProject = false;

@@ -64,6 +64,17 @@ app.directive('contenteditable', function() {
           require: 'ngModel',
           link: function(scope, elm, attrs, ctrl) {
               // view -> model
+              elm.bind('keydown', function() {
+                if(!scope.mobile){
+                  scope.$apply(function() {
+                      elm.html(elm.html().replace(/_/g,""))
+                      ctrl.$setViewValue(elm.html());    
+                  }); 
+                }
+                 
+                 
+              });
+
               elm.bind('blur', function() {
                   scope.$apply(function() {
                       if (elm.html() === ""){

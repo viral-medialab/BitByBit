@@ -18,7 +18,15 @@
     </div>
 
     <div class="myContent mainContentBox">
+        <div class="modal" ng-show="showModal">
+            <h2>YOU'RE DONE FOR NOW!</h2>
+            <p>Watch your email for details on which IDEO workshop you're placed in and to find out who your partner is!
+            </p>
+            <p>(Feel free to continue editing the content here)</p>
+            <div ng-click="teamCntrl.closeModal()">OK - Got it!</div>
+        </div>
         <div class="challengeBox">
+            <div class="number">1.</div>
             <div class="profileImage">
                 <img ng-src="{{image}}"/>
                 <h3>{{name}}</h3>
@@ -42,6 +50,7 @@
         </div>
 
         <div class="workshopBox">
+            <div class="number">2.</div>
             <h3>I can attend the Feb 18 workshop at:</h3>
             <h4 >(check all that apply, you'll be placed in only 1)</h4>
             <table>
@@ -64,6 +73,7 @@
         </div>
 
         <div class="blurbBox">
+            <div class="number">3.</div>
             <div class="quote">“</div>
             <div class="blurbContent">
                 <p>Some challenges I have in changing this behavior are <span contentEditable="true" ng-model="myData.blurb[0]">finding the time</span> and <span contentEditable="true" ng-model="myData.blurb[1]">feelings too tired after work to go</span>. I have tried <span contentEditable="true" ng-model="myData.blurb[2]">creating a google calendar alarm</span> but <span contentEditable="true" ng-model="myData.blurb[3]">I just ignore it</span>. I'm happiest when <span contentEditable="true" ng-model="myData.blurb[4]">my brain is hard at work</span>. I care deeply about <span contentEditable="true" ng-model="myData.blurb[5]">having a fun life filled with travelling</span> and not about <span contentEditable="true" ng-model="myData.blurb[6]">being rich</span>.</p>
