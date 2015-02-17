@@ -183,7 +183,7 @@ class mongoInstance(object):
 
 		timestamp = int(time.time())
 		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
-		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'message':messageText, 'reviewer':reviewer,'time':timestamp, 'approved':False})
+		MongoInstance.client['bitbybit']['adminresponse'].insert({'uID':uID, 'goal':goal, 'message':urllib.unquote(messageText), 'reviewer':reviewer,'time':timestamp, 'approved':False})
 		return [status, msg]
 
 	def adminapprove(self,uID,reviewer):
