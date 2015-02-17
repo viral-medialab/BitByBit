@@ -26,13 +26,22 @@ teamPage.directive("teamPane", function(){
                 workshops: [false,false,false,false,false],
                 blurb: ["____","____","____","____","____","____","____"]
             };
+            $scope.patnerData = {
+                want: "____",
+                because: "____",
+                then: "____",
+                workshops: [false,false,false,false,false],
+                blurb: ["____","____","____","____","____","____","____"]
+            };
+
             $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif'
+            $scope.partnerImage='http://pldb.media.mit.edu/research/images/nophoto.gif'
             data = {
             };
             _HTTP("get", "goal", data, function(result){
                 // $scope.getuser_result = result;
                 // updateAllUsers();
-                // console.log(result)
+                // console.log(result);
                 // console.log(JSON.parse(result)) ;
                 if(result =="redirect"){
                     window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
@@ -45,6 +54,12 @@ teamPage.directive("teamPane", function(){
                     if (goal != false){
                         $scope.myData = result['goal'];
                     }
+
+                    $scope.partnerName = result['partner']['name']
+                    $scope.partnerEmail = result['partner']['email']
+                    $scope.partnerImage = result['partner']['image']
+                    $scope.partnerData = result['partner']['goal']
+
                     
                     $scope.$apply();
                 }

@@ -25,12 +25,15 @@ class mongoInstance(object):
 
 		MongoInstance.client['bxbUsers']['userdata'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
 
+	def getUserData(self,uID):
+		return MongoInstance.client['bxbUsers']['userdata'].find_one({'uID':uID}, {'_id': 0})		
+
 	############################
 	# Goal
 	############################
 	def getGoal(self,uID):
 		if MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}):
-			return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']
+			return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
 		else:
 			return False
 
