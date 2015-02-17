@@ -204,6 +204,7 @@
   			div.profileImage{
 	  			width:20%;
 	  			float:left;
+          position: relative;
 	  			img{
 	  				width:100%;
 	  			}
@@ -212,7 +213,16 @@
             font-size: 18px;
             text-align: center;
           }
+
 	  		}
+        h4{
+          position: absolute;
+          font-weight: 300;
+          right: 5px;
+          // top:-22px;
+          // color: black;
+          z-index: 5000;
+        }
 	  		div.challengeContent{
 	  			width:80%;
 	  			float:left;
@@ -411,17 +421,17 @@
   		// border-right: 1px solid black;
   	}
   	div.partnerContent{
-      // opacity: 0;
+      opacity: 0;
       .blurryText {
-         color: transparent;
-         text-shadow: 0 0 10px rgba(0,0,0,0.5);
+         // color: transparent;
+         // text-shadow: 0 0 10px rgba(0,0,0,0.5);
 
          &.light{
-          text-shadow: 0 0 25px rgba(255,255,255,1.0);
+          // text-shadow: 0 0 25px rgba(255,255,255,1.0);
          }
 
          &.double{
-          text-shadow: 0 0 25px rgba(255,255,255,1.0);
+          // text-shadow: 0 0 25px rgba(255,255,255,1.0);
          }
       }
   		margin-left: 0;
@@ -519,6 +529,15 @@ div.team-pane.mobile{
           img{
             width:100%;
           }
+        }
+        h4{
+          position: absolute;
+          font-weight: 300;
+          right: 5px;
+          // top:-22px;
+          // color: black;
+          z-index: 5000;
+          font-size: 30px;
         }
         div.challengeContent{
           width:80%;

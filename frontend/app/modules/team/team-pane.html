@@ -88,13 +88,17 @@
     </div>
     <div class="partnerContent mainContentBox">
         <div class="challengeBox">
+            <h4>{{partnerEmail}}</h4>
             <div class="profileImage">
-                <img src="images/partner.jpg"/>
+                <!-- <img src="images/partner.jpg"/> -->
+                <img ng-src="{{partnerImage}}"/>
+                <h3>{{partnerName}}</h3>
+                
             </div>
             <div class="challengeContent">
                 <h3>I want to...</h3>
-                <h4>(Partner will appear here when matched)</h4>
-                <h1 class="blurryText light double">DRINK MORE WATER DAILY</h1>
+                <!-- <h4>(Partner will appear here when matched)</h4> -->
+                <h1 class="blurryText light double">{{partnerData.want}}</h1>
                 
             </div>
 
@@ -102,12 +106,12 @@
         </div>
         <div class="becauseBox miniBox">
             <h3>because...</h3>
-            <p class="blurryText light">it makes me feel amazing, calms me down, and helps me find balance.</p>
+            <p class="blurryText light">{{partnerData.because}}</p>
             
         </div>
         <div class="thenBox miniBox">
             <h3>and then I'll be...</h3>
-            <p class="blurryText light">someone who feels like a strong physical machine ready to take on the world!</p>
+            <p class="blurryText light">{{partnerData.then}}</p>
             
         </div> 
 
@@ -119,8 +123,9 @@
         <div class="blurbBox">
             <div class="quote">“</div>
             <div class="blurbContent">
-                <p class="blurryText">Some challenges I have in changing this behavior are finding the time and feelings too tired after work to go. I have tried creating a google calendar alaram but I just ignore it.</p>
+                <!-- <p class="blurryText">Some challenges I have in changing this behavior are finding the time and feelings too tired after work to go. I have tried creating a google calendar alaram but I just ignore it.</p> -->
                 <!-- <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div> -->
+                <p>Some challenges I have in changing this behavior are {{partnerData.blurb[0]}} and {{partnerData.blurb[1]}}. I have tried {{partnerData.blurb[2]}} but {{partnerData.blurb[3]}}. I'm happiest when {{partnerData.blurb[4]}}. I care deeply about {{partnerData.blurb[5]}} and not about {{partnerData.blurb[6]}}.</p>
             </div>
         </div>
     </div>
