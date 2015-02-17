@@ -171,7 +171,16 @@ class Goal(Resource):
 					image = 'http://pldb.media.mit.edu/research/images/nophoto.gif'
 
 				MongoInstance.addUserData(uID,user,name,image)
-				return {'name':name, 'image':image, 'goal':MongoInstance.getGoal(uID)}
+				user  = MongoInstance.getGoal(uID)
+				goal = user['goal']
+				partner_uID = user['partner_uID']
+				workshop = user['workshop']
+				partner = MongoInstance.getGoal(partner_uID)
+				partner_userData = MongoInstance.getUserData(parner_uID)
+				partner['name'] = partner_userData['name']
+				partner['email'] = partner_userData['user']
+				partner['image'] = partner_userData['image']
+				return {'name':name, 'image':image, 'goal':goal, 'workshop':workshop,'partner':partner}
 			else:
 				return 'redirect'
 				# return redirect("http://www.media.mit.edu/login?destination=bitxbit.media.mit.edu%2Fteam&previous=bitxbit.media.mit.edu", code=302)
