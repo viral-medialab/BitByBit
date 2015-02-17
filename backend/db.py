@@ -33,7 +33,7 @@ class mongoInstance(object):
 	############################
 	def getGoal(self,uID):
 		if MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}):
-			return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})
+			return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
 		else:
 			return False
 
