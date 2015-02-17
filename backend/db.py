@@ -162,9 +162,9 @@ class mongoInstance(object):
 
 		sg = sendgrid.SendGridClient('BITxBIT-ML', 'kevinlives4pizza')
 
-		print messageText
-		print "-------"
-		print decode(messageText)
+		# print messageText
+		# # print "-------"
+		# # print decode(messageText)
 
 		message = sendgrid.Mail()
 		message.add_to(userName+' <'+userEmail+'>')
