@@ -53,12 +53,15 @@ adminPage.directive("adminPane", function(){
 
 
             this.send = function(uID, idx){
+
                 //alert("trying to send " + $scope.feedback[idx] + " to user " + uID + " from box " + idx);
                 data = {
                     uID: uID,
                     message: $scope.feedback[idx]
                 };
-                console.log(data)
+                // console.log(data)
+                // console.log ($scope.feedback)
+                // console.log ($scope.feedback[idx])
                _HTTP("post", "adminemail", data, function(result){
                    if(result =="redirect"){
                      window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';

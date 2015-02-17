@@ -72,7 +72,7 @@
                     <a ng-class="{red:participantDisapproved[$index]}" ng-click="adminCntrl.flag($index)" data-toggle="tooltip" data-placement="bottom" style="vertical-align: middle" title="Flag"><i class="fa fa-close fa-4x fa-fw"></i></a>
                 </div>
                 <div class="responseBox" id="response{{$index}}" ng-show="feedbackDisplayed[$index]">
-                    <div contentEditable="true" ng-model="feedback[$index]" class="feedback">Send a response to this participant</div>
+                    <textarea ng-model="feedback[$index]" class="feedback">Send a response to this participant</textarea>
                     <div class="sendButton" ng-click="adminCntrl.send(response.uID, $index)">Send</div>
                 </div>
             </div>

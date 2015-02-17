@@ -77,7 +77,7 @@
       bottom: 55px;
       right: 120px;
       pointer-events: none;
-      div{
+      textarea{
         position: absolute;
         text-align: center;
         font-size: 25px;
@@ -444,13 +444,16 @@
         background-color: rgb(0,0,0);
         border-top: 1px solid rgb(35,35,35);
       }
-      div.feedback{
+      textarea.feedback{
             margin-left: 20px;
             margin-right: 20px;
             margin-bottom: 5px;
             padding: 5px;
             height: 200px;
+            width: 460px;
+            font-size: 15px;
             border: 1px solid black;
+            resize: none;
       }
       div.buttonBox{
             margin: 20px;
