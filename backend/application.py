@@ -176,7 +176,7 @@ class Goal(Resource):
 			partner_uID = user['partner_uID']
 			workshop = user['workshop']
 			partner = MongoInstance.getGoal(partner_uID)
-			partner_userData = MongoInstance.getUserData(parner_uID)
+			partner_userData = MongoInstance.getUserData(partner_uID)
 			partner['name'] = partner_userData['name']
 			partner['email'] = partner_userData['user']
 			partner['image'] = partner_userData['image']
