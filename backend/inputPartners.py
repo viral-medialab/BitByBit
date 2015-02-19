@@ -6,7 +6,7 @@ import urllib, urllib2, Cookie
 import hashlib
 
 
-MATCH_FILE = "./matches-input-4.csv"
+MATCH_FILE = "./matches-input-5.csv"
 DEBUG = True
 
 def addUserDataIfNeeded(uID,email,name,image):
