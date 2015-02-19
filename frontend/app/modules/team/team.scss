@@ -399,6 +399,7 @@
   			clear:both;
         position: relative;
         width: 100%;
+        min-height: 400px;
   			&:after {
   			  content:"";
   			  display:table;
@@ -518,6 +519,33 @@
   		div.blurbBox{
   			// border-left: 2px solid black;
   		}
+      div.designBox{
+        h2{
+          background-color: rgb(30,30,30);
+        }
+        h3{
+          background-color: rgb(0,0,0);
+          border-top: 1px solid rgb(35,35,35);
+        }
+        h4{
+          font-weight: 700;
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+        p{
+          width: 80%;
+          margin: 0 auto;
+          display: block;
+          resize: none;
+          min-height: 50px;
+          border: 0;
+          // border-left: 1px solid black;
+          // height: 150px;
+          // overflow: scroll;
+
+        }
+        
+      }
   	}
   }
 

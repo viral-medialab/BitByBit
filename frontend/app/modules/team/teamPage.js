@@ -26,12 +26,20 @@ teamPage.directive("teamPane", function(){
                 workshops: [false,false,false,false,false],
                 blurb: ["____","____","____","____","____","____","____"]
             };
-            $scope.patnerData = {
+            $scope.partnerData = {
                 want: "____",
                 because: "____",
                 then: "____",
                 workshops: [false,false,false,false,false],
-                blurb: ["____","____","____","____","____","____","____"]
+                blurb: ["____","____","____","____","____","____","____"],
+                design_01: 'Awaiting Partner Input',
+                design_02: 'Awaiting Partner Input',
+                design_03: 'Awaiting Partner Input',
+                design_04: 'Awaiting Partner Input',
+                design_05: 'Awaiting Partner Input',
+                design_06: 'Awaiting Partner Input',
+                design_07: 'Awaiting Partner Input',
+                design_08: 'Awaiting Partner Input'
             };
 
             $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif'
