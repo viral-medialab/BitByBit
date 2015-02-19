@@ -148,6 +148,7 @@
   		}
 
       div.number{
+        display: none;
         position: absolute;
         left: -45px;
         font-size: 50px;
@@ -160,16 +161,26 @@
       div.modal{
         position: fixed;
         // left: 50px;
-        top: 50px;
-        width: 40%;
-        height: 300px;
+        top: -5px;
+        width: 25%;
+        height: 50px;
+        line-height: 50px;
         background-color: rgba(0,0,0,0.8);
+        border: 1px solid black;
         z-index: 1000;
         color: white;
         border-radius: 5px;
+        opacity: 0;
+        transition: .8s ease-in-out opacity;
+        &.visible{
+          transition: .2s ease-in-out opacity;
+          opacity: 1;
+        }
         h2{
           text-align: center;
           margin-bottom: 20px;
+          font-weight: 300;
+
         }
         p{
           padding: 5px;
@@ -231,7 +242,7 @@
 
 	  			}
           h1{
-            font-size: 40px;
+            font-size: 30px;
             height: 151px;
             overflow: scroll;
             text-transform: uppercase;
@@ -277,6 +288,7 @@
   		}
 
       div.workshopBox{
+        display: none;
         padding-left: 10%;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -383,15 +395,17 @@
       }
 
   		div.blurbBox{
-  			padding:20px;
+  			// padding:20px;
   			clear:both;
         position: relative;
+        width: 100%;
   			&:after {
   			  content:"";
   			  display:table;
   			  clear:both;
   			}
   			div.quote{
+          padding-top:20px;
   				width: 12%;
   				// height: 100%;
   				float:left;
@@ -401,7 +415,9 @@
   				text-align: center;
   			}
   			div.blurbContent{
-  				width: 88%;
+          padding-top:20px;
+          padding-right:20px;
+  				width: 80%;
   				float:left;
   				font-size: 20px;
   				margin-bottom: 20px;
@@ -416,9 +432,55 @@
           }
   			}
   		}
+
+      div.designBox{
+        width: 100%;
+        margin-bottom: 50px;
+        // background-color: black;
+        h2{
+          background-color: rgb(49,191,219);
+          color: white;
+          font-weight: 100;
+          height: 110px;
+          padding:10px;
+          padding-top: 30px;
+
+          font-size: 30px;
+        }
+        h3{
+          font-weight: 400;
+          font-size: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          background-color: rgb(18,141,157);
+          border-top: 1px solid rgb(49,163,177);
+          color: white;
+          padding-right: 10px;
+          text-align: right;
+        }
+        h4{
+          font-weight: 700;
+          padding-right: 10px;
+        }
+        p{
+          padding:5px;
+          margin-left: 10%;
+          padding-right: 10px;
+        }
+        textarea{
+          width: 80%;
+          margin: 0 auto;
+          display: block;
+          resize: vertical;
+          height: 150px;
+          overflow: scroll;
+        }
+      }
   	}
   	div.myContent{
-  		// border-right: 1px solid black;
+      div.blurbBox, div.designBox{
+        border-right: 2px solid black;
+      }
   	}
   	div.partnerContent{
       // opacity: 0;
@@ -438,6 +500,7 @@
   		div.challengeBox{
   			background-color: rgb(30,30,30);
 
+
   		}
       div.becauseBox{
         background-color: rgb(20,20,20);
@@ -449,11 +512,11 @@
       }
 
       div.workshopBox{
-        border-left: 2px solid black;
+        // border-left: 2px solid black;
       }
 
   		div.blurbBox{
-  			border-left: 2px solid black;
+  			// border-left: 2px solid black;
   		}
   	}
   }
@@ -470,6 +533,7 @@ div.team-pane.mobile{
   		margin-top: 10px;
 
       div.number{
+        opacity: 0;
         position: absolute;
         right: 10px;
         font-size: 50px;
@@ -482,40 +546,21 @@ div.team-pane.mobile{
       div.modal{
         position: fixed;
         // left: 50px;
-        top: 50px;
-        width: 100%;
-        height: 500px;
+        // opacity: 1;
+        top: -15px;
+        width: 80%;
+        height: 100px;
+        line-height: 100px;
         background-color: rgba(0,0,0,0.8);
         z-index: 1000;
         color: white;
-        border-radius: 5px;
+        border-radius: 15px;
         h2{
           text-align: center;
           margin-bottom: 20px;
           font-size: 60px;
         }
-        p{
-          padding: 5px;
-          font-size: 40px;
-          text-align: center;
-        }
-        div{
-
-          text-align: center;
-          border: 1px solid white;
-          width: 80%;
-          line-height: 120px;
-          font-size: 60px;
-          height: 120px;
-          margin: 0 auto;
-          margin-top: 30px;
-          background-color: rgba(0,0,0,0.95);
-          cursor: pointer;
-          position: relative;
-          &:active{
-            top: 1px;
-          }
-        }
+        
       }
       div.challengeBox{
         width: 100%;
@@ -646,8 +691,8 @@ div.team-pane.mobile{
         
       }
       div.blurbBox{
-        padding:20px;
-        padding-bottom: 140px;
+        padding:0px;
+        padding-bottom: 60px;
         // clear:both;
         // position: relative;
         // &:after {
@@ -678,6 +723,51 @@ div.team-pane.mobile{
         //   }
         // }
       }
+      div.designBox{
+        width: 100%;
+        margin-bottom: 50px;
+        // background-color: black;
+        h2{
+          background-color: rgb(49,191,219);
+          color: white;
+          font-weight: 100;
+          height: 110px;
+          padding:10px;
+          padding-top: 30px;
+
+          font-size: 60px;
+        }
+        h3{
+          font-weight: 400;
+          font-size: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          background-color: rgb(18,141,157);
+          border-top: 1px solid rgb(49,163,177);
+          color: white;
+          padding-right: 10px;
+          text-align: right;
+        }
+        h4{
+          font-weight: 700;
+          padding-right: 10px;
+        }
+        p{
+          padding:5px;
+          margin-left: 10%;
+          padding-right: 10px;
+        }
+        textarea{
+          width: 80%;
+          margin: 0 auto;
+          display: block;
+          resize: vertical;
+          height: 350px;
+          overflow: scroll;
+          border: 1px solid black;
+        }
+      }
+    
   	}
     div.editButton{
       width: 200px;

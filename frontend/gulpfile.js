@@ -65,7 +65,7 @@ gulp.task('browserify', function() {
   }))
   .pipe(concat('bundle.js')) // Bundle to a single file
   .pipe(ngAnnotate())
-  // .pipe(uglify())
+  .pipe(uglify())
   .pipe(gulp.dest('dist/js'));
 });
 

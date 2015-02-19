@@ -105,9 +105,11 @@ teamPage.directive("teamPane", function(){
                 _HTTP("post", "goal", data, function(result){
                     // $scope.getuser_result = result;
                     // updateAllUsers();
+                    // console.log(result)
                     if(result =="redirect"){
                     window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
-        
+                    }else if(result == "noChange"){
+                        var y = 0;
                     }else{
                         try{
                             result['goal']
@@ -127,8 +129,9 @@ teamPage.directive("teamPane", function(){
                                 $scope.updatingProject = false;
                                 $scope.updatedProject = false;
                                 $scope.updatedError = false;
+                                $scope.showModal = false;
                                 $scope.$apply();
-                            },5000);
+                            },3000);
                         }catch(err){
                             $scope.updatingProject = false;
                             $scope.updatedProject = false;

@@ -1,6 +1,7 @@
 import math
 import pymongo
 from pymongo import GEO2D
+from bson import BSON
 from bson.objectid import ObjectId
 import os
 import urllib
@@ -41,6 +42,8 @@ class mongoInstance(object):
 		updateFields = {}
 		updateFields['goal'] = {}
 		timestamp = int(time.time())
+		oldGoal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})['goal']
+		cmpResult = cmp(oldGoal,json.loads(goal))
 
 		# print goal
 		x =  json.loads(goal)
@@ -48,9 +51,12 @@ class mongoInstance(object):
 			# print item + ' :  '+str(x[item])
 			updateFields['goal'][item] = x[item]
 
-		MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
-		MongoInstance.client['bitbybit']['usersArchive'].insert({'uID':uID, 'goal':updateFields['goal'],'time':timestamp})
-		return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
+		if cmpResult != 0:
+			MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+			MongoInstance.client['bitbybit']['usersArchive'].insert({'uID':uID, 'goal':updateFields['goal'],'time':timestamp})
+			return MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
+		else:
+			return 'noChange'
 
 		# thing = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID}, {'_id': 0})
 		# print thing

@@ -12,18 +12,19 @@
         </div>
         <div class="nextBox">
             <h2>UP NEXT</h2>
-            <p>Workshop Session</p>
-            <p>Wednesday Feb 18</p>
+            <p>Empathize, Discover & Go Broad</p>
+            <p>Interview your partner and ideate by</p>
+            <p>Friday Feb 27</p>
         </div>
     </div>
 
     <div class="myContent mainContentBox">
-        <div class="modal" ng-show="showModal">
-            <h2>YOU'RE DONE FOR NOW!</h2>
-            <p>Watch your email for details on which IDEO workshop you're placed in and to find out who your partner is!
+        <div class="modal" ng-class="{visible:showModal}">
+            <h2>Changes Saved!</h2>
+            <!-- <p>Watch your email for details on which IDEO workshop you're placed in and to find out who your partner is!
             </p>
             <p>(Feel free to continue editing the content here)</p>
-            <div ng-click="teamCntrl.closeModal()">OK - Got it!</div>
+            <div ng-click="teamCntrl.closeModal()">OK - Got it!</div> -->
         </div>
         <div class="challengeBox">
             <div class="number">1.</div>
@@ -33,19 +34,19 @@
             </div>
             <div class="challengeContent">
                 <h3>I want to...</h3>
-                <h1 contentEditable="true" ng-model="myData.want">{{myData.want}}</h1>
+                <h1 contentEditable="true" ng-model="myData.want" ng-blur="teamCntrl.save()">{{myData.want}}</h1>
                 
             </div>
 
         </div>
         <div class="becauseBox miniBox">
             <h3>because...</h3>
-            <p contentEditable="true" ng-model="myData.because">{{myData.because}}</p>
+            <p contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.because">{{myData.because}}</p>
             
         </div>
         <div class="thenBox miniBox">
             <h3>and then I'll be...</h3>
-            <p contentEditable="true" ng-model="myData.then">{{myData.then}}</p>
+            <p contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.then">{{myData.then}}</p>
             
         </div>
 
@@ -76,14 +77,41 @@
             <div class="number">3.</div>
             <div class="quote">“</div>
             <div class="blurbContent">
-                <p>Some challenges I have in changing this behavior are <span contentEditable="true" ng-model="myData.blurb[0]">finding the time</span> and <span contentEditable="true" ng-model="myData.blurb[1]">feelings too tired after work to go</span>. I have tried <span contentEditable="true" ng-model="myData.blurb[2]">creating a google calendar alarm</span> but <span contentEditable="true" ng-model="myData.blurb[3]">I just ignore it</span>. I'm happiest when <span contentEditable="true" ng-model="myData.blurb[4]">my brain is hard at work</span>. I care deeply about <span contentEditable="true" ng-model="myData.blurb[5]">having a fun life filled with travelling</span> and not about <span contentEditable="true" ng-model="myData.blurb[6]">being rich</span>.</p>
-                <div class="result-box">
+                <p>Some challenges I have in changing this behavior are <span contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.blurb[0]">finding the time</span> and <span contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.blurb[1]">feelings too tired after work to go</span>. I have tried <span contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.blurb[2]">creating a google calendar alarm</span> but <span contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.blurb[3]">I just ignore it</span>. I'm happiest when <span contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.blurb[4]">my brain is hard at work</span>. I care deeply about <span contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.blurb[5]">having a fun life filled with travelling</span> and not about <span contentEditable="true" ng-blur="teamCntrl.save()" ng-model="myData.blurb[6]">being rich</span>.</p>
+                <!-- <div class="result-box">
                     <loading-animation ng-if="updatingProject"></loading-animation>
                     <div ng-if="updatedProject">✓</div>
                     <div ng-if="updatedError">X</div>
-                </div>
-                <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div>
+                </div> -->
+                <!-- <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div> -->
             </div>
+        </div>
+
+        <div class="designBox">
+            <h2>Design Process: Insight and Strategy</h2>
+            <p>This following is built from the toolkit used at the IDEO workshop. A focused recap is found <a href="https://s3.amazonaws.com/bitxbit/BitXBitXIDEO_InsightAndStrategy.pdf" target="_blank">here in PDF form</a>.</p>
+            <h3>Design something useful and meaningful for your partner. Start by gaining empathy.</h3>
+            <h4>Partner Interview</h4>
+            <textarea ng-model="myData.design_01" ng-blur="teamCntrl.save()" placeholder="Collect notes from your interview here"></textarea>
+            <h4>Dig Deeper Interview</h4>
+            <textarea ng-model="myData.design_02" ng-blur="teamCntrl.save()" placeholder="Notes from your second interview can be collected here."></textarea>
+            <h3>Reframe the problem</h3>
+            <h4>Capture findings: Goals and Wishes</h4>
+            <textarea ng-model="myData.design_03" ng-blur="teamCntrl.save()" placeholder="What is your partner trying to achieve?"></textarea>
+            <h4>Capture findings: Insights</h4>
+            <textarea ng-model="myData.design_04" ng-blur="teamCntrl.save()" placeholder="New learnings about your partner''s feelings and motivations. What''s something you see about your partner's experience that maybe s/he doesn't see?"></textarea>
+            <h3>Take a stand with a point-of-view</h3>
+            <h4>Your partner needs a way to _____ because (or 'but...' or 'Surprisingly...') _____.</h4>
+            <textarea ng-model="myData.design_05" ng-blur="teamCntrl.save()" placeholder="Capture your insights here."></textarea>
+            <h3>Ideate</h3>
+            <h4>Come up with at least 5 radical ways to meet your partner's needs.</h4>
+            <textarea ng-model="myData.design_06" ng-blur="teamCntrl.save()" placeholder="Keep your problem statement in mind, and go crazy with ideas."></textarea>
+            <h4>Share your solutions and capture feedback</h4>
+            <textarea ng-model="myData.design_07" ng-blur="teamCntrl.save()" placeholder="Collect your feedback here."></textarea>
+            <h3>General Notes</h3>
+            <h4>Feel free to keep track of any stray ideas of thoughts here.</h4>
+            <textarea ng-model="myData.design_08" ng-blur="teamCntrl.save()" placeholder="Miscellaneous thoughts go here!"></textarea>
+            
         </div>
     </div>
     <div class="partnerContent mainContentBox">
@@ -112,19 +140,11 @@
         <div class="thenBox miniBox">
             <h3>and then I'll be...</h3>
             <p class="blurryText light">{{partnerData.then}}</p>
-            
         </div> 
-
-         <!-- <div class="workshopBox">
-            <h3>I can attend the workshop on:</h3>
-            
-        </div> -->
 
         <div class="blurbBox">
             <div class="quote">“</div>
             <div class="blurbContent">
-                <!-- <p class="blurryText">Some challenges I have in changing this behavior are finding the time and feelings too tired after work to go. I have tried creating a google calendar alaram but I just ignore it.</p> -->
-                <!-- <div class="editButton br" ng-click="teamCntrl.save()">SAVE</div> -->
                 <p>Some challenges I have in changing this behavior are {{partnerData.blurb[0]}} and {{partnerData.blurb[1]}}. I have tried {{partnerData.blurb[2]}} but {{partnerData.blurb[3]}}. I'm happiest when {{partnerData.blurb[4]}}. I care deeply about {{partnerData.blurb[5]}} and not about {{partnerData.blurb[6]}}.</p>
             </div>
         </div>
