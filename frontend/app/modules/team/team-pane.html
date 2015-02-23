@@ -11,7 +11,7 @@
             </ul>
         </div>
         <div class="nextBox">
-            <h2>UP NEXT</h2>
+            <h2>NEXT STEP</h2>
             <p>Empathize, Discover & Go Broad</p>
             <p>Interview your partner and ideate by</p>
             <p>Friday Feb 27</p>
@@ -102,7 +102,8 @@
             <h4>Capture findings: Insights</h4>
             <textarea ng-model="myData.design_04" ng-blur="teamCntrl.save()" placeholder="New learnings about your partner's feelings and motivations. What's something you see about your partner's experience that maybe s/he doesn't see?"></textarea>
             <h3>Take a stand with a point-of-view</h3>
-            <h4>Your partner needs a way to _____ because (or 'but...' or 'Surprisingly...') _____.</h4>
+            <h4>Your partner needs a way to _____ because<br>
+            (or 'but...' or 'Surprisingly...') _____.</h4>
             <textarea ng-model="myData.design_05" ng-blur="teamCntrl.save()" placeholder="Capture your insights here."></textarea>
             <h3>Ideate</h3>
             <h4>Come up with at least 5 radical ways to meet your partner's needs.</h4>
@@ -152,8 +153,8 @@
         <div class="designBox">
             <h2>Design Process: Insight and Strategy</h2>
             <h2 class="designHeader">This following is built from the toolkit used at the IDEO workshop. A focused recap is found <a href="https://s3.amazonaws.com/bitxbit/BitXBitXIDEO_InsightAndStrategy.pdf" target="_blank">here in PDF form</a>. The purpose is to design something useful and meaningful for your partner. </h2>
-            <p></p>
-            <h3>Start by gaining empathy.</h3>
+         
+            <h3 style="line-height: 62px;">Start by gaining empathy.</br> </h3>
             <h4>Partner Interview</h4>
             <p>{{partnerData.design_01}}</p>
             <h4>Dig Deeper Interview</h4>
@@ -164,7 +165,8 @@
             <h4>Capture findings: Insights</h4>
             <p>{{partnerData.design_04}}</p>
             <h3>Take a stand with a point-of-view</h3>
-            <h4>Your partner needs a way to _____ because (or 'but...' or 'Surprisingly...') _____.</h4>
+            <h4>Your partner needs a way to _____ because <br>
+                (or 'but...' or 'Surprisingly...') _____.</h4>
             <p>{{partnerData.design_05}}</p>
             <h3>Ideate</h3>
             <h4>Come up with at least 5 radical ways to meet your partner's needs.</h4>
