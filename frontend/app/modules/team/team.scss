@@ -120,16 +120,17 @@
   			border-top: 8px solid black;
   			text-align: right;
   			margin-right: 20px;
-  			
+  			background-color: yellow;
   		}
 
   	}
   	div.mainContentBox{
   		// clear:left;
   		// border: 1px solid black;
-  		width: 40%;
-  		max-width: 500px;
-  		margin-left: 20%;
+  		width: 50%;
+  		max-width: 600px;
+      //margin:1%;
+  		//margin-left: 20%;
   		float:left;
   		font-family: 'Titillium Web', sans-serif;
       position: relative;
@@ -479,12 +480,14 @@
       }
   	}
   	div.myContent{
+      margin-right:1%;
       div.blurbBox, div.designBox{
-        border-right: 2px solid black;
+        //border-right: 2px solid black;
       }
   	}
   	div.partnerContent{
       // opacity: 0;
+
       .blurryText {
          // color: transparent;
          // text-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -497,7 +500,8 @@
           // text-shadow: 0 0 25px rgba(255,255,255,1.0);
          }
       }
-  		margin-left: 0;
+  		margin-left: 1.5%;
+
   		div.challengeBox{
   			background-color: rgb(30,30,30);
 
@@ -532,12 +536,15 @@
           padding-right: 10px;
           padding-left: 10px;
         }
+        .ng-binding{
+          min-height:150px;
+        }
         p{
           width: 80%;
           margin: 0 auto;
           display: block;
           resize: none;
-          min-height: 50px;
+          //min-height: 50px;
           border: 0;
           // border-left: 1px solid black;
           // height: 150px;
