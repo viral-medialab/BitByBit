@@ -65,17 +65,17 @@
             <div class="questionBox">
                 <table>
                 <tbody ng-class="{firefox:firefox}">
-                    <tr ng-if="firefox"><td><input id="workshop1" type="radio" name="affect" ng-model="myData.workshops[0]"></td><td><label for="workshop1">Very bad</label></td></tr>
-                    <tr ng-if="firefox"><td><input id="workshop2" type="radio" name="affect" ng-model="myData.workshops[1]"></td><td><label for="workshop2">Bad</label></td></tr>
-                    <tr ng-if="firefox"><td><input id="workshop3" type="radio" name="affect" ng-model="myData.workshops[2]"></td><td><label for="workshop3">Neutral</label></td> </tr>
-                    <tr ng-if="firefox"><td><input id="workshop4" type="radio" name="affect" ng-model="myData.workshops[3]"></td><td><label for="workshop4">Good</label></td></tr>
-                    <tr ng-if="firefox"><td><input id="no_workshop" type="radio" name="affect" ng-model="myData.workshops[4]"></td><td><label for="no_workshop">Very good</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[0]"></td><td><label for="workshop1">Very bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[1]"></td><td><label for="workshop2">Bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[2]"></td><td><label for="workshop3">Neutral</label></td> </tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[3]"></td><td><label for="workshop4">Good</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[4]"></td><td><label for="no_workshop">Very good</label></td></tr>
 
-                    <tr ng-if="!firefox"><td><input id="workshop1" type="radio" name="affect" ng-model="myData.workshops[0]"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="workshop2" type="radio" name="affect" ng-model="myData.workshops[1]"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="workshop3" type="radio" name="affect" ng-model="myData.workshops[2]"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="workshop4" type="radio" name="affect" ng-model="myData.workshops[3]"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="no_workshop" type="radio" name="affect" ng-model="myData.workshops[4]"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[0]"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[1]"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[2]"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[3]"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[4]"></td></tr>
 
                 </tbody>
                 </table>
@@ -98,21 +98,21 @@
                 .</br>
             </div>
 
-            <h3>How does the amount you perform your behavior now make you feel?</h3>
+            <h3>How satisfied are you with your current progress toward your behavior change goal?</h3>
             <div class="questionBox">
                 <table class="progressTable">
                 <tbody ng-class="{firefox:firefox}">
-                    <tr ng-if="firefox"><td><input id="workshop1" type="radio" name="progress" ></td><td><label for="workshop1">Very bad</label></td></tr>
-                    <tr ng-if="firefox"><td><input id="workshop2" type="radio" name="progress" ></td><td><label for="workshop2">Bad</label></td></tr>
-                    <tr ng-if="firefox"><td><input id="workshop3" type="radio" name="progress" ></td><td><label for="workshop3">Neutral</label></td> </tr>
-                    <tr ng-if="firefox"><td><input id="workshop4" type="radio" name="progress" ></td><td><label for="workshop4">Good</label></td></tr>
-                    <tr ng-if="firefox"><td><input id="no_workshop" type="radio" name="progress" ></td><td><label for="no_workshop">Very good</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
 
-                    <tr ng-if="!firefox"><td><input id="workshop1" type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="workshop2" type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="workshop3" type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="workshop4" type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input id="no_workshop" type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
 
                 </tbody>
                 </table>
@@ -138,7 +138,69 @@
         </div>
 
         <div class="designBox">
-            <h3>Please answer the following question about your role as a designer in changing your partner's behavior:</br> </h3>
+            <h3>Please answer the following questions about your role as a designer in changing your partner's behavior:</br> </h3>
+        </div>
+
+        <div class="surveyBox">
+            <h3>How confident are you that you assessed your partner's real problem?</h3>
+            <div class="questionBox">
+                <table class="confidenceTable">
+                <tbody ng-class="{firefox:firefox}">
+                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
+
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
+
+                </tbody>
+                </table>
+            </div>
+
+            <h3>Is the intervention design easy to do or a tiny behavior?</h3>
+            <div class="questionBox">
+                <div class="switch">
+                    <input id="cmn-toggle" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <label for="cmn-toggle" data-on="Yes" data-off="No"></label>
+                </div>
+            </div>
+
+            <h3>Is the intervention design specific?</h3>
+            <div class="questionBox">
+                <div class="switch">
+                    <input id="cmn-toggle" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <label for="cmn-toggle" data-on="Yes" data-off="No"></label>
+                </div>
+            </div>
+
+            <h3>Does your design alter your partner's environment?</h3>
+            <div class="questionBox">
+                <div class="switch">
+                    <input id="cmn-toggle" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <label for="cmn-toggle" data-on="Yes" data-off="No"></label>
+                </div>
+            </div>
+
+            <h3>Does your design trigger the behavior?</h3>
+            <div class="questionBox">
+                <div class="switch">
+                    <input id="cmn-toggle" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <label for="cmn-toggle" data-on="Yes" data-off="No"></label>
+                </div>
+            </div>
+
+            <h3>Do you think your design takes your partners feelings about the behavior into consideration?</h3>
+            <div class="questionBox">
+                <div class="switch">
+                    <input id="cmn-toggle" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <label for="cmn-toggle" data-on="Yes" data-off="No"></label>
+                </div>
+            </div>
         </div>
     </div>
 

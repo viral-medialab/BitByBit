@@ -307,8 +307,9 @@
             margin-left: 5px;
         }
         div.questionBox {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             margin-left: 5px;
+            height: 45px;
         }
         table{
           width: 100%;
@@ -318,7 +319,7 @@
           }
 
           td{
-            height: 60px;
+            height: 50px;
             float:left;
             width: 2%;
 
@@ -332,7 +333,7 @@
                 border-radius:5px;
                 border:2px solid #555;
                 text-align: center;
-                line-height: 60px;
+                line-height: 45px;
 
 
 
@@ -396,11 +397,94 @@
           }
         }
         table.progressTable {
-
+          tr:nth-child(1){
+            input:after,{
+              content:"Very unsatisfied";
+            }
+          }
+          tr:nth-child(2){
+            input:after{
+              content:"Unsatisfied";
+            }
+          }
+          tr:nth-child(3){
+            input:after{
+              content:"Neutral";
+            }
+          }
+          tr:nth-child(4){
+            input:after{
+              content:"Satisfied";
+            }
+          }
+          tr:nth-child(5){
+            input:after{
+              content:"Very satisfied";
+            }
+          }
         }
         h4{
           font-weight: 300;
         }
+
+        /* toggle stuff: http://callmenick.com/2014/05/13/css-toggle-switch-examples/ */
+
+        .cmn-toggle {
+          position: absolute;
+          margin-left: -9999px;
+          visibility: hidden;
+        }
+        .cmn-toggle + label {
+          display: block;
+          position: relative;
+          cursor: pointer;
+          outline: none;
+          user-select: none;
+        }
+        input.cmn-toggle-yes-no + label {
+          padding: 2px;
+          width: 90px;
+          height: 41px;
+          margin-top:5px;
+          margin-left:auto;
+          margin-right:auto;
+        }
+        input.cmn-toggle-yes-no + label:before,
+        input.cmn-toggle-yes-no + label:after {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          color: #fff;
+          font-size: 13px;
+          text-align: center;
+          line-height: 41px;
+          border-radius:5px;
+          border:2px solid #555;
+        }
+        input.cmn-toggle-yes-no + label:before {
+          background-color: #fff;
+          color: #000;
+          content: attr(data-off);
+          transition: transform 0.5s;
+          backface-visibility: hidden;
+        }
+        input.cmn-toggle-yes-no + label:after {
+          background-color: #68da68;
+          content: attr(data-on);
+          transition: transform 0.5s;
+          transform: rotateY(180deg);
+          backface-visibility: hidden;
+        }
+        input.cmn-toggle-yes-no:checked + label:before {
+          transform: rotateY(180deg);
+        }
+        input.cmn-toggle-yes-no:checked + label:after {
+          transform: rotateY(0);
+        }
+        /* END toggle stuff */
 
       }
 
@@ -541,6 +625,41 @@
 
       div.surveyBox{
         // border-left: 2px solid black;
+        table{
+          td{
+            input[type='radio']:checked {
+                background-color: #68da68;
+            }
+          }
+        }
+        table.confidenceTable {
+          tr:nth-child(1){
+            input:after,{
+              content:"Very unsure";
+            }
+          }
+          tr:nth-child(2){
+            input:after{
+              content:"Unsure";
+            }
+          }
+          tr:nth-child(3){
+            input:after{
+              content:"Neutral";
+            }
+          }
+          tr:nth-child(4){
+            input:after{
+              content:"Confident";
+            }
+          }
+          tr:nth-child(5){
+            input:after{
+              content:"Very confident";
+            }
+          }
+        }
+
       }
 
   		div.blurbBox{
