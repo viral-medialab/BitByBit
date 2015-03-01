@@ -25,6 +25,9 @@ angular.module('appRoutes').config(['$routeProvider', '$locationProvider', funct
 		.when('/about',{
 			templateUrl: './templates/aboutPage.html',
 		})
+		.when('/survey',{
+			templateUrl: './templates/surveyPage.html',
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

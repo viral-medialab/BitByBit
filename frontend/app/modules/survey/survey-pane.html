@@ -1,0 +1,150 @@
+<div class="survey-pane" ng-class="{mobile:mobile}">
+    <div class="team-header">
+        <div class="logoBox">
+            <div class="logo" onclick="location.href='/';" style="cursor:pointer;"></div>
+        </div>
+        <div class="navBox">
+            <ul>
+                <a href="/"><li>Home</li></a>
+                <a href="/example"><li>Example</li></a>
+                <a href="/team"><li>Team</li></a>
+            </ul>
+        </div>
+        <div class="nextBox">
+            <h2>NEXT STEP</h2>
+            <p>Empathize, Discover & Go Broad</p>
+            <p>Interview your partner and ideate by</p>
+            <p>Friday Feb 27</p>
+        </div>
+    </div>
+
+    <div class="myContent mainContentBox">
+        <div class="modal" ng-class="{visible:showModal}">
+            <h2>Changes Saved!</h2>
+            <!-- <p>Watch your email for details on which IDEO workshop you're placed in and to find out who your partner is!
+            </p>
+            <p>(Feel free to continue editing the content here)</p>
+            <div ng-click="teamCntrl.closeModal()">OK - Got it!</div> -->
+        </div>
+        <div class="challengeBox">
+            <div class="number">1.</div>
+            <div class="profileImage">
+                <img ng-src="{{image}}"/>
+                <h3>{{name}}</h3>
+            </div>
+            <div class="challengeContent">
+                <h3>I want to...</h3>
+                <h1 contentEditable="true" ng-model="myData.want" ng-blur="teamCntrl.save()">{{myData.want}}</h1>
+                
+            </div>
+
+        </div>
+        <div class="designBox">
+            <h3>Please answer the following questions about the behavior you would like to change:</h3>
+        </div>
+
+        <div class="surveyBox">
+            <h3>How much do you do the behavior now?</h3>
+            <div class="questionBox">
+                <input type="text">
+                <select>
+                  <option value="times">times</option>
+                  <option value="hours">hours</option>
+                </select>
+                per
+                <select>
+                  <option value="day">day</option>
+                  <option value="week">week</option>
+                  <option value="month">month</option>
+                  <option value="year">year</option>
+                </select>
+                .</br>
+            </div>
+
+            <h3>How does the amount you perform your behavior now make you feel?</h3>
+            <div class="questionBox">
+                <table>
+                <tbody ng-class="{firefox:firefox}">
+                    <tr ng-if="firefox"><td><input id="workshop1" type="radio" name="affect" ng-model="myData.workshops[0]"></td><td><label for="workshop1">Very bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input id="workshop2" type="radio" name="affect" ng-model="myData.workshops[1]"></td><td><label for="workshop2">Bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input id="workshop3" type="radio" name="affect" ng-model="myData.workshops[2]"></td><td><label for="workshop3">Neutral</label></td> </tr>
+                    <tr ng-if="firefox"><td><input id="workshop4" type="radio" name="affect" ng-model="myData.workshops[3]"></td><td><label for="workshop4">Good</label></td></tr>
+                    <tr ng-if="firefox"><td><input id="no_workshop" type="radio" name="affect" ng-model="myData.workshops[4]"></td><td><label for="no_workshop">Very good</label></td></tr>
+
+                    <tr ng-if="!firefox"><td><input id="workshop1" type="radio" name="affect" ng-model="myData.workshops[0]"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="workshop2" type="radio" name="affect" ng-model="myData.workshops[1]"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="workshop3" type="radio" name="affect" ng-model="myData.workshops[2]"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="workshop4" type="radio" name="affect" ng-model="myData.workshops[3]"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="no_workshop" type="radio" name="affect" ng-model="myData.workshops[4]"></td></tr>
+
+                </tbody>
+                </table>
+            </div>
+
+            <h3>How much would you like to be doing the behavior?</h3>
+            <div class="questionBox">
+                <input type="text">
+                <select>
+                  <option value="times">times</option>
+                  <option value="hours">hours</option>
+                </select>
+                per
+                <select>
+                  <option value="day">day</option>
+                  <option value="week">week</option>
+                  <option value="month">month</option>
+                  <option value="year">year</option>
+                </select>
+                .</br>
+            </div>
+
+            <h3>How does the amount you perform your behavior now make you feel?</h3>
+            <div class="questionBox">
+                <table class="progressTable">
+                <tbody ng-class="{firefox:firefox}">
+                    <tr ng-if="firefox"><td><input id="workshop1" type="radio" name="progress" ></td><td><label for="workshop1">Very bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input id="workshop2" type="radio" name="progress" ></td><td><label for="workshop2">Bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input id="workshop3" type="radio" name="progress" ></td><td><label for="workshop3">Neutral</label></td> </tr>
+                    <tr ng-if="firefox"><td><input id="workshop4" type="radio" name="progress" ></td><td><label for="workshop4">Good</label></td></tr>
+                    <tr ng-if="firefox"><td><input id="no_workshop" type="radio" name="progress" ></td><td><label for="no_workshop">Very good</label></td></tr>
+
+                    <tr ng-if="!firefox"><td><input id="workshop1" type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="workshop2" type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="workshop3" type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="workshop4" type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input id="no_workshop" type="radio" name="progress"></td></tr>
+
+                </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="partnerContent mainContentBox">
+        <div class="challengeBox">
+            <h4>{{partnerEmail}}</h4>
+            <div class="profileImage">
+                <!-- <img src="images/partner.jpg"/> -->
+                <img ng-src="{{partnerImage}}"/>
+                <h3>{{partnerName}}</h3>
+                
+            </div>
+            <div class="challengeContent">
+                <h3>I want to...</h3>
+                <!-- <h4>(Partner will appear here when matched)</h4> -->
+                <h1 class="blurryText light double">{{partnerData.want}}</h1>
+                
+            </div>
+        </div>
+
+        <div class="designBox">
+            <h3>Please answer the following question about your role as a designer in changing your partner's behavior:</br> </h3>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+

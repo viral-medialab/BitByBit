@@ -6,8 +6,9 @@ var examplePage = require('../modules/example/examplePage');
 var teamPage = require('../modules/team/teamPage');
 var adminPage = require('../modules/admin/adminPage');
 var wikiPage = require('../modules/wiki/wikiPage');
+var surveyPage = require('../modules/survey/surveyPage');
 
-var app = angular.module('bitbybitApp', ['appRoutes', 'ngFitText','landingPage', 'teamPage', 'adminPage', 'examplePage', 'wikiPage']);
+var app = angular.module('bitbybitApp', ['appRoutes', 'ngFitText','landingPage', 'teamPage', 'adminPage', 'examplePage', 'wikiPage', 'surveyPage']);
 
 
 
