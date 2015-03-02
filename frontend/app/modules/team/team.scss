@@ -127,7 +127,7 @@
   	div.mainContentBox{
   		// clear:left;
   		// border: 1px solid black;
-  		width: 50%;
+  		//width: 50%;
   		max-width: 600px;
       //margin:1%;
   		//margin-left: 20%;
@@ -494,6 +494,7 @@
   	}
   	div.myContent{
       margin-right:1%;
+      width:49%;
       div.blurbBox, div.designBox{
         //border-right: 2px solid black;
       }
@@ -514,6 +515,7 @@
          }
       }
   		margin-left: 1.5%;
+      width:48.5%;
 
   		div.challengeBox{
         color:white;
