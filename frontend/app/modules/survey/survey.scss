@@ -306,6 +306,10 @@
         h3 {
             margin-left: 5px;
         }
+        h3.toggleHeading {
+            width: 80%;
+            float: left;
+        }
         div.questionBox {
             margin-bottom: 40px;
             margin-left: 5px;
@@ -446,8 +450,7 @@
           width: 90px;
           height: 41px;
           margin-top:5px;
-          margin-left:auto;
-          margin-right:auto;
+          margin-left:80%;
         }
         input.cmn-toggle-yes-no + label:before,
         input.cmn-toggle-yes-no + label:after {
