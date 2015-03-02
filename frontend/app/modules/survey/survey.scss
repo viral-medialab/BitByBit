@@ -311,6 +311,22 @@
             float: left;
         }
         div.questionBox {
+            input[type='text'] {
+                margin-left:auto;
+                margin-right:auto;
+                text-align: center;
+            }
+            select {
+                background-color:white;
+                border-radius:5px;
+                border:2px solid #555;
+                text-align: center;
+                line-height: 45px;
+                height: 41px;
+                width: 90px;
+            }
+        }
+        div.questionBox {
             margin-bottom: 40px;
             margin-left: 5px;
             height: 45px;
