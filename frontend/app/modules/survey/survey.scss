@@ -1,0 +1,1092 @@
+  .signup-form input.ng-invalid.ng-touched {
+    background-color: #E6C0CC;
+  }
+
+
+  div.survey-pane{
+  	min-width: 900px;
+  	max-width: 1250px;
+  	margin: 0 auto;
+
+
+    input{
+      border: 0;
+      border-bottom: 1px solid black;
+    }
+  	div.editButton{
+  		width: 50px;
+  		height: 20px;
+  		background-color: black;
+  		line-height: 20px;
+  		text-align: center;
+  		color: white;
+  		padding: 5px;
+
+  		&.light{
+  			background-color: #ccc;
+  			color: black;
+  		}
+  		&.br{
+  			position: absolute;
+  			bottom:20px;
+  			right: 20px;
+  		}
+
+      &:hover{
+
+        cursor: pointer;
+      }
+      &:active{
+
+        bottom: 19px;
+      }
+  	}
+
+    .result-box{
+      position: absolute;
+      bottom: 55px;
+      right: 120px;
+      pointer-events: none;
+      div{
+        position: absolute;
+        text-align: center;
+        font-size: 25px;
+        width: 40px;
+        color: #128d9d;
+        line-height: 43px;
+      }
+    }
+
+  	div.team-header{
+  		width: 100%;
+  		&:after {
+		  content:"";
+		  display:table;
+		  clear:both;
+		}
+
+  		div.logoBox{
+  			background-color: black;
+  			color: white;
+  			width: 20%;
+  			height: 200px;
+  			float: left;
+  			div.logo{
+  				height:200px;
+  				width:100%;
+  				background:url(../images/logo2.png) no-repeat center center;
+	  			background-size: contain;
+
+  			}
+
+  			// h1{
+  			// 	font-size: 40px;
+  			// 	text-align: center;
+  			// 	line-height: 200px;
+  			// }
+  			// img{
+  			// 	width: 100%;
+  			// }
+  		}
+  		div.navBox{
+  			// width: 33%;
+  			height: 200px;
+  			float: left;
+  			ul{
+  				list-style: none;
+  				padding-left: 5px;
+  				padding-top: 30px;
+          a{
+            text-decoration: none;
+            color: black;
+          }
+  				li{
+  					font-size: 20px;
+  					padding-bottom: 10px;
+            transition: .15s linear color;
+  					&:hover{
+  						cursor: pointer;
+  						color: rgb(49,191,219);
+  					}
+  				}
+
+  			}
+  		}
+  		div.nextBox{
+  			// width:33%;
+  			height: 162px;
+  			float:right;
+  			margin-top: 30px;
+  			border-top: 8px solid black;
+  			text-align: right;
+  			margin-right: 20px;
+  			background-color: yellow;
+  		}
+
+  	}
+  	div.mainContentBox{
+  		// clear:left;
+  		// border: 1px solid black;
+  		width: 50%;
+  		max-width: 600px;
+      //margin:1%;
+  		//margin-left: 20%;
+  		float:left;
+  		font-family: 'Titillium Web', sans-serif;
+      position: relative;
+      margin-top:10px;
+
+
+
+  		h1{
+  			font-weight: 200;
+  			font-size: 30px;
+  		}
+  		h3{
+  			font-weight: 400;
+  		}
+  		p{
+  			font-weight: 400;
+  		}
+
+      div.number{
+        display: none;
+        position: absolute;
+        left: -45px;
+        font-size: 50px;
+        line-height: 50px;
+        top: 0px;
+        color: black;
+        font-weight: 700;
+      }
+
+      div.modal{
+        position: fixed;
+        // left: 50px;
+        top: -5px;
+        width: 25%;
+        height: 50px;
+        line-height: 50px;
+        background-color: rgba(0,0,0,0.8);
+        border: 1px solid black;
+        z-index: 1000;
+        color: white;
+        border-radius: 5px;
+        opacity: 0;
+        transition: .8s ease-in-out opacity;
+        &.visible{
+          transition: .2s ease-in-out opacity;
+          opacity: 1;
+        }
+        h2{
+          text-align: center;
+          margin-bottom: 20px;
+          font-weight: 300;
+
+        }
+        p{
+          padding: 5px;
+          text-align: center;
+        }
+        div{
+
+          text-align: center;
+          border: 1px solid white;
+          width: 80%;
+          line-height: 50px;
+          font-size: 20px;
+          height: 50px;
+          margin: 0 auto;
+          margin-top: 30px;
+          background-color: rgba(0,0,0,0.95);
+          cursor: pointer;
+          position: relative;
+          &:active{
+            top: 1px;
+          }
+        }
+      }
+
+
+  		div.challengeBox{
+  			width: 100%;
+  			height:200px;
+  			background-color: rgb(49,191,219);
+  			color: white;
+  			position: relative;
+  			div.profileImage{
+	  			width:20%;
+	  			float:left;
+          position: relative;
+	  			img{
+	  				width:100%;
+	  			}
+          h3{
+            width: 100%;
+            font-size: 18px;
+            text-align: center;
+          }
+
+	  		}
+        h4{
+          position: absolute;
+          font-weight: 300;
+          right: 5px;
+          // top:-22px;
+          // color: black;
+          z-index: 5000;
+        }
+	  		div.challengeContent{
+	  			width:80%;
+	  			float:left;
+	  			h1, h3{
+	  				padding-left: 20px;
+
+	  			}
+          h1{
+            font-size: 30px;
+            height: 151px;
+            overflow: scroll;
+            text-transform: uppercase;
+          }
+	  			h3{
+	  				padding-top: 20px;
+	  			}
+          h4{
+            padding-left: 20px;
+            font-weight: 300;
+            position: absolute;
+            top: 0px;
+            right: 5px;
+          }
+	  		}
+  		}
+  		div.miniBox{
+  			width:50%;
+  			float:left;
+  			height: 200px;
+  			color: white;
+  			position: relative;
+  			h3,p{
+  				padding-left: 15%;
+  			}
+  			h3{
+  				padding-top: 10%;
+  				padding-bottom: 10%;
+  			}
+  			p{
+  				padding-right: 10%;
+          height: 121px;
+          overflow: scroll;
+  			}
+  		}
+  		div.becauseBox{
+      color: white;
+  			background-color: rgb(23,166,185);
+        border-top: 1px solid rgb(53,183,199);
+  		}
+  		div.thenBox{
+      color: white;
+  			background-color: rgb(18,141,157);
+        border-top: 1px solid rgb(49,163,177);
+  		}
+
+      div.surveyBox{
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        clear:both;
+        position: relative;
+        &:after {
+          content:"";
+          display:table;
+          clear:both;
+        }
+        h3 {
+            margin-left: 5px;
+        }
+        h3.toggleHeading {
+            width: 80%;
+            float: left;
+        }
+        div.questionBox {
+            input[type='text'] {
+                margin-left:auto;
+                margin-right:auto;
+                text-align: center;
+                font-size: 18;
+                width: 100px;
+            }
+            select {
+                background-color:white;
+                border-radius:5px;
+                border:2px solid #555;
+                text-align: center;
+                line-height: 45px;
+                height: 41px;
+                width: 90px;
+            }
+        }
+        div.questionBox {
+            margin-bottom: 40px;
+            margin-left: 5px;
+            height: 45px;
+        }
+        table{
+          width: 100%;
+          tr{
+            float:left;
+            width: 20%;
+          }
+
+          td{
+            height: 50px;
+            float:left;
+            width: 2%;
+
+
+            input[type='radio'] {
+                -webkit-appearance:none;
+                // -moz-appearance: none;
+                width:100%;
+                height:100%;
+                background-color:white;
+                border-radius:5px;
+                border:2px solid #555;
+                text-align: center;
+                line-height: 45px;
+
+
+
+
+            }
+            input[type='radio']:checked {
+                background-color: rgb(49,191,219);
+                color: white;
+            }
+
+
+
+          }
+
+          tbody.firefox{
+            input[type='radio'] {
+                // -webkit-appearance:default;
+                // -moz-appearance: default;
+                width:50px;
+                height:50px;
+                margin-top: 15px;
+                // background-color:white;
+                // border-radius:5px;
+                // border:2px solid #555;
+                // text-align: center;
+                // line-height: 60px;
+
+
+
+
+            }
+            input[type='radio']:checked {
+                // background-color: rgb(49,191,219);
+                // color: white;
+            }
+          }
+          tr:nth-child(1){
+            input:after,{
+              content:"Very bad";
+            }
+          }
+          tr:nth-child(2){
+            input:after{
+              content:"Bad";
+            }
+          }
+          tr:nth-child(3){
+            input:after{
+              content:"Neutral";
+            }
+          }
+          tr:nth-child(4){
+            input:after{
+              content:"Good";
+            }
+          }
+          tr:nth-child(5){
+            input:after{
+              content:"Very good";
+            }
+          }
+        }
+        table.progressTable {
+          tr:nth-child(1){
+            input:after,{
+              content:"Very unsatisfied";
+            }
+          }
+          tr:nth-child(2){
+            input:after{
+              content:"Unsatisfied";
+            }
+          }
+          tr:nth-child(3){
+            input:after{
+              content:"Neutral";
+            }
+          }
+          tr:nth-child(4){
+            input:after{
+              content:"Satisfied";
+            }
+          }
+          tr:nth-child(5){
+            input:after{
+              content:"Very satisfied";
+            }
+          }
+        }
+        h4{
+          font-weight: 300;
+        }
+
+        /* toggle stuff: http://callmenick.com/2014/05/13/css-toggle-switch-examples/ */
+
+        .cmn-toggle {
+          position: absolute;
+          margin-left: -9999px;
+          visibility: hidden;
+        }
+        .cmn-toggle + label {
+          display: block;
+          position: relative;
+          cursor: pointer;
+          outline: none;
+          user-select: none;
+        }
+        input.cmn-toggle-yes-no + label {
+          padding: 2px;
+          width: 90px;
+          height: 41px;
+          margin-top:5px;
+          margin-left:80%;
+        }
+        input.cmn-toggle-yes-no + label:before,
+        input.cmn-toggle-yes-no + label:after {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          color: #fff;
+          font-size: 13px;
+          text-align: center;
+          line-height: 41px;
+          border-radius:5px;
+          border:2px solid #555;
+        }
+        input.cmn-toggle-yes-no + label:before {
+          background-color: #fff;
+          color: #000;
+          content: attr(data-off);
+          transition: transform 0.5s;
+          backface-visibility: hidden;
+        }
+        input.cmn-toggle-yes-no + label:after {
+          background-color: #68da68;
+          content: attr(data-on);
+          transition: transform 0.5s;
+          transform: rotateY(180deg);
+          backface-visibility: hidden;
+        }
+        input.cmn-toggle-yes-no:checked + label:before {
+          transform: rotateY(180deg);
+        }
+        input.cmn-toggle-yes-no:checked + label:after {
+          transform: rotateY(0);
+        }
+        /* END toggle stuff */
+
+      }
+
+  		div.blurbBox{
+  			// padding:20px;
+  			clear:both;
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+  			&:after {
+  			  content:"";
+  			  display:table;
+  			  clear:both;
+  			}
+  			div.quote{
+          padding-top:20px;
+  				width: 12%;
+  				// height: 100%;
+  				float:left;
+  				font-size: 85px;
+  				font-family: Georgia, serif;
+  				line-height: 55px;
+  				text-align: center;
+  			}
+  			div.blurbContent{
+          padding-top:20px;
+          padding-right:20px;
+  				width: 80%;
+  				float:left;
+  				font-size: 20px;
+  				margin-bottom: 20px;
+  				p{
+  					padding-bottom: 20px;
+  				}
+          span{
+            color: rgb(18,141,157);
+            font-style: italic;
+            // text-decoration: underline;
+            // min-width: 20px;
+          }
+  			}
+  		}
+
+      div.designBox{
+        width: 100%;
+        margin-bottom: 0px;
+        // background-color: black;
+        h2{
+          background-color:rgb(104, 218, 104);
+          background-color: rgb(104, 218, 104);
+          color: white;
+          font-weight: 100;
+          height: 40px;
+          padding:10px;
+          padding-top: 30px;
+
+          font-size: 30px;
+        }
+        h2.designHeader {
+            background-color: rgb(104, 218, 104);
+            color: white;
+            font-weight: 100;
+            font-size: 15px;
+            height: 80px;
+        }
+        h3{
+
+          font-weight: 400;
+          font-size: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          background-color: rgb(18,141,157);
+          border-top: 1px solid rgb(49,163,177);
+          color: white;
+          padding-left: 10px;
+          padding-right: 10px;
+          //text-align: right;
+        }
+        h4{
+
+          font-weight: 700;
+          padding-right: 10px;
+        }
+        p{
+          //padding:5px;
+          margin-left: 10%;
+          padding-right: 10px;
+        }
+        textarea{
+          width: 80%;
+          margin: 0 auto;
+          display: block;
+          resize: vertical;
+          height: 150px;
+          overflow: scroll;
+        }
+      }
+  	}
+  	div.myContent{
+      margin-right:1%;
+      div.blurbBox, div.designBox{
+        //border-right: 2px solid black;
+      }
+  	}
+  	div.partnerContent{
+      // opacity: 0;
+
+      .blurryText {
+         // color: transparent;
+         // text-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+         &.light{
+          // text-shadow: 0 0 25px rgba(255,255,255,1.0);
+         }
+
+         &.double{
+          // text-shadow: 0 0 25px rgba(255,255,255,1.0);
+         }
+      }
+  		margin-left: 1.5%;
+
+  		div.challengeBox{
+        color:white;
+  			background-color: rgb(104, 218, 104);
+
+
+  		}
+      div.becauseBox{
+        color:white;
+        background-color: #61C47A;
+        border-top: 1px solid green;
+      }
+      div.thenBox{
+        color:white;
+        background-color: #49A360;
+        border-top: 1px solid green;
+      }
+
+      div.surveyBox{
+        // border-left: 2px solid black;
+        table{
+          td{
+            input[type='radio']:checked {
+                background-color: #68da68;
+            }
+          }
+        }
+        table.confidenceTable {
+          tr:nth-child(1){
+            input:after,{
+              content:"Very unsure";
+            }
+          }
+          tr:nth-child(2){
+            input:after{
+              content:"Unsure";
+            }
+          }
+          tr:nth-child(3){
+            input:after{
+              content:"Neutral";
+            }
+          }
+          tr:nth-child(4){
+            input:after{
+              content:"Confident";
+            }
+          }
+          tr:nth-child(5){
+            input:after{
+              content:"Very confident";
+            }
+          }
+        }
+
+      }
+
+  		div.blurbBox{
+  			// border-left: 2px solid black;
+  		}
+      div.designBox{
+        h2{
+          color:white;
+          background-color: rgb(49,191,219);
+        }
+        h2.designHeader {
+          color:white;
+          background-color: rgb(49,191,219);
+
+        }
+        h2.designHeader a {
+            color: blue;
+        }
+        h3{
+          background-color: #49A360;
+
+          border-top: 1px solid green;
+        }
+        h4{
+          font-weight: 700;
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+        .ng-binding{
+          min-height:150px;
+        }
+        p{
+          width: 80%;
+          margin: 0 auto;
+          display: block;
+          resize: none;
+          //min-height: 50px;
+          border: 0;
+          // border-left: 1px solid black;
+          // height: 150px;
+          // overflow: scroll;
+
+        }
+
+      }
+  	}
+  }
+
+div.survey-pane.mobile{
+	min-width: 600px;
+  	// max-width: 900px;
+  	div.mainContentBox{
+  		// clear:left;
+  		// border: 1px solid black;
+  		width: 100%;
+  		max-width: 100%;
+  		margin-left: 0%;
+  		margin-top: 10px;
+
+      div.number{
+        opacity: 0;
+        position: absolute;
+        right: 10px;
+        font-size: 50px;
+        line-height: 50px;
+        top: 0px;
+        color: black;
+        font-weight: 700;
+      }
+
+      div.modal{
+        position: fixed;
+        // left: 50px;
+        // opacity: 1;
+        top: -15px;
+        width: 80%;
+        height: 100px;
+        line-height: 100px;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 1000;
+        color: white;
+        border-radius: 15px;
+        h2{
+          text-align: center;
+          margin-bottom: 20px;
+          font-size: 60px;
+        }
+
+      }
+      div.challengeBox{
+        width: 100%;
+        height:300px;
+
+        color: white;
+        position: relative;
+        div.profileImage{
+          width:20%;
+          float:left;
+          img{
+            width:100%;
+          }
+        }
+        h4{
+          position: absolute;
+          font-weight: 300;
+          right: 5px;
+          // top:-22px;
+          // color: black;
+          z-index: 5000;
+          font-size: 30px;
+        }
+        div.challengeContent{
+          width:80%;
+          float:left;
+          h1, h3{
+            padding-left: 20px;
+
+          }
+          h1{
+            font-size: 60px;
+            height: 219px;
+            overflow: scroll;
+            text-transform: uppercase;
+          }
+          h3{
+            padding-top: 20px;
+            font-size: 40px;
+          }
+          h4{
+            padding-left: 20px;
+            font-weight: 300;
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            font-size: 30px;
+          }
+        }
+      }
+      div.miniBox{
+        width:100%;
+        // float:left;
+        height: 400px;
+        color: white;
+        position: relative;
+        h3,p{
+          padding-left: 15%;
+        }
+        h3{
+          padding-top: 10px;
+          padding-bottom: 30px;
+          font-size: 40px;
+        }
+        p{
+          padding-right: 10%;
+          height: 311px;
+          overflow: scroll;
+          font-size: 40px;
+          font-weight: 300;
+        }
+      }
+      div.surveyBox{
+        padding-left: 10%;
+        padding-top: 20px;
+        padding-bottom: 100px;
+        clear:both;
+        font-size: 40px;
+
+        input[type=checkbox] {
+          height:100px;
+          font-size: 20px;
+          line-height: 100px;
+        }
+        tbody.firefox{
+          label{
+            font-size: 25px;
+          }
+            input[type='checkbox'] {
+                // -webkit-appearance:default;
+                // -moz-appearance: default;
+                width:50px;
+                height:50px;
+                margin-top: 30px;
+
+                // background-color:white;
+                // border-radius:5px;
+                // border:2px solid #555;
+                // text-align: center;
+                // line-height: 60px;
+
+
+
+
+            }
+            input[type='checkbox']:checked {
+                // background-color: rgb(49,191,219);
+                // color: white;
+            }
+          }
+        &:after {
+          content:"";
+          display:table;
+          clear:both;
+        }
+        table{
+          width: 100%;
+          tr{
+            float:left;
+            width: 20%;
+            font-size: 40px;
+          }
+        }
+        h4{
+          font-weight: 300;
+          font-size: 30px;
+        }
+
+      }
+      div.blurbBox{
+        padding:0px;
+        padding-bottom: 60px;
+        // clear:both;
+        // position: relative;
+        // &:after {
+        //   content:"";
+        //   display:table;
+        //   clear:both;
+        // }
+        // div.quote{
+        //   width: 12%;
+        //   // height: 100%;
+        //   float:left;
+        //   font-size: 85px;
+        //   font-family: Georgia, serif;
+        //   line-height: 55px;
+        //   text-align: center;
+        // }
+        // div.blurbContent{
+        //   width: 88%;
+        //   float:left;
+        //   font-size: 20px;
+        //   margin-bottom: 20px;
+        //   p{
+        //     padding-bottom: 20px;
+        //   }
+        //   span{
+        //     color: rgb(18,141,157);
+        //     font-style: italic;
+        //   }
+        // }
+      }
+      .myContent{
+
+        div.designBox{
+          width: 100%;
+          margin-bottom: 50px;
+          // background-color: black;
+          h2{
+            background-color: rgb(49,191,219);
+            color: white;
+            font-weight: 100;
+            height: 110px;
+            padding:10px;
+            padding-top: 30px;
+
+            font-size: 50px;
+
+          }
+          h2.designHeader{
+            font-size: 25px;
+          }
+          h3{
+            font-weight: 400;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: rgb(18,141,157);
+            border-top: 1px solid rgb(49,163,177);
+            color: white;
+            padding-left: 10px;
+            //text-align: right;
+          }
+          h4{
+            font-weight: 700;
+            padding-right: 10px;
+          }
+          p{
+            // padding:5px;
+            margin-left: 10%;
+            padding-right: 10px;
+          }
+          textarea{
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+            resize: vertical;
+            height: 350px;
+            overflow: scroll;
+            border: 1px solid black;
+          }
+        }
+      }
+
+      .partnerContent{
+        div.designBox{
+        width: 100%;
+        margin-bottom: 50px;
+        // background-color: black;
+        h2{
+          background-color: rgb(49,191,219);
+          color: white;
+          font-weight: 100;
+          height: 110px;
+          padding:10px;
+          padding-top: 30px;
+
+          font-size: 50px;
+
+        }
+        h2.designHeader{
+          font-size: 25px;
+        }
+        h3{
+          font-weight: 400;
+          font-size: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          background-color: rgb(18,141,157);
+          border-top: 1px solid rgb(49,163,177);
+          color: white;
+          padding-left: 10px;
+          //text-align: right;
+        }
+        h4{
+          font-weight: 700;
+          padding-right: 10px;
+        }
+        p{
+          // padding:5px;
+          margin-left: 10%;
+          padding-right: 10px;
+        }
+        textarea{
+          width: 80%;
+          margin: 0 auto;
+          display: block;
+          resize: vertical;
+          height: 350px;
+          overflow: scroll;
+          border: 1px solid black;
+        }
+      }
+
+      }
+
+
+
+
+  	}
+    div.editButton{
+      width: 200px;
+      height: 80px;
+      background-color: black;
+      line-height: 80px;
+      text-align: center;
+      color: white;
+      padding: 5px;
+      font-size: 30px;
+
+      &.light{
+        background-color: #ccc;
+        color: black;
+      }
+      &.br{
+        position: absolute;
+        bottom:40px;
+        right: 60px;
+      }
+
+      &:hover{
+
+        cursor: pointer;
+      }
+      &:active{
+
+        bottom: 39px;
+      }
+    }
+
+    .result-box{
+      position: absolute;
+      bottom: 135px;
+      right: 375px;
+      pointer-events: none;
+      svg{
+        width: 100px;
+        height: 100px;
+      }
+      div{
+        position: absolute;
+        text-align: center;
+        font-size: 75px;
+        width: 100px;
+        color: #128d9d;
+        line-height: 103px;
+      }
+    }
+
+
+}

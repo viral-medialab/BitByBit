@@ -184,8 +184,6 @@ class mongoInstance(object):
 
 		# status = 200
 		# msg = "{'message':'success'}"
-		
-
 
 		timestamp = int(time.time())
 		goal = MongoInstance.client['bitbybit']['users'].find_one({'uID': uID})['goal']

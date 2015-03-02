@@ -78,6 +78,7 @@ gulp.task('static-resources', function() {
   gulp.src('app/modules/landing/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/modules/team/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/modules/admin/*.html').pipe(gulp.dest('dist/templates/'));
+  gulp.src('app/modules/survey/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/modules/example/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/modules/wiki/*.html').pipe(gulp.dest('dist/templates/'));
   gulp.src('app/images/*').pipe(gulp.dest('dist/images/'));
