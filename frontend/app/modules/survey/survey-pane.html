@@ -21,6 +21,9 @@
     <div class="myContent mainContentBox">
         <div class="modal" ng-class="{visible:showModal}">
             <h2>Changes Saved!</h2>
+        </div>
+        <div class="modal" ng-class="{visible:showModal}">
+            <h2>Changes Saved!</h2>
             <!-- <p>Watch your email for details on which IDEO workshop you're placed in and to find out who your partner is!
             </p>
             <p>(Feel free to continue editing the content here)</p>
@@ -34,7 +37,7 @@
             </div>
             <div class="challengeContent">
                 <h3>I want to...</h3>
-                <h1 contentEditable="true" ng-model="myData.want" ng-blur="teamCntrl.save()">{{myData.want}}</h1>
+                <h1 ng-model="myData.want">{{myData.want}}</h1>
                 
             </div>
 
@@ -46,18 +49,10 @@
         <div class="surveyBox">
             <h3>How much do you do the behavior now?</h3>
             <div class="questionBox">
-                <input type="text" placeholder="5">
-                <select>
-                  <option value="times">times</option>
-                  <option value="hours">hours</option>
-                </select>
+                <input type="text" placeholder="5" ng-blur="surveyCntrl.save()" ng-model="surveyData.nowNum">
+                <select ng-model="surveyData.nowTimeUnit" ng-options="unit for unit in timeUnits" ng-change="surveyCntrl.save()"></select>
                 per
-                <select>
-                  <option value="day">day</option>
-                  <option value="week">week</option>
-                  <option value="month">month</option>
-                  <option value="year">year</option>
-                </select>
+                <select ng-model="surveyData.nowCalendarUnit" ng-options="unit for unit in calendarUnits" ng-change="surveyCntrl.save()"></select>
                 .</br>
             </div>
 
@@ -65,36 +60,27 @@
             <div class="questionBox">
                 <table>
                 <tbody ng-class="{firefox:firefox}">
-                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[0]"></td><td><label for="workshop1">Very bad</label></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[1]"></td><td><label for="workshop2">Bad</label></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[2]"></td><td><label for="workshop3">Neutral</label></td> </tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[3]"></td><td><label for="workshop4">Good</label></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[4]"></td><td><label for="no_workshop">Very good</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="0" ng-click="surveyCntrl.save()"></td><td><label for="workshop1">Very bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="1" ng-click="surveyCntrl.save()"></td><td><label for="workshop2">Bad</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="2" ng-click="surveyCntrl.save()"></td><td><label for="workshop3">Neutral</label></td> </tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="3" ng-click="surveyCntrl.save()"></td><td><label for="workshop4">Good</label></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="4" ng-click="surveyCntrl.save()"></td><td><label for="no_workshop">Very good</label></td></tr>
 
-                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[0]"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[1]"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[2]"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[3]"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="myData.workshops[4]"></td></tr>
-
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="0" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="1" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="2" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="3" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="affect" ng-model="surveyData.affect" value="4" ng-click="surveyCntrl.save()"></td></tr>
                 </tbody>
                 </table>
             </div>
 
             <h3>How much would you like to be doing the behavior?</h3>
             <div class="questionBox">
-                <input type="text" placeholder="5">
-                <select>
-                  <option value="times">times</option>
-                  <option value="hours">hours</option>
-                </select>
+                <input type="text" placeholder="5" ng-blur="surveyCntrl.save()" ng-model="surveyData.wantNum">
+                <select ng-model="surveyData.wantTimeUnit" ng-options="unit for unit in timeUnits" ng-change="surveyCntrl.save()"></select>
                 per
-                <select>
-                  <option value="day">day</option>
-                  <option value="week">week</option>
-                  <option value="month">month</option>
-                  <option value="year">year</option>
-                </select>
+                <select ng-model="surveyData.wantCalendarUnit" ng-options="unit for unit in calendarUnits" ng-change="surveyCntrl.save()"></select>
                 .</br>
             </div>
 
@@ -102,17 +88,17 @@
             <div class="questionBox">
                 <table class="progressTable">
                 <tbody ng-class="{firefox:firefox}">
-                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="progress" ></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="0" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="1" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="2" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="3" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="4" ng-click="surveyCntrl.save()"></td></tr>
 
-                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="progress"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="0" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="1" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="2" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="3" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="progress" ng-model="surveyData.progress" value="4" ng-click="surveyCntrl.save()"></td></tr>
 
                 </tbody>
                 </table>
@@ -146,18 +132,17 @@
             <div class="questionBox">
                 <table class="confidenceTable">
                 <tbody ng-class="{firefox:firefox}">
-                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="firefox"><td><input type="radio" name="confident"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="0" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="1" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="2" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="3" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="4" ng-click="surveyCntrl.save()"></td></tr>
 
-                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
-                    <tr ng-if="!firefox"><td><input type="radio" name="confident"></td></tr>
-
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="0" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="1" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="2" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="3" ng-click="surveyCntrl.save()"></td></tr>
+                    <tr ng-if="!firefox"><td><input type="radio" name="confident" ng-model="surveyData.confidence" value="4" ng-click="surveyCntrl.save()"></td></tr>
                 </tbody>
                 </table>
             </div>
@@ -165,7 +150,7 @@
             <h3 class="toggleHeading">Is the intervention design easy to do or a tiny behavior?</h3>
             <div class="questionBox">
                 <div class="switch">
-                    <input id="cmn-toggle0" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <input id="cmn-toggle0" class="cmn-toggle cmn-toggle-yes-no" type="checkbox" ng-model="surveyData.tiny" ng-click="surveyCntrl.save()">
                     <label for="cmn-toggle0" data-on="Yes" data-off="No"></label>
                 </div>
             </div>
@@ -173,7 +158,7 @@
             <h3 class="toggleHeading">Is the intervention design specific?</h3>
             <div class="questionBox">
                 <div class="switch">
-                    <input id="cmn-toggle1" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <input id="cmn-toggle1" class="cmn-toggle cmn-toggle-yes-no" type="checkbox" ng-model="surveyData.specific" ng-click="surveyCntrl.save()">
                     <label for="cmn-toggle1" data-on="Yes" data-off="No"></label>
                 </div>
             </div>
@@ -181,7 +166,7 @@
             <h3 class="toggleHeading">Does your design alter your partner's environment?</h3>
             <div class="questionBox">
                 <div class="switch">
-                    <input id="cmn-toggle2" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <input id="cmn-toggle2" class="cmn-toggle cmn-toggle-yes-no" type="checkbox" ng-model="surveyData.environment" ng-click="surveyCntrl.save()">
                     <label for="cmn-toggle2" data-on="Yes" data-off="No"></label>
                 </div>
             </div>
@@ -189,7 +174,7 @@
             <h3 class="toggleHeading">Does your design trigger the behavior?</h3>
             <div class="questionBox">
                 <div class="switch">
-                    <input id="cmn-toggle3" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <input id="cmn-toggle3" class="cmn-toggle cmn-toggle-yes-no" type="checkbox" ng-model="surveyData.trigger" ng-click="surveyCntrl.save()">
                     <label for="cmn-toggle3" data-on="Yes" data-off="No"></label>
                 </div>
             </div>
@@ -197,7 +182,7 @@
             <h3 class="toggleHeading">Do you think your design takes your partners feelings about the behavior into consideration?</h3>
             <div class="questionBox">
                 <div class="switch">
-                    <input id="cmn-toggle4" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                    <input id="cmn-toggle4" class="cmn-toggle cmn-toggle-yes-no" type="checkbox" ng-model="surveyData.considersAffect" ng-click="surveyCntrl.save()">
                     <label for="cmn-toggle4" data-on="Yes" data-off="No"></label>
                 </div>
             </div>

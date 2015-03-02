@@ -6,11 +6,6 @@ surveyPage.directive("surveyPane", function(){
 		templateUrl: '/templates/survey-pane.html',
 		controller: function($http,$scope){
 
-            $scope.workshops = [false,false,false,false,false];
-            $scope.need = "";
-            $scope.insight = "";
-            $scope.problem = ""
-
             // $scope.myData = {
             // 	want: "GO TO YOGA MORE OFTEN",
             // 	because: "it makes me feel amazing, calms me down, and helps me find balance.",
@@ -18,6 +13,18 @@ surveyPage.directive("surveyPane", function(){
             // 	workshops: [false,false,false,false,false],
             //     blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
             // };
+
+            $scope.timeUnits = [
+                "times",
+                "hours"
+            ];
+
+            $scope.calendarUnits = [
+                "day",
+                "week",
+                "month",
+                "year"
+            ];
 
             $scope.myData = {
                 want: "____",
@@ -41,6 +48,22 @@ surveyPage.directive("surveyPane", function(){
                 design_07: 'Awaiting Partner Input',
                 design_08: 'Awaiting Partner Input'
             };
+            $scope.surveyData = {
+                nowNum: 5,
+                nowTimeUnit: $scope.timeUnits[0],
+                nowCalendarUnit: $scope.calendarUnits[0],
+                affect: -1,
+                wantNum: 5,
+                wantTimeUnit: $scope.timeUnits[0],
+                wantCalendarUnit: $scope.calendarUnits[0],
+                progress: -1,
+                confidence: -1,
+                tiny: false,
+                specific: false,
+                environment: false,
+                trigger: false,
+                considersAffect: false
+            };
 
             $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif'
             $scope.partnerImage='http://pldb.media.mit.edu/research/images/nophoto.gif'
@@ -52,7 +75,7 @@ surveyPage.directive("surveyPane", function(){
                 // console.log(result);
                 // console.log(JSON.parse(result)) ;
                 if(result =="redirect"){
-                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/survey&previous=http://bitxbit.media.mit.edu';
 
                 }else{
                     $scope.name = result['name']
@@ -73,15 +96,6 @@ surveyPage.directive("surveyPane", function(){
                 }
 
             });
-
-            // $scope.partnerData = {
-            // 	'want': "",
-            // 	'because': "",
-            // 	'then': "",
-            // 	'then': "",
-            // 	'workshop': [false,false,false,false,false],
-            //     'blurb': ["","","","","","",""]
-            // };
 
             var workshopSelected = function(workshops){
 				for (var i = 0; i < workshops.length; i++) {
@@ -108,14 +122,14 @@ surveyPage.directive("surveyPane", function(){
                 $scope.updatedError = false;
 
                 data = {
-                    goal: JSON.stringify($scope.myData)
+                    goal: JSON.stringify($scope.surveyData)
                 };
-                _HTTP("post", "goal", data, function(result){
+                /* _HTTP("post", "survey", data, function(result){
                     // $scope.getuser_result = result;
                     // updateAllUsers();
                     // console.log(result)
                     if(result =="redirect"){
-                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/team&previous=http://bitxbit.media.mit.edu';
+                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/survey&previous=http://bitxbit.media.mit.edu';
                     }else if(result == "noChange"){
                         var y = 0;
                     }else{
@@ -154,12 +168,12 @@ surveyPage.directive("surveyPane", function(){
                         }
                         $scope.$apply();
                     }
-                });
+                });*/
             };
 
 
 		},
-		controllerAs: 'teamCntrl'
+		controllerAs: 'surveyCntrl'
 	};
 });
 
