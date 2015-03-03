@@ -6,13 +6,7 @@ surveyPage.directive("surveyPane", function(){
 		templateUrl: '/templates/survey-pane.html',
 		controller: function($http,$scope){
 
-            // $scope.myData = {
-            // 	want: "GO TO YOGA MORE OFTEN",
-            // 	because: "it makes me feel amazing, calms me down, and helps me find balance.",
-            // 	then: "someone who feels like a strong physical machine ready to take on the world!",
-            // 	workshops: [false,false,false,false,false],
-            //     blurb: ["_blank_","_blank_","_blank_","_blank_","_blank_","_blank_","_blank_"]
-            // };
+            $scope.survey_num = "0";
 
             $scope.timeUnits = [
                 "times",
@@ -65,8 +59,8 @@ surveyPage.directive("surveyPane", function(){
                 considersAffect: false
             };
 
-            $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif'
-            $scope.partnerImage='http://pldb.media.mit.edu/research/images/nophoto.gif'
+            $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif';
+            $scope.partnerImage='http://pldb.media.mit.edu/research/images/nophoto.gif';
             data = {
             };
             _HTTP("get", "goal", data, function(result){
@@ -91,20 +85,18 @@ surveyPage.directive("surveyPane", function(){
                     $scope.partnerImage = result['partner']['image']
                     $scope.partnerData = result['partner']['goal']
 
-
                     $scope.$apply();
                 }
 
             });
 
-            var workshopSelected = function(workshops){
-				for (var i = 0; i < workshops.length; i++) {
-				    if (workshops[i] == true) {
-				        return true;
-				    }
-				}
-				return false;
-			}
+            data = {
+                survey_num: $scope.survey_num
+            };
+            _HTTP("get", "survey", data, function(result){
+                $scope.surveyData = result['survey'];
+                $scope.$apply();
+            });
 
             $scope.updatingProject = false;
             $scope.updatedProject = false;
@@ -122,19 +114,17 @@ surveyPage.directive("surveyPane", function(){
                 $scope.updatedError = false;
 
                 data = {
-                    goal: JSON.stringify($scope.surveyData)
+                    survey: JSON.stringify($scope.surveyData),
+                    survey_num: $scope.survey_num
                 };
-                /* _HTTP("post", "survey", data, function(result){
-                    // $scope.getuser_result = result;
-                    // updateAllUsers();
-                    // console.log(result)
+                _HTTP("post", "survey", data, function(result){
                     if(result =="redirect"){
-                    window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/survey&previous=http://bitxbit.media.mit.edu';
+                        window.location.href = 'http://www.media.mit.edu/login?destination=http://bitxbit.media.mit.edu/survey&previous=http://bitxbit.media.mit.edu';
                     }else if(result == "noChange"){
                         var y = 0;
                     }else{
                         try{
-                            result['goal']
+                            result['survey']
                             $scope.updatingProject = false;
                             $scope.updatedProject = true;
                             $scope.updatedError = false;
@@ -168,7 +158,7 @@ surveyPage.directive("surveyPane", function(){
                         }
                         $scope.$apply();
                     }
-                });*/
+                });
             };
 
 

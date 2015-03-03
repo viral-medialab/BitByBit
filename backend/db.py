@@ -64,13 +64,58 @@ class mongoInstance(object):
 		# # print json.loads(thing)
 		# # print json.loads(thing)['want']
 
-
-
 	def deleteGoal(self, uID):
 		updateFields = {}
 		updateFields['goal'] = ''
 		MongoInstance.client['bitbybit']['users'].update({'uID':uID}, {"$set": updateFields}, upsert=False)
 		return {'goalDeleted': True}
+
+	############################
+	# Goal
+	############################
+	def getSurvey(self,uID,surveyNum):
+		if MongoInstance.client['bitbybit']['surveys'].find_one({'uID': uID, 'surveyNum':surveyNum}):
+			return MongoInstance.client['bitbybit']['surveys'].find_one({'uID': uID, 'surveyNum':surveyNum}, {'_id': 0})['survey']
+		else:
+			print "can't find a survey", surveyNum, "for this user"
+			return {'nowNum': 5,
+					'nowTimeUnit': "times",
+					'nowCalendarUnit': "day",
+					'affect': -1,
+					'wantNum': 5,
+					'wantTimeUnit': "times",
+					'wantCalendarUnit': "day",
+					'progress': -1,
+					'confidence': -1,
+					'tiny': False,
+					'specific': False,
+					'environment': False,
+					'trigger': False,
+					'considersAffect': False}
+
+	def postSurvey(self, uID, survey, surveyNum):
+		updateFields = {}
+		updateFields['survey'] = {}
+		updateFields['surveyNum'] = surveyNum
+		timestamp = int(time.time())
+
+		x =  json.loads(survey)
+		for item in x:
+			updateFields['survey'][item] = x[item]
+
+		noSurvey = False
+		if MongoInstance.client['bitbybit']['surveys'].find_one({'uID': uID, 'surveyNum':surveyNum}):
+			oldGoal = MongoInstance.client['bitbybit']['surveys'].find_one({'uID': uID, 'surveyNum':surveyNum}, {'_id': 0})['survey']
+			cmpResult = cmp(oldGoal,json.loads(survey))
+		else:
+			noSurvey = True
+
+		if noSurvey or cmpResult != 0:
+			MongoInstance.client['bitbybit']['surveys'].update({'uID':uID}, {"$set": updateFields}, upsert=True)
+			#MongoInstance.client['bitbybit']['usersArchive'].insert({'uID':uID, 'goal':updateFields['goal'],'time':timestamp})
+			return MongoInstance.client['bitbybit']['surveys'].find_one({'uID': uID, 'surveyNum':surveyNum}, {'_id': 0})
+		else:
+			return 'noChange'
 
 	############################
 	# User
