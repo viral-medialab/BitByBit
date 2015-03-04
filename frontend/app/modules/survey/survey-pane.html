@@ -18,6 +18,13 @@
         </div>
     </div>
 
+    <div style="position:relative;"></div>
+    <div class="topContentBox">
+        <h1 class="surveyHeading">Survey<br/>
+        <small>Please fill out both sections</small></h1>
+    </div>
+
+
     <div class="myContent mainContentBox">
         <div class="modal" ng-class="{visible:showModal}">
             <h2>Changes Saved!</h2>
@@ -40,8 +47,26 @@
                 <h1 ng-model="myData.want">{{myData.want}}</h1>
                 
             </div>
-
         </div>
+    </div>
+
+    <div class="partnerContent mainContentBox">
+        <div class="challengeBox">
+            <h4>{{partnerEmail}}</h4>
+            <div class="profileImage">
+                <img ng-src="{{partnerImage}}"/>
+                <h3>{{partnerName}}</h3>
+
+            </div>
+            <div class="challengeContent">
+                <h3>I want to...</h3>
+                <h1 class="blurryText light double">{{partnerData.want}}</h1>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="myContent mainContentBox">
         <div class="designBox">
             <h3>Please answer the following questions about the behavior you would like to change:</h3>
         </div>
@@ -107,21 +132,6 @@
 
     </div>
     <div class="partnerContent mainContentBox">
-        <div class="challengeBox">
-            <h4>{{partnerEmail}}</h4>
-            <div class="profileImage">
-                <!-- <img src="images/partner.jpg"/> -->
-                <img ng-src="{{partnerImage}}"/>
-                <h3>{{partnerName}}</h3>
-                
-            </div>
-            <div class="challengeContent">
-                <h3>I want to...</h3>
-                <!-- <h4>(Partner will appear here when matched)</h4> -->
-                <h1 class="blurryText light double">{{partnerData.want}}</h1>
-                
-            </div>
-        </div>
 
         <div class="designBox">
             <h3>Please answer the following questions about your role as a designer in changing your partner's behavior: </br>

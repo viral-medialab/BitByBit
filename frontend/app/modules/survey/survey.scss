@@ -2,6 +2,10 @@
     background-color: #E6C0CC;
   }
 
+.surveyHeading {
+    text-align:center;
+
+}
 
   div.survey-pane{
   	min-width: 900px;
@@ -123,6 +127,13 @@
   			background-color: yellow;
   		}
 
+  	}
+  	div.topContentBox {
+  	    font-family: 'Titillium Web', sans-serif;
+  	    background-color: rgba(0,0,0,0.95);
+  	    color: white;
+  	    margin-top: 10px;
+  	    width=100%;
   	}
   	div.mainContentBox{
   		// clear:left;
