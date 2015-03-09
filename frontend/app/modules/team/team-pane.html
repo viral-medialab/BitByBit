@@ -88,7 +88,7 @@
 
         <div class="designBox">
             <h2>Design Process: Insight and Strategy</h2>
-            <h2 class="designHeader">This following is built from the toolkit used at the IDEO workshop. A focused recap is found <a href="https://s3.amazonaws.com/bitxbit/BitXBitXIDEO_InsightAndStrategy.pdf" target="_blank">here in PDF form</a>. The purpose is to design something useful and meaningful for your partner. </h2>
+            <h2 class="designHeader">The following is built from the toolkit used at the IDEO workshop. A focused recap is found <a href="https://s3.amazonaws.com/bitxbit/BitXBitXIDEO_InsightAndStrategy.pdf" target="_blank">here in PDF form</a>. The purpose is to design something useful and meaningful for your partner. </h2>
 
             <h3>1. Find empathy through a focused conversation.</h3>
             <h4>Interview your partner.</h4>
@@ -114,6 +114,13 @@
             <h4>Feel free to keep track of any stray ideas of thoughts here.</h4>
             <textarea ng-model="myData.design_08" ng-blur="teamCntrl.save()" placeholder="Miscellaneous thoughts go here!"></textarea>
             
+        </div>
+
+        <div class="designBox">
+            <h2>Design Proposal: Solution Description</h2>
+            <h2 class="designHeader"> This section is your place to detail the solution you will begin to implement for your partner. We strongly encourage you to use images or sketches to convey your idea. Pease upload images externally (<a href="http://imgur.com" target="blank">Imgur is a good choice</a>) and copy the URL to the form below.</h2>
+            <h4>Solution Description</h4>
+            <textarea ng-model="myData.design_09" ng-blur="teamCntrl.save()" placeholder="Please describe your solution here. Links to sketches and images are strongly encouraged!"></textarea>
         </div>
     </div>
     <div class="partnerContent mainContentBox">
@@ -152,7 +159,7 @@
         </div>
         <div class="designBox">
             <h2>Design Process: Insight and Strategy</h2>
-            <h2 class="designHeader">This following is built from the toolkit used at the IDEO workshop. A focused recap is found <a href="https://s3.amazonaws.com/bitxbit/BitXBitXIDEO_InsightAndStrategy.pdf" target="_blank">here in PDF form</a>. The purpose is to design something useful and meaningful for your partner. </h2>
+            <h2 class="designHeader">The following is built from the toolkit used at the IDEO workshop. A focused recap is found <a href="https://s3.amazonaws.com/bitxbit/BitXBitXIDEO_InsightAndStrategy.pdf" target="_blank">here in PDF form</a>. The purpose is to design something useful and meaningful for your partner. </h2>
          
             <h3>Start by gaining empathy.</br> </h3>
             <h4>Partner Interview</h4>
@@ -177,6 +184,13 @@
             <h4>Feel free to keep track of any stray ideas of thoughts here.</h4>
             <p>{{partnerData.design_08}}</p>
             
+        </div>
+
+        <div class="designBox">
+            <h2>Design Proposal: Solution Description</h2>
+            <h2 class="designHeader"> This section is your place to detail the solution you will begin to implement for your partner. We strongly encourage you to use images or sketches to convey your idea. Pease upload images externally (<a href="http://imgur.com" target="blank">Imgur is a good choice</a>) and copy the URL to the form below.</h2>
+            <h4>Solution Description</h4>
+            <p>{{partnerData.design_09}}</p>
         </div>
     </div>
 

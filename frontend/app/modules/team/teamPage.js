@@ -39,7 +39,8 @@ teamPage.directive("teamPane", function(){
                 design_05: 'Awaiting Partner Input',
                 design_06: 'Awaiting Partner Input',
                 design_07: 'Awaiting Partner Input',
-                design_08: 'Awaiting Partner Input'
+                design_08: 'Awaiting Partner Input',
+                design_09: 'Awaiting Partner Input',
             };
 
             $scope.image='http://pldb.media.mit.edu/research/images/nophoto.gif'
