@@ -6,7 +6,7 @@ surveyPage.directive("surveyPane", function(){
 		templateUrl: '/templates/survey-pane.html',
 		controller: function($http,$scope){
 
-            $scope.survey_num = "0";
+            $scope.survey_num = "1";
 
             $scope.timeUnits = [
                 "times",
@@ -93,10 +93,10 @@ surveyPage.directive("surveyPane", function(){
             data = {
                 survey_num: $scope.survey_num
             };
-            _HTTP("get", "survey", data, function(result){
-                $scope.surveyData = result['survey'];
-                $scope.$apply();
-            });
+            // _HTTP("get", "survey", data, function(result){
+            //     $scope.surveyData = result['survey'];
+            //     $scope.$apply();
+            // });
 
             $scope.updatingProject = false;
             $scope.updatedProject = false;
