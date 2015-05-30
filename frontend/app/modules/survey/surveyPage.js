@@ -93,10 +93,10 @@ surveyPage.directive("surveyPane", function(){
             data = {
                 survey_num: $scope.survey_num
             };
-            // _HTTP("get", "survey", data, function(result){
-            //     $scope.surveyData = result['survey'];
-            //     $scope.$apply();
-            // });
+            _HTTP("get", "survey", data, function(result){
+                 $scope.surveyData = result['survey'];
+                 $scope.$apply();
+            });
 
             $scope.updatingProject = false;
             $scope.updatedProject = false;
