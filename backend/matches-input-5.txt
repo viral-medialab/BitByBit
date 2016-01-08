@@ -1,7 +1,0 @@
-username, match username, workshop
-joscha, mniskala,4
-holbrow, sra,4
-mniskala, joscha,4
-sra, holbrow,4
-akahn, moia,4
-moia, akahn,4
